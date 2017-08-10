@@ -1,0 +1,11 @@
+cardmaker:
+  form:
+    layer: 'Layer'
+    title: 'Title'
+    tag: 'Tag'
+    caption: 'Caption'
+    level: 'Level'
+    text: 'Text'
+    layout_size: 'Layout Size'
+    text_size: 'Text Size'
+    image: 'Image'

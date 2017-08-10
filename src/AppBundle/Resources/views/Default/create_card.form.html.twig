@@ -1,0 +1,66 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CardMaker</title>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2 align="center">CardMaker</h2>
+            <div class="jumbotron center">
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+                <div class="form-group">
+                    {{ form_label(form.layer) }}
+                    {{ form_widget(form.layer) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.title) }}
+                    {{ form_widget(form.title) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.tag) }}
+                    {{ form_widget(form.tag) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.caption) }}
+                    {{ form_widget(form.caption) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.level) }}
+                    {{ form_widget(form.level) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.text) }}
+                    {{ form_widget(form.text) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.layoutSize) }}
+                    {{ form_widget(form.layoutSize) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.textSize) }}
+                    {{ form_widget(form.textSize) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.image) }}
+                    {{ form_widget(form.image) }}
+                </div>
+                <input type="submit" class="btn btn-primary pull-right" value="Podgląd"/>
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            {% if card %}
+            <a href="{{ card }}">
+                <img src="{{ card }}" alt="zesrało się"/><br/>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
