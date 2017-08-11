@@ -49,14 +49,14 @@
                     {{ form_label(form.image) }}
                     {{ form_widget(form.image) }}
                 </div>
-                <input type="submit" class="btn btn-primary pull-right" value="Podgląd"/>
+                <input type="submit" class="btn btn-primary pull-right" value="{{ 'cardmaker.buttons.preview'|trans }}"/>
                 {{ form_end(form) }}
             </div>
         </div>
         <div class="col-sm-6">
             {% if card %}
             <a href="{{ card }}">
-                <img src="{{ card }}" alt="zesrało się"/><br/>
+                <img src="{{ card }}" alt="{{ 'cardmaker.labels.card-label'|trans }}"/><br/>
             </a>
             {% endif %}
         </div>

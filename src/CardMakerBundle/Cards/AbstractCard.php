@@ -2,6 +2,10 @@
 
 namespace CardMakerBundle\Cards;
 
+/**
+ * Class AbstractCard
+ * @package CardMakerBundle\Cards
+ */
 abstract class AbstractCard
 {
     protected $textTitle;
@@ -10,7 +14,6 @@ abstract class AbstractCard
     protected $textCaption = null;
     protected $textDescription = [];
     protected $level;
-
 
     protected $layerFile;
 
@@ -27,14 +30,27 @@ abstract class AbstractCard
     protected $maxCaptionWidth = 380;
 
     protected $maxWriteHeight = 670;
-    protected $dummyTraiangleStart = 560;
+    protected $dummyTriangleStart = 560;
 
+    /**
+     * @var GdPrinter
+     */
     protected $gdPrinter;
 
-    public function render($save = false)
+    /**
+     * @param null $name
+     * @return null|string
+     */
+    public function render($name = null)
     {
-        $this->gdPrinter = new GdPrinter($this->layerFile, $this->image, $this->imageAreaStartX, $this->imageAreaStartY,
-            $this->imageAreaWidth, $this->imageAreaHeight);
+        $this->gdPrinter = new GdPrinter(
+            $this->layerFile,
+            $this->image,
+            $this->imageAreaStartX,
+            $this->imageAreaStartY,
+            $this->imageAreaWidth,
+            $this->imageAreaHeight
+        );
 
         $this->textTitleSize = $this->gdPrinter->fitTextSize($this->textTitleSize, $this->textTitle,
             $this->maxTitleWidth, 'w');
@@ -44,49 +60,78 @@ abstract class AbstractCard
         $this->gdPrinter->centerText($this->textTag, $this->tagHeight, $this->textTagSize, 'n');
         $this->writeCardText();
 
-        $name = $this->calculateChecksum();
-        return $this->gdPrinter->render($name, $save);
+        return $this->gdPrinter->render($name);
     }
 
+    /**
+     * @param $textTitle
+     */
     public function setTextTitle($textTitle)
     {
         $this->textTitle = $textTitle;
     }
 
+    /**
+     * @param $textTag
+     */
     public function setTextTag($textTag)
     {
         $this->textTag = $textTag;
     }
 
+    /**
+     * @param $image
+     */
     public function setImage($image)
     {
         $this->image = $image;
     }
 
+    /**
+     * @param $textCaption
+     */
     public function setTextCaption($textCaption)
     {
         $this->textCaption = $textCaption;
     }
 
+
+    /**
+     * @param $textDescription
+     */
     public function setTextDescription($textDescription)
     {
         $this->textDescription = $textDescription;
     }
 
+    /**
+     * @param $level
+     */
     public function setLevel($level)
     {
         $this->level = $level;
     }
 
+    /**
+     * @param $textNormalSize
+     */
     public function setTextNormalSize($textNormalSize)
     {
         $this->textNormalSize = $textNormalSize;
     }
 
+    /**
+     * writeCardText()
+     */
     protected function writeCardText()
     {
         if ($this->displayLevel) {
-            $this->gdPrinter->printText($this->textLevelSize, $this->cardLevelX, $this->cardLevelY, 'b', $this->level,
+            $this->gdPrinter->printText(
+                $this->textLevelSize,
+                $this->cardLevelX,
+                $this->cardLevelY,
+                'b',
+                $this->level,
                 true);
         }
 
@@ -97,34 +142,79 @@ abstract class AbstractCard
             $writeHeight += (int)($this->textCaptionSize * 3 / 2);
             $this->gdPrinter->centerText($this->textCaption, $writeHeight, $this->textCaptionSize, 'b');
         }
-        if ($this->textNormalSize) {
-            $this->writeDescription($writeHeight);
-        } else {
-            $this->writeDescriptionAutoBreak($writeHeight);
-        }
+        $this->writeDescriptionAutoBreak($writeHeight);
     }
 
+    /**
+     * @param $writeHeight
+     */
     protected function writeDescription($writeHeight)
     {
         foreach ($this->textDescription as $line) {
-            if ($this->dummyTraiangleStart < $writeHeight) {
-                $offset = ($this->dummyTraiangleStart - $writeHeight) / 3;
+            if ($this->dummyTriangleStart < $writeHeight) {
+                $offset = ($this->dummyTriangleStart - $writeHeight) / 3;
             } else {
                 $offset = 0;
             }
             $writeHeight += (int)($this->textNormalSize * 3 / 2);
             $this->gdPrinter->centerText($line, $writeHeight, $this->textNormalSize, 'l', $offset);
-
         }
     }
 
-    protected function writeDescriptionAutoBreak($baseWriteHeight, $textNormalSize = 23)
+    /**
+     * @param $baseWriteHeight
+     * @return bool
+     */
+    protected function writeDescriptionAutoBreak($baseWriteHeight): bool
     {
-        $this->textNormalSize = 23;
+        if (!$this->textNormalSize) {
+            $this->estimateFontSize();
+        }
+        $allLines = [];
+
+        $writeHeight = $baseWriteHeight;
+        foreach ($this->textDescription as $line) {
+            $res = $this->breakLine($line, $writeHeight, $this->textNormalSize);
+            if ($res === false) {
+                $this->textNormalSize = $this->textNormalSize - 1;
+                return $this->writeDescriptionAutoBreak($baseWriteHeight);
+            }
+            $newLines = $res[0];
+            $writeHeight = $res[1];
+            $allLines = array_merge(
+                $allLines,
+                $newLines
+            );
+        }
+        $this->textDescription = $allLines;
+        $this->writeDescription($baseWriteHeight);
+
+        return true;
+    }
+
+    /**
+     * estimateFontSize()
+     */
+    protected function estimateFontSize()
+    {
+        // TODO: do some research, improve this..
         $text = implode(' ', $this->textDescription);
         $text = str_replace('   ', ' ', $text);
         $text = str_replace('  ', ' ', $text);
-        $words = explode(' ', $text);
+        $textAmount = strlen($text) + count($this->textDescription) * 10;
+        $textNormalSize = 24 - ($textAmount / 100);
+        $this->textNormalSize = $textNormalSize;
+    }
+
+    /**
+     * @param $line
+     * @param $baseWriteHeight
+     * @param $textNormalSize
+     * @return array|bool
+     */
+    protected function breakLine($line, $baseWriteHeight, $textNormalSize)
+    {
+        $words = explode(' ', $line);
         $writeHeight = $baseWriteHeight;
         $actualLine = ' ';
         $lines = [];
@@ -132,15 +222,15 @@ abstract class AbstractCard
             $oldLine = $actualLine;
             $actualLine .= $word . ' ';
             $lineWidth = $this->gdPrinter->getTextWidth($textNormalSize, 'l', $actualLine);
-            if ($this->dummyTraiangleStart < $writeHeight) {
-                $maxWidth = 403 - $writeHeight + $this->dummyTraiangleStart;
+            if ($this->dummyTriangleStart < $writeHeight) {
+                $maxWidth = 403 - $writeHeight + $this->dummyTriangleStart;
             } else {
                 $maxWidth = 403;
             }
             if ($lineWidth > $maxWidth) {
                 $writeHeight += (int)($textNormalSize * 3 / 2);
                 if ($writeHeight > $this->maxWriteHeight) {
-                    return $this->writeDescriptionAutoBreak($baseWriteHeight, $textNormalSize - 1);
+                    return false;
                 }
                 $lines[] = $oldLine;
                 $actualLine = ' ' . $word . ' ';
@@ -149,27 +239,9 @@ abstract class AbstractCard
         $lines[] = $actualLine;
         $writeHeight += (int)($textNormalSize * 3 / 2);
         if ($writeHeight > $this->maxWriteHeight) {
-            return $this->writeDescriptionAutoBreak($baseWriteHeight, $textNormalSize - 1);
+            return false;
         }
-        $this->textNormalSize = $textNormalSize;
-        $this->textDescription = $lines;
-        $this->writeDescription($baseWriteHeight);
-    }
 
-    protected function calculateChecksum()
-    {
-        $data = [
-            'title' => $this->textTitle,
-            'tag' => $this->textTag,
-            'img' => $this->image,
-            'cap' => $this->textCaption,
-            'desc' => $this->textDescription,
-            'lvl' => $this->level,
-            'class' => static::class
-        ];
-        $log = json_encode($data);
-        $hash = md5($log);
-        file_put_contents('./cardlog/' . $hash, $log);
-        return $hash;
+        return [$lines, $writeHeight];
     }
 }

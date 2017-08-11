@@ -53,7 +53,7 @@ class CardGenerate
     const CARD_TREASURE = 10;
     const CARD_BRIDGE = 11;
     const CARD_CITY = 12;
-    const CARD_HARBRINGER = 13;
+    const CARD_HARBINGER = 13;
     const CARD_NETHER = 14;
     const CARD_VAMPIRE = 15;
 
@@ -70,15 +70,15 @@ class CardGenerate
         'cardmaker.cards.treasure' => self::CARD_TREASURE,
         'cardmaker.cards.bridge' => self::CARD_BRIDGE,
         'cardmaker.cards.city' => self::CARD_CITY,
-        'cardmaker.cards.harbringer' => self::CARD_HARBRINGER,
+        'cardmaker.cards.harbringer' => self::CARD_HARBINGER,
         'cardmaker.cards.nether' => self::CARD_NETHER,
         'cardmaker.cards.vampire' => self::CARD_VAMPIRE,
     ];
 
     const CARD_LAYOUT_SIZE = [
-        'cardmaker.layout_size.auto' => 0,
-        'cardmaker.layout_size.small_text' => 1,
-        'cardmaker.layout_size.big_text' => 2
+        'cardmaker.layout-size.auto' => 0,
+        'cardmaker.layout-size.small-text' => 1,
+        'cardmaker.layout-size.big-text' => 2
     ];
 
     /**
@@ -97,10 +97,34 @@ class CardGenerate
         $card->setTextCaption($generateCardCommand->getCaption());
         // TODO: explode text by lines only if auto-line-break disabled
         $card->setTextDescription(explode(PHP_EOL, $generateCardCommand->getText()));
-        $card->setImage($generateCardCommand->getImage());
+        if (!$generateCardCommand->getImage()) {
+            //TODO: temporary upload; use previously uploaded file
+            $card->setImage('./uploads/1.jpg');
+        } else {
+            $card->setImage($generateCardCommand->getImage());
+        }
 
-        // TODO: decade if save or not
-        return $card->render($generateCardCommand->isSave());
+        $name = $this->buildCardHash($generateCardCommand);
+
+        return $card->render($name);
+    }
+
+    /**
+     * @param GenerateCard $generateCardCommand
+     * @return string|null
+     */
+    protected function buildCardHash(GenerateCard $generateCardCommand)
+    {
+        if (!$generateCardCommand->isSave()) {
+            return null;
+        }
+        // TODO: use all order fields
+        return md5(json_encode(
+            [
+                'name' => $generateCardCommand->getTitle(),
+                'cap' => $generateCardCommand->getCaption()
+            ]
+        ));
     }
 
     /**
@@ -120,9 +144,9 @@ class CardGenerate
         }
 
         if ($len > 230) {
-            return self::CARD_LAYOUT_SIZE['cardmaker.layout_size.big_text'];
+            return self::CARD_LAYOUT_SIZE['cardmaker.layout-size.big-text'];
         }
-        return self::CARD_LAYOUT_SIZE['cardmaker.layout_size.small_text'];
+        return self::CARD_LAYOUT_SIZE['cardmaker.layout-size.small-text'];
     }
 
     /**
@@ -149,7 +173,8 @@ class CardGenerate
      */
     protected function getClasses(int $layoutSize): array
     {
-        if (self::CARD_LAYOUT_SIZE['cardmaker.layout_size.big_text'] === $layoutSize) {
+        //
+        if (self::CARD_LAYOUT_SIZE['cardmaker.layout-size.big-text'] === $layoutSize) {
             return [
                 self::CARD_ADVENTURES => AdventuresLong::class,
                 self::CARD_DRAGON1 => Dragon1Long::class,
@@ -164,7 +189,7 @@ class CardGenerate
 
                 self::CARD_BRIDGE => BridgeLong::class,
                 self::CARD_CITY => CityLong::class,
-                self::CARD_HARBRINGER => HarbingerLong::class,
+                self::CARD_HARBINGER => HarbingerLong::class,
                 self::CARD_NETHER => NetherLong::class,
                 self::CARD_VAMPIRE => VampireLong::class
             ];
@@ -183,7 +208,7 @@ class CardGenerate
 
             self::CARD_BRIDGE => BridgeShort::class,
             self::CARD_CITY => CityShort::class,
-            self::CARD_HARBRINGER => HarbingerShort::class,
+            self::CARD_HARBINGER => HarbingerShort::class,
             self::CARD_NETHER => NetherShort::class,
             self::CARD_VAMPIRE => VampireShort::class
         ];

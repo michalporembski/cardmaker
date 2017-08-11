@@ -2,7 +2,6 @@
 
 namespace AppBundle\Form;
 
-use CardMakerBundle\Cards\CardFactory;
 use CardMakerBundle\Entity\Dto\GenerateCard;
 use CardMakerBundle\Handler\CardGenerate;
 use Symfony\Component\Form\AbstractType;
@@ -21,17 +20,17 @@ class CardGenerateType extends AbstractType
 {
     const TEXT_SIZES = [
         'cardmaker.textsize.auto' => 0,
-        'cardmaker.textsize.love_me' => 17,
-        'cardmaker.textsize.i_know_many_words' => 18,
+        'cardmaker.textsize.love-me' => 17,
+        'cardmaker.textsize.i-know-many-words' => 18,
         'cardmaker.textsize.tiny' => 19,
         'cardmaker.textsize.small' => 20,
         'cardmaker.textsize.normal' => 21,
         'cardmaker.textsize.medium' => 22,
         'cardmaker.textsize.big' => 23,
         'cardmaker.textsize.huge' => 24,
-        'cardmaker.textsize.extra_huge' => 25,
-        'cardmaker.textsize.democracy_big' => 26,
-        'cardmaker.textsize.premium_democracy' => 27
+        'cardmaker.textsize.extra-huge' => 25,
+        'cardmaker.textsize.democracy-big' => 26,
+        'cardmaker.textsize.premium-democracy' => 27
     ];
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -39,7 +38,7 @@ class CardGenerateType extends AbstractType
 
         $builder
             ->add('layer', ChoiceType::class, [
-                'choices' => CardFactory::CARD_LAYERS,
+                'choices' => CardGenerate::CARD_LAYERS,
                 'label' => 'cardmaker.form.layer',
                 'required' => true
             ])

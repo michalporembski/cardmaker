@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Form\CardGenerateType;
 use AppBundle\Services\Generator;
 use CardMakerBundle\Entity\Dto\GenerateCard;
+use CardMakerBundle\Exceptions\GeneratorException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +17,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $card = null;
         $command = new GenerateCard();
         $form = $this->createForm(CardGenerateType::class, $command);
         $form->handleRequest($request);
@@ -24,18 +26,16 @@ class DefaultController extends Controller
             try {
                 $command->setSave(true);
                 $card = $cardGenerator->handle($command);
-            } catch (\Exception $e) {
+            } catch (GeneratorException $e) {
                 $message = $this->get('translator')->trans($e->getMessage());
                 $this->addFlash('error', $message);
-                var_dump($e->getMessage());
-                die;
             }
         }
         return $this->render(
             'AppBundle:Default:create_card.form.html.twig',
             [
                 'form' => $form->createView(),
-                'card'=>$card
+                'card' => $card
             ]
         );
     }
@@ -46,6 +46,8 @@ class DefaultController extends Controller
     public function generatorAction(Request $request)
     {
         $service = new Generator();
-        $service->generateCard();
+        $command = $service->generateCard();
+        $cardGenerator = $this->get('cardmaker.handler.card_generate');
+        $cardGenerator->handle($command);
     }
 }

@@ -1,4 +1,8 @@
 cardmaker:
+  buttons:
+    preview: 'preview'
+  labels:
+    card-label: 'Card Label'
   form:
     layer: 'Layer'
     title: 'Title'
@@ -9,3 +13,36 @@ cardmaker:
     layout_size: 'Layout Size'
     text_size: 'Text Size'
     image: 'Image'
+  textsize:
+    auto: 'auto'
+    love-me: 'love me'
+    i-know-many-words: 'I know many words'
+    tiny: 'tiny'
+    small: 'small'
+    normal: 'normal'
+    medium: 'medium'
+    big: 'big'
+    huge: 'huge'
+    extra-huge: 'extra huge'
+    democracy-big: 'democracy big'
+    premium-democracy: 'premium democracy'
+  cards:
+    adventure: 'adventure'
+    dragon1: 'dragon1'
+    dragon2: 'dragon2'
+    dragon3: 'dragon3'
+    dungeon: 'dungeon'
+    equipment: 'equipment'
+    highland: 'highland'
+    relict: 'relict'
+    spell: 'spell'
+    treasure: 'treasure'
+    bridge: 'bridge'
+    city: 'city'
+    harbringer: 'harbringer'
+    nether: 'nether'
+    vampire: 'vampire'
+  layout-size:
+    auto: 'auto'
+    small-text: 'small text'
+    big-text: 'big text'
