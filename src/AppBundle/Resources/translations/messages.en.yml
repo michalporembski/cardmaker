@@ -4,15 +4,20 @@ cardmaker:
   labels:
     card-label: 'Card Label'
   form:
-    layer: 'Layer'
-    title: 'Title'
-    tag: 'Tag'
-    caption: 'Caption'
-    level: 'Level'
-    text: 'Text'
-    layout_size: 'Layout Size'
-    text_size: 'Text Size'
-    image: 'Image'
+    layer: 'Layer:'
+    title: 'Title:'
+    tag: 'Tag:'
+    caption: 'Caption:'
+    caption-type: 'Caption Type:'
+    level: 'Level:'
+    text: 'Text:'
+    mode: 'Mode:'
+    layout_size: 'Layout Size:'
+    text_size: 'Text Size:'
+    image: 'Image:'
+  form-mode:
+    basic: 'basic'
+    advanced: 'advanced'
   textsize:
     auto: 'auto'
     love-me: 'love me'
@@ -26,6 +31,10 @@ cardmaker:
     extra-huge: 'extra huge'
     democracy-big: 'democracy big'
     premium-democracy: 'premium democracy'
+  caption:
+    none: 'none'
+    italic: 'italic'
+    regular: 'regular'
   cards:
     adventure: 'adventure'
     dragon1: 'dragon1'

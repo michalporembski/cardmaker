@@ -14,6 +14,11 @@ class GenerateCard
     private $layer;
 
     /**
+     * @var int|null
+     */
+    private $mode;
+
+    /**
      * @var string|null
      */
     private $title;
@@ -22,6 +27,11 @@ class GenerateCard
      * @var string|null
      */
     private $tag;
+
+    /**
+     * @var int|null
+     */
+    private $captionType;
 
     /**
      * @var string|null
@@ -80,6 +90,22 @@ class GenerateCard
     }
 
     /**
+     * @return int|null
+     */
+    public function getMode()
+    {
+        return $this->mode;
+    }
+
+    /**
+     * @param int|null $mode
+     */
+    public function setMode($mode)
+    {
+        $this->mode = $mode;
+    }
+
+    /**
      * @return null|string
      */
     public function getTitle()
@@ -109,6 +135,22 @@ class GenerateCard
     public function setTag($tag)
     {
         $this->tag = $tag;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getCaptionType()
+    {
+        return $this->captionType;
+    }
+
+    /**
+     * @param int|null $captionType
+     */
+    public function setCaptionType($captionType)
+    {
+        $this->captionType = $captionType;
     }
 
     /**
@@ -238,5 +280,4 @@ class GenerateCard
     {
         $this->save = $save;
     }
-
 }

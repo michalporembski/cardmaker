@@ -81,6 +81,12 @@ class CardGenerate
         'cardmaker.layout-size.big-text' => 2
     ];
 
+    const CAPTION_TYPES = [
+        'cardmaker.caption.none' => 0,
+        'cardmaker.caption.italic' => 1,
+        'cardmaker.caption.regular' => 2,
+    ];
+
     /**
      * @param GenerateCard $generateCardCommand
      * @return bool|string
@@ -95,6 +101,7 @@ class CardGenerate
         $card->setTextTitle($generateCardCommand->getTitle());
         $card->setTextTag($generateCardCommand->getTag());
         $card->setTextCaption($generateCardCommand->getCaption());
+        $card->setCaptionType($generateCardCommand->getCaptionType());
         // TODO: explode text by lines only if auto-line-break disabled
         $card->setTextDescription(explode(PHP_EOL, $generateCardCommand->getText()));
         if (!$generateCardCommand->getImage()) {

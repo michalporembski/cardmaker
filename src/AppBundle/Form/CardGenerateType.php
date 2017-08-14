@@ -33,6 +33,11 @@ class CardGenerateType extends AbstractType
         'cardmaker.textsize.premium-democracy' => 27
     ];
 
+    const FORM_MODE = [
+        'cardmaker.form-mode.basic' => 0,
+        'cardmaker.form-mode.advanced' => 1,
+    ];
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
@@ -42,6 +47,12 @@ class CardGenerateType extends AbstractType
                 'label' => 'cardmaker.form.layer',
                 'required' => true
             ])
+            ->add('mode', ChoiceType::class, [
+                'choices' => self::FORM_MODE,
+                'label' => 'cardmaker.form.mode',
+                'required' => false,
+                'placeholder' => false
+            ])
             ->add('title', TextType::class, [
                 'label' => 'cardmaker.form.title',
                 'required' => true
@@ -49,6 +60,12 @@ class CardGenerateType extends AbstractType
             ->add('tag', TextType::class, [
                 'label' => 'cardmaker.form.tag',
                 'required' => true
+            ])
+            ->add('captionType', ChoiceType::class, [
+                'choices' => CardGenerate::CAPTION_TYPES,
+                'label' => 'cardmaker.form.caption-type',
+                'required' => false,
+                'placeholder' => false
             ])
             ->add('caption', TextType::class, [
                 'label' => 'cardmaker.form.caption',

@@ -31,6 +31,7 @@ abstract class AbstractCard
 
     protected $maxWriteHeight = 670;
     protected $dummyTriangleStart = 560;
+    protected $captionType = 0;
 
     /**
      * @var GdPrinter
@@ -95,6 +96,13 @@ abstract class AbstractCard
         $this->textCaption = $textCaption;
     }
 
+    /**
+     * @param int $captionType
+     */
+    public function setCaptionType(int $captionType)
+    {
+        $this->captionType = $captionType;
+    }
 
     /**
      * @param $textDescription
@@ -136,11 +144,12 @@ abstract class AbstractCard
         }
 
         $writeHeight = $this->descriptionHeight;
-        if ($this->textCaption) {
+        if ($this->captionType && $this->textCaption) {
+            $captionFont = $this->captionType == 2 ? 'b' : 'bi';
             $this->textCaptionSize = $this->gdPrinter->fitTextSize($this->textCaptionSize, $this->textCaption,
-                $this->maxCaptionWidth, 'b');
+                $this->maxCaptionWidth, $captionFont);
             $writeHeight += (int)($this->textCaptionSize * 3 / 2);
-            $this->gdPrinter->centerText($this->textCaption, $writeHeight, $this->textCaptionSize, 'b');
+            $this->gdPrinter->centerText($this->textCaption, $writeHeight, $this->textCaptionSize, $captionFont);
         }
         $this->writeDescriptionAutoBreak($writeHeight);
     }
