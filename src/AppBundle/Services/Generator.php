@@ -71,7 +71,6 @@ class Generator
         $g->setLayoutSize(0);
         $g->setLevel($level);
         $g->setTag($tag);
-//        $g->setTextSize(false);
         $g->setTitle($title);
         $g->setText($text);
         return $g;

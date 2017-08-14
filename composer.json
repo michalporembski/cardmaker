@@ -5,7 +5,8 @@
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
-            "CardMakerBundle\\": "src/CardMakerBundle"
+            "CardMakerBundle\\": "src/CardMakerBundle",
+            "MyCommonBundle\\": "src/MyCommonBundle",
         },
         "classmap": [
             "app/AppKernel.php",

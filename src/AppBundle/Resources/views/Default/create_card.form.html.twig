@@ -15,39 +15,39 @@
                 {{ form_errors(form) }}
                 <div class="form-group">
                     {{ form_label(form.layer) }}
-                    {{ form_widget(form.layer) }}
+                    {{ form_widget(form.layer, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.title) }}
-                    {{ form_widget(form.title) }}
+                    {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.tag) }}
-                    {{ form_widget(form.tag) }}
+                    {{ form_widget(form.tag, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.caption) }}
-                    {{ form_widget(form.caption) }}
+                    {{ form_widget(form.caption, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.level) }}
-                    {{ form_widget(form.level) }}
+                    {{ form_widget(form.level, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.text) }}
-                    {{ form_widget(form.text) }}
+                    {{ form_widget(form.text, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.layoutSize) }}
-                    {{ form_widget(form.layoutSize) }}
+                    {{ form_widget(form.layoutSize, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.textSize) }}
-                    {{ form_widget(form.textSize) }}
+                    {{ form_widget(form.textSize, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.image) }}
-                    {{ form_widget(form.image) }}
+                    {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <input type="submit" class="btn btn-primary pull-right" value="{{ 'cardmaker.buttons.preview'|trans }}"/>
                 {{ form_end(form) }}

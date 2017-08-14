@@ -10,6 +10,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class DefaultController
+ * @package AppBundle\Controller
+ */
 class DefaultController extends Controller
 {
     /**
@@ -49,5 +53,14 @@ class DefaultController extends Controller
         $command = $service->generateCard();
         $cardGenerator = $this->get('cardmaker.handler.card_generate');
         $cardGenerator->handle($command);
+    }
+
+    /**
+     * @Route("/error", name="error")
+     */
+    public function errorAction(Request $request)
+    {
+        echo 'TODO: error page';
+        die;
     }
 }

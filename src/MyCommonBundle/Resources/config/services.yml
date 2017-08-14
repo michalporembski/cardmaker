@@ -1,0 +1,6 @@
+services:
+#    my_common.exception_listener:
+#        class: MyCommonBundle\EventListener\ExceptionListener
+#        arguments: ['@session', '@translator', '@router', '%homepage%']
+#        tags:
+#            - { name: kernel.event_listener, event: kernel.exception }
