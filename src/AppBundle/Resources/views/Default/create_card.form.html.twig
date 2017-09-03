@@ -18,23 +18,23 @@
                     {{ form_label(form.layer) }}
                     {{ form_widget(form.layer, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                <div class="form-group">
-                    {{ form_label(form.mode) }}
-                    {{ form_widget(form.mode, {'attr': {'class': 'form-control'}}) }}
-                </div>
+                {#<div class="form-group">#}
+                    {#{{ form_label(form.tagPreset) }}#}
+                    {#{{ form_widget(form.tagPreset, {'attr': {'class': 'form-control'}}) }}#}
+                {#</div>#}
                 <div class="form-group">
                     {{ form_label(form.title) }}
                     {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                <div class="form-group">
+                <div class="form-group js-advanced">
                     {{ form_label(form.tag) }}
                     {{ form_widget(form.tag, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                <div class="form-group">
+                <div class="form-group js-advanced">
                     {{ form_label(form.captionType) }}
                     {{ form_widget(form.captionType, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                <div class="form-group js-caption">
+                <div class="form-group js-caption js-advanced">
                     {{ form_label(form.caption) }}
                     {{ form_widget(form.caption, {'attr': {'class': 'form-control'}}) }}
                 </div>
@@ -57,6 +57,10 @@
                 <div class="form-group">
                     {{ form_label(form.image) }}
                     {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.mode) }}
+                    {{ form_widget(form.mode, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <input type="submit" class="btn btn-primary pull-right"
                        value="{{ 'cardmaker.buttons.preview'|trans }}"/>

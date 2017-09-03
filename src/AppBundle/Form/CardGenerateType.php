@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use CardMakerBundle\Entity\Dto\GenerateCard;
+use CardMakerBundle\Entity\Layer;
 use CardMakerBundle\Handler\CardGenerate;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -43,10 +44,16 @@ class CardGenerateType extends AbstractType
 
         $builder
             ->add('layer', ChoiceType::class, [
-                'choices' => CardGenerate::CARD_LAYERS,
+                'choices' => Layer::CARD_LAYERS,
                 'label' => 'cardmaker.form.layer',
                 'required' => true
             ])
+//            ->add('mode', ChoiceType::class, [
+//                'choices' => self::FORM_MODE,
+//                'label' => 'cardmaker.form.mode',
+//                'required' => false,
+//                'placeholder' => false
+//            ])
             ->add('mode', ChoiceType::class, [
                 'choices' => self::FORM_MODE,
                 'label' => 'cardmaker.form.mode',
@@ -59,7 +66,7 @@ class CardGenerateType extends AbstractType
             ])
             ->add('tag', TextType::class, [
                 'label' => 'cardmaker.form.tag',
-                'required' => true
+                'required' => false
             ])
             ->add('captionType', ChoiceType::class, [
                 'choices' => CardGenerate::CAPTION_TYPES,
@@ -73,7 +80,7 @@ class CardGenerateType extends AbstractType
             ])
             ->add('level', TextType::class, [
                 'label' => 'cardmaker.form.level',
-                'required' => true
+                'required' => false
             ])
             ->add('text', TextareaType::class, [
                 'label' => 'cardmaker.form.text',

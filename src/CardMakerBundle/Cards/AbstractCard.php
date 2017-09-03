@@ -13,11 +13,13 @@ abstract class AbstractCard
     protected $image;
     protected $textCaption = null;
     protected $textDescription = [];
+    protected $story = [];
     protected $level;
 
     protected $layerFile;
 
     protected $displayLevel = true;
+    protected $displayImage = true;
 
     protected $textTitleSize = 28;
     protected $textLevelSize = 27;
@@ -44,15 +46,20 @@ abstract class AbstractCard
      */
     public function render($name = null)
     {
-        $this->gdPrinter = new GdPrinter(
-            $this->layerFile,
-            $this->image,
-            $this->imageAreaStartX,
-            $this->imageAreaStartY,
-            $this->imageAreaWidth,
-            $this->imageAreaHeight
-        );
-
+        if ($this->displayImage) {
+            $this->gdPrinter = new GdPrinter(
+                $this->layerFile,
+                $this->image,
+                $this->imageAreaStartX,
+                $this->imageAreaStartY,
+                $this->imageAreaWidth,
+                $this->imageAreaHeight
+            );
+        } else {
+            $this->gdPrinter = new GdPrinter(
+                $this->layerFile
+            );
+        }
         $this->textTitleSize = $this->gdPrinter->fitTextSize($this->textTitleSize, $this->textTitle,
             $this->maxTitleWidth, 'w');
         $this->gdPrinter->centerText($this->textTitle, $this->titleHeight, $this->textTitleSize, 'w');
@@ -113,6 +120,14 @@ abstract class AbstractCard
     }
 
     /**
+     * @param $story
+     */
+    public function setStory($story)
+    {
+        $this->story = $story;
+    }
+
+    /**
      * @param $level
      */
     public function setLevel($level)
@@ -151,7 +166,16 @@ abstract class AbstractCard
             $writeHeight += (int)($this->textCaptionSize * 3 / 2);
             $this->gdPrinter->centerText($this->textCaption, $writeHeight, $this->textCaptionSize, $captionFont);
         }
-        $this->writeDescriptionAutoBreak($writeHeight);
+
+        if (!$this->textNormalSize) {
+            $this->estimateFontSize();
+        }
+
+        $descriptionHeight = $this->estimateStoryAutoBreak($writeHeight) + $this->textNormalSize;
+        $this->estimateDescriptionAutoBreak($descriptionHeight);
+
+        $this->writeStory($writeHeight);
+        $this->writeDescription($descriptionHeight);
     }
 
     /**
@@ -171,14 +195,27 @@ abstract class AbstractCard
     }
 
     /**
+     * @param $writeHeight
+     */
+    protected function writeStory($writeHeight)
+    {
+        foreach ($this->story as $line) {
+            if ($this->dummyTriangleStart < $writeHeight) {
+                $offset = ($this->dummyTriangleStart - $writeHeight) / 3;
+            } else {
+                $offset = 0;
+            }
+            $writeHeight += (int)($this->textNormalSize * 3 / 2);
+            $this->gdPrinter->centerText($line, $writeHeight, $this->textNormalSize, 'li', $offset);
+        }
+    }
+
+    /**
      * @param $baseWriteHeight
      * @return bool
      */
-    protected function writeDescriptionAutoBreak($baseWriteHeight): bool
+    protected function estimateDescriptionAutoBreak($baseWriteHeight): bool
     {
-        if (!$this->textNormalSize) {
-            $this->estimateFontSize();
-        }
         $allLines = [];
 
         $writeHeight = $baseWriteHeight;
@@ -186,7 +223,7 @@ abstract class AbstractCard
             $res = $this->breakLine($line, $writeHeight, $this->textNormalSize);
             if ($res === false) {
                 $this->textNormalSize = $this->textNormalSize - 1;
-                return $this->writeDescriptionAutoBreak($baseWriteHeight);
+                return $this->estimateDescriptionAutoBreak($baseWriteHeight);
             }
             $newLines = $res[0];
             $writeHeight = $res[1];
@@ -196,9 +233,35 @@ abstract class AbstractCard
             );
         }
         $this->textDescription = $allLines;
-        $this->writeDescription($baseWriteHeight);
 
         return true;
+    }
+
+    /**
+     * @param $baseWriteHeight
+     * @return bool
+     */
+    protected function estimateStoryAutoBreak($baseWriteHeight): int
+    {
+        $allLines = [];
+
+        $writeHeight = $baseWriteHeight;
+        foreach ($this->story as $line) {
+            $res = $this->breakLine($line, $writeHeight, $this->textNormalSize);
+            if ($res === false) {
+                $this->textNormalSize = $this->textNormalSize - 1;
+                return $this->estimateStoryAutoBreak($baseWriteHeight);
+            }
+            $newLines = $res[0];
+            $writeHeight = $res[1];
+            $allLines = array_merge(
+                $allLines,
+                $newLines
+            );
+        }
+        $this->story = $allLines;
+
+        return $writeHeight;
     }
 
     /**

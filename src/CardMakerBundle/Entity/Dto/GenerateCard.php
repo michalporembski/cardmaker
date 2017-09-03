@@ -2,6 +2,8 @@
 
 namespace CardMakerBundle\Entity\Dto;
 
+use CardMakerBundle\Handler\CardGenerate;
+
 /**
  * Class CardMakerBundle
  * @package Cardmaker\Entity\Dto
@@ -29,9 +31,9 @@ class GenerateCard
     private $tag;
 
     /**
-     * @var int|null
+     * @var int
      */
-    private $captionType;
+    private $captionType = CardGenerate::CAPTION_TYPE_NONE;
 
     /**
      * @var string|null
@@ -47,6 +49,11 @@ class GenerateCard
      * @var string|null
      */
     private $text;
+
+    /**
+     * @var string|null
+     */
+    private $story;
 
     /**
      * @var int|null
@@ -138,17 +145,17 @@ class GenerateCard
     }
 
     /**
-     * @return int|null
+     * @return int
      */
-    public function getCaptionType()
+    public function getCaptionType():int
     {
         return $this->captionType;
     }
 
     /**
-     * @param int|null $captionType
+     * @param int $captionType
      */
-    public function setCaptionType($captionType)
+    public function setCaptionType(int $captionType)
     {
         $this->captionType = $captionType;
     }
@@ -199,6 +206,22 @@ class GenerateCard
     public function setText($text)
     {
         $this->text = $text;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getStory()
+    {
+        return $this->story;
+    }
+
+    /**
+     * @param null|string $story
+     */
+    public function setStory($story)
+    {
+        $this->story = $story;
     }
 
     /**

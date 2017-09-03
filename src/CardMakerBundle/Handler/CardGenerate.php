@@ -14,10 +14,12 @@ use CardMakerBundle\Cards\LongText\Equpiment as EqupimentLong;
 use CardMakerBundle\Cards\LongText\Harbinger as HarbingerLong;
 use CardMakerBundle\Cards\LongText\Highland as HighlandLong;
 use CardMakerBundle\Cards\LongText\Nether as NetherLong;
+use CardMakerBundle\Cards\LongText\QuestReward;
 use CardMakerBundle\Cards\LongText\Relict as RelictLong;
 use CardMakerBundle\Cards\LongText\Spell as SpellLong;
 use CardMakerBundle\Cards\LongText\Treasure as TreasureLong;
 use CardMakerBundle\Cards\LongText\Vampire as VampireLong;
+use CardMakerBundle\Cards\LongText\Warlock;
 use CardMakerBundle\Cards\ShortText\Adventures as AdventuresShort;
 use CardMakerBundle\Cards\ShortText\Bridge as BridgeShort;
 use CardMakerBundle\Cards\ShortText\City as CityShort;
@@ -34,6 +36,7 @@ use CardMakerBundle\Cards\ShortText\Spell as SpellShort;
 use CardMakerBundle\Cards\ShortText\Treasure as TreasureShort;
 use CardMakerBundle\Cards\ShortText\Vampire as VampireShort;
 use CardMakerBundle\Entity\Dto\GenerateCard;
+use CardMakerBundle\Entity\Layer;
 
 /**
  * Class CardGenerate
@@ -41,48 +44,15 @@ use CardMakerBundle\Entity\Dto\GenerateCard;
  */
 class CardGenerate
 {
-    const CARD_ADVENTURES = 1;
-    const CARD_DRAGON1 = 2;
-    const CARD_DRAGON2 = 3;
-    const CARD_DRAGON3 = 4;
-    const CARD_DUNGEON = 5;
-    const CARD_EQUIPMENT = 6;
-    const CARD_HIGHLAND = 7;
-    const CARD_RELICT = 8;
-    const CARD_SPELL = 9;
-    const CARD_TREASURE = 10;
-    const CARD_BRIDGE = 11;
-    const CARD_CITY = 12;
-    const CARD_HARBINGER = 13;
-    const CARD_NETHER = 14;
-    const CARD_VAMPIRE = 15;
-
-    const CARD_LAYERS = [
-        'cardmaker.cards.adventure' => self::CARD_ADVENTURES,
-        'cardmaker.cards.dragon1' => self::CARD_DRAGON1,
-        'cardmaker.cards.dragon2' => self::CARD_DRAGON2,
-        'cardmaker.cards.dragon3' => self::CARD_DRAGON3,
-        'cardmaker.cards.dungeon' => self::CARD_DUNGEON,
-        'cardmaker.cards.equipment' => self::CARD_EQUIPMENT,
-        'cardmaker.cards.highland' => self::CARD_HIGHLAND,
-        'cardmaker.cards.relict' => self::CARD_RELICT,
-        'cardmaker.cards.spell' => self::CARD_SPELL,
-        'cardmaker.cards.treasure' => self::CARD_TREASURE,
-        'cardmaker.cards.bridge' => self::CARD_BRIDGE,
-        'cardmaker.cards.city' => self::CARD_CITY,
-        'cardmaker.cards.harbringer' => self::CARD_HARBINGER,
-        'cardmaker.cards.nether' => self::CARD_NETHER,
-        'cardmaker.cards.vampire' => self::CARD_VAMPIRE,
-    ];
-
     const CARD_LAYOUT_SIZE = [
         'cardmaker.layout-size.auto' => 0,
         'cardmaker.layout-size.small-text' => 1,
         'cardmaker.layout-size.big-text' => 2
     ];
 
+    const CAPTION_TYPE_NONE = 0;
     const CAPTION_TYPES = [
-        'cardmaker.caption.none' => 0,
+        'cardmaker.caption.none' => self::CAPTION_TYPE_NONE,
         'cardmaker.caption.italic' => 1,
         'cardmaker.caption.regular' => 2,
     ];
@@ -104,6 +74,7 @@ class CardGenerate
         $card->setCaptionType($generateCardCommand->getCaptionType());
         // TODO: explode text by lines only if auto-line-break disabled
         $card->setTextDescription(explode(PHP_EOL, $generateCardCommand->getText()));
+        $card->setStory(explode(PHP_EOL, $generateCardCommand->getStory()));
         if (!$generateCardCommand->getImage()) {
             //TODO: temporary upload; use previously uploaded file
             $card->setImage('./uploads/1.jpg');
@@ -113,6 +84,7 @@ class CardGenerate
 
         $name = $this->buildCardHash($generateCardCommand);
 
+        // TODO: check if card does not exist - if exists then skip
         return $card->render($name);
     }
 
@@ -149,6 +121,7 @@ class CardGenerate
         if ($generateCardCommand->getCaption()) {
             $len += 20;
         }
+        $len += strlen($generateCardCommand->getStory());
 
         if ($len > 230) {
             return self::CARD_LAYOUT_SIZE['cardmaker.layout-size.big-text'];
@@ -180,44 +153,47 @@ class CardGenerate
      */
     protected function getClasses(int $layoutSize): array
     {
-        //
         if (self::CARD_LAYOUT_SIZE['cardmaker.layout-size.big-text'] === $layoutSize) {
             return [
-                self::CARD_ADVENTURES => AdventuresLong::class,
-                self::CARD_DRAGON1 => Dragon1Long::class,
-                self::CARD_DRAGON2 => Dragon2Long::class,
-                self::CARD_DRAGON3 => Dragon3Long::class,
-                self::CARD_DUNGEON => DungeonLong::class,
-                self::CARD_EQUIPMENT => EqupimentLong::class,
-                self::CARD_HIGHLAND => HighlandLong::class,
-                self::CARD_RELICT => RelictLong::class,
-                self::CARD_SPELL => SpellLong::class,
-                self::CARD_TREASURE => TreasureLong::class,
+                Layer::CARD_ADVENTURES => AdventuresLong::class,
+                Layer::CARD_DRAGON1 => Dragon1Long::class,
+                Layer::CARD_DRAGON2 => Dragon2Long::class,
+                Layer::CARD_DRAGON3 => Dragon3Long::class,
+                Layer::CARD_DUNGEON => DungeonLong::class,
+                Layer::CARD_EQUIPMENT => EqupimentLong::class,
+                Layer::CARD_HIGHLAND => HighlandLong::class,
+                Layer::CARD_RELICT => RelictLong::class,
+                Layer::CARD_SPELL => SpellLong::class,
+                Layer::CARD_TREASURE => TreasureLong::class,
 
-                self::CARD_BRIDGE => BridgeLong::class,
-                self::CARD_CITY => CityLong::class,
-                self::CARD_HARBINGER => HarbingerLong::class,
-                self::CARD_NETHER => NetherLong::class,
-                self::CARD_VAMPIRE => VampireLong::class
+                Layer::CARD_BRIDGE => BridgeLong::class,
+                Layer::CARD_CITY => CityLong::class,
+                Layer::CARD_HARBINGER => HarbingerLong::class,
+                Layer::CARD_NETHER => NetherLong::class,
+                Layer::CARD_VAMPIRE => VampireLong::class,
+                Layer::CARD_WARLOCK => Warlock::class,
+                Layer::CARD_QUEST_REWARD => QuestReward::class
             ];
         }
         return [
-            self::CARD_ADVENTURES => AdventuresShort::class,
-            self::CARD_DRAGON1 => Dragon1Short::class,
-            self::CARD_DRAGON2 => Dragon2Short::class,
-            self::CARD_DRAGON3 => Dragon3Short::class,
-            self::CARD_DUNGEON => DungeonShort::class,
-            self::CARD_EQUIPMENT => EqupimentShort::class,
-            self::CARD_HIGHLAND => HighlandShort::class,
-            self::CARD_RELICT => RelictShort::class,
-            self::CARD_SPELL => SpellShort::class,
-            self::CARD_TREASURE => TreasureShort::class,
+            Layer::CARD_ADVENTURES => AdventuresShort::class,
+            Layer::CARD_DRAGON1 => Dragon1Short::class,
+            Layer::CARD_DRAGON2 => Dragon2Short::class,
+            Layer::CARD_DRAGON3 => Dragon3Short::class,
+            Layer::CARD_DUNGEON => DungeonShort::class,
+            Layer::CARD_EQUIPMENT => EqupimentShort::class,
+            Layer::CARD_HIGHLAND => HighlandShort::class,
+            Layer::CARD_RELICT => RelictShort::class,
+            Layer::CARD_SPELL => SpellShort::class,
+            Layer::CARD_TREASURE => TreasureShort::class,
 
-            self::CARD_BRIDGE => BridgeShort::class,
-            self::CARD_CITY => CityShort::class,
-            self::CARD_HARBINGER => HarbingerShort::class,
-            self::CARD_NETHER => NetherShort::class,
-            self::CARD_VAMPIRE => VampireShort::class
+            Layer::CARD_BRIDGE => BridgeShort::class,
+            Layer::CARD_CITY => CityShort::class,
+            Layer::CARD_HARBINGER => HarbingerShort::class,
+            Layer::CARD_NETHER => NetherShort::class,
+            Layer::CARD_VAMPIRE => VampireShort::class,
+            Layer::CARD_WARLOCK => Warlock::class,
+            Layer::CARD_QUEST_REWARD => QuestReward::class
         ];
     }
 }

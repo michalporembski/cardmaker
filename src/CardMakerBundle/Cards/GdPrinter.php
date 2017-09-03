@@ -38,11 +38,11 @@ class GdPrinter
      */
     public function __construct(
         $layerFile,
-        $image,
-        $imageAreaStartX,
-        $imageAreaStartY,
-        $imageAreaWidth,
-        $imageAreaHeight
+        $image = null,
+        $imageAreaStartX = null,
+        $imageAreaStartY = null,
+        $imageAreaWidth = null,
+        $imageAreaHeight = null
     ) {
         $this->layerFile = $layerFile;
         $this->image = $image;
@@ -50,7 +50,9 @@ class GdPrinter
         $this->textColor = imagecolorallocate($this->gdResource, 0, 0, 0);
         $this->textColorWhite = imagecolorallocate($this->gdResource, 255, 255, 255);
         imagefill($this->gdResource, 0, 0, $this->textColorWhite);
-        $this->initImageLayer($imageAreaStartX, $imageAreaStartY, $imageAreaWidth, $imageAreaHeight);
+        if ($image) {
+            $this->initImageLayer($imageAreaStartX, $imageAreaStartY, $imageAreaWidth, $imageAreaHeight);
+        }
         $this->initCardLayer();
     }
 
