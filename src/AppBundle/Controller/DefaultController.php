@@ -2,19 +2,20 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Fixtures\Characters;
 use AppBundle\Form\CardGenerateType;
 use AppBundle\Services\Generator;
-use AppBundle\Fixtures\Characters;
 use CardMakerBundle\Entity\Dto\GenerateCard;
 use CardMakerBundle\Entity\Layer;
-use CardMakerBundle\Services\SheetPrinter;
 use CardMakerBundle\Exceptions\GeneratorException;
+use CardMakerBundle\Services\SheetPrinter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class DefaultController
+ *
  * @package AppBundle\Controller
  */
 class DefaultController extends Controller
@@ -38,6 +39,7 @@ class DefaultController extends Controller
                 $this->addFlash('error', $message);
             }
         }
+
         return $this->render(
             'AppBundle:Default:create_card.form.html.twig',
             [
@@ -58,14 +60,14 @@ class DefaultController extends Controller
         $command = new GenerateCard();
         $command->setLayer(Layer::CARD_QUEST_REWARD);
         $command->setSave(true);
-        
+
         $sheetPrinter = new SheetPrinter();
         foreach ($karaktery as $data) {
             $command->setText($data['desc']);
             $command->setTitle($data['name']);
             $command->setStory($data['story']);
             $img = $cardGenerator->handle($command);
-            $sheetPrinter->addFile($img,$data['back']);
+            $sheetPrinter->addFile($img, $data['back']);
         }
         $sheetPrinter->printPDF();
         die;

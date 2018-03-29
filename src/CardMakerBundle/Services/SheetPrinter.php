@@ -2,22 +2,42 @@
 
 namespace CardMakerBundle\Services;
 
-class SheetPrinter{
+use TCPDF;
+
+/**
+ * Class SheetPrinter
+ *
+ * @package CardMakerBundle\Services
+ */
+class SheetPrinter
+{
     const CARD_WIDTH = 39.5;
+
     const CARD_HEIGHT = 62.2;
+
     const CARD_SPACE = 2.2;
+
     const CARD_TOP = 5;
 
     private $files = [];
-    
-    public function addFile($front,$back){
-        $this->files[] = ['front'=>$front,'back'=>$back];
+
+    /**
+     * @param $front
+     * @param $back
+     */
+    public function addFile($front, $back)
+    {
+        $this->files[] = ['front' => $front, 'back' => $back];
     }
-    
-    public function printPDF(){
+
+    /**
+     * prints PDF file
+     */
+    public function printPDF()
+    {
         $pdf = $this->preparePDF();
         $this->printLines($pdf);
-        
+
         $files = $this->files;
         shuffle($files);
         $k = 0;
@@ -73,9 +93,13 @@ class SheetPrinter{
         }
         $pdf->Output('card_sheet.pdf', 'I');
     }
-    
-    private function preparePDF(){
-        $pdf = new \TCPDF(
+
+    /**
+     * @return TCPDF
+     */
+    private function preparePDF(): TCPDF
+    {
+        $pdf = new TCPDF(
             'L',
             PDF_UNIT,
             PDF_PAGE_FORMAT,
@@ -94,15 +118,19 @@ class SheetPrinter{
 
         return $pdf;
     }
-    
-    private function printLines($pdf){
+
+    /**
+     * @param TCPDF $pdf
+     */
+    private function printLines(TCPDF $pdf)
+    {
         $style = [
             'width' => 0.001,
             'cap' => 'butt',
             'join' => 'miter',
             'dash' => '5,50',
             'phase' => 10,
-            'color' => array(100, 100, 100)
+            'color' => [100, 100, 100]
         ];
         for ($i = 0; $i < 8; $i++) {
             $pdf->Line(self::CARD_SPACE / 2 + $i * (self::CARD_WIDTH + self::CARD_SPACE), 0,
