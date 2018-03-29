@@ -40,6 +40,7 @@ use CardMakerBundle\Entity\Layer;
 
 /**
  * Class CardGenerate
+ *
  * @package Cardmaker\Handler
  */
 class CardGenerate
@@ -51,6 +52,7 @@ class CardGenerate
     ];
 
     const CAPTION_TYPE_NONE = 0;
+
     const CAPTION_TYPES = [
         'cardmaker.caption.none' => self::CAPTION_TYPE_NONE,
         'cardmaker.caption.italic' => 1,
@@ -59,6 +61,7 @@ class CardGenerate
 
     /**
      * @param GenerateCard $generateCardCommand
+     *
      * @return bool|string
      */
     public function handle(GenerateCard $generateCardCommand)
@@ -90,6 +93,7 @@ class CardGenerate
 
     /**
      * @param GenerateCard $generateCardCommand
+     *
      * @return string|null
      */
     protected function buildCardHash(GenerateCard $generateCardCommand)
@@ -97,6 +101,7 @@ class CardGenerate
         if (!$generateCardCommand->isSave()) {
             return null;
         }
+
         // TODO: use all order fields
         return md5(json_encode(
             [
@@ -108,6 +113,7 @@ class CardGenerate
 
     /**
      * @param GenerateCard $generateCardCommand
+     *
      * @return int
      */
     protected function getLayoutSize(GenerateCard $generateCardCommand): int
@@ -126,12 +132,14 @@ class CardGenerate
         if ($len > 230) {
             return self::CARD_LAYOUT_SIZE['cardmaker.layout-size.big-text'];
         }
+
         return self::CARD_LAYOUT_SIZE['cardmaker.layout-size.small-text'];
     }
 
     /**
      * @param int $layer
      * @param int $layoutSize
+     *
      * @return AbstractCard
      */
     protected function getCardObject(int $layer, int $layoutSize): AbstractCard
@@ -149,6 +157,7 @@ class CardGenerate
 
     /**
      * @param int $layoutSize
+     *
      * @return array
      */
     protected function getClasses(int $layoutSize): array
@@ -175,6 +184,7 @@ class CardGenerate
                 Layer::CARD_QUEST_REWARD => QuestReward::class
             ];
         }
+
         return [
             Layer::CARD_ADVENTURES => AdventuresShort::class,
             Layer::CARD_DRAGON1 => Dragon1Short::class,

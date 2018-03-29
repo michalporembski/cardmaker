@@ -4,26 +4,43 @@ namespace CardMakerBundle\Entity;
 
 /**
  * Class Layer
+ *
  * @package CardMakerBundle\Entity
  */
 class Layer
 {
     const CARD_ADVENTURES = 1;
+
     const CARD_DRAGON1 = 2;
+
     const CARD_DRAGON2 = 3;
+
     const CARD_DRAGON3 = 4;
+
     const CARD_DUNGEON = 5;
+
     const CARD_EQUIPMENT = 6;
+
     const CARD_HIGHLAND = 7;
+
     const CARD_RELICT = 8;
+
     const CARD_SPELL = 9;
+
     const CARD_TREASURE = 10;
+
     const CARD_BRIDGE = 11;
+
     const CARD_CITY = 12;
+
     const CARD_HARBINGER = 13;
+
     const CARD_NETHER = 14;
+
     const CARD_VAMPIRE = 15;
+
     const CARD_WARLOCK = 16;
+
     const CARD_QUEST_REWARD = 17;
 
     const CARD_LAYERS = [

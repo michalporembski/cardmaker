@@ -16,6 +16,7 @@ class CardTagPreset
 
     /**
      * CardTagPreset constructor.
+     *
      * @param string $tag
      * @param array $layers
      */

@@ -4,15 +4,19 @@ namespace CardMakerBundle\Cards;
 
 /**
  * Class GdPrinter
+ *
  * @package CardMakerBundle\Cards
  */
 class GdPrinter
 {
     const CARD_WIDTH = 465;
+
     const CARD_HEIGHT = 730;
 
     protected $layerFile;
+
     protected $image;
+
     protected $fonts = [
         'b' => './resources/fonts/caxton_b.ttf',
         'bi' => './resources/fonts/caxton_bi.ttf',
@@ -24,17 +28,22 @@ class GdPrinter
     ];
 
     protected $textColor = null;
+
     protected $textColorWhite = null;
+
     protected $gdResource = null;
 
     /**
      * GdPrinter constructor.
+     *
      * @param $layerFile
      * @param $image
      * @param $imageAreaStartX
      * @param $imageAreaStartY
      * @param $imageAreaWidth
      * @param $imageAreaHeight
+     *
+     * @throws \Exception
      */
     public function __construct(
         $layerFile,
@@ -58,6 +67,7 @@ class GdPrinter
 
     /**
      * @param $name
+     *
      * @return null|string
      */
     public function render($name)
@@ -80,6 +90,7 @@ class GdPrinter
      * @param $text
      * @param $maxWidth
      * @param $font
+     *
      * @return mixed
      */
     public function fitTextSize($textSize, $text, $maxWidth, $font)
@@ -89,6 +100,7 @@ class GdPrinter
             $titleWidth = $this->getTextWidth($textSize, $font, $text);
             $textSize--;
         }
+
         return $textSize;
     }
 
@@ -104,7 +116,6 @@ class GdPrinter
     {
         $color = $white ? $this->textColorWhite : $this->textColor;
         imagettftext($this->gdResource, $size, 0, $x, $y, $color, $this->fonts[$font], $text);
-
     }
 
     /**
@@ -128,11 +139,13 @@ class GdPrinter
      * @param $size
      * @param $font
      * @param $text
+     *
      * @return mixed
      */
     public function getTextWidth($size, $font, $text)
     {
         $arr = $this->imagettfbbox($size, $font, $text);
+
         return $arr[2];
     }
 
@@ -145,6 +158,7 @@ class GdPrinter
      * @param $size
      * @param $font
      * @param $text
+     *
      * @return mixed
      */
     protected function imagettfbbox($size, $font, $text)
@@ -153,6 +167,7 @@ class GdPrinter
         if (empty(self::$imagettfbboxCache[$key])) {
             self::$imagettfbboxCache[$key] = imagettfbbox($size, 0, $this->fonts[$font], $text);
         }
+
         return self::$imagettfbboxCache[$key];
     }
 
@@ -169,6 +184,7 @@ class GdPrinter
      * @param $imageAreaStartY
      * @param $imageAreaWidth
      * @param $imageAreaHeight
+     *
      * @throws \Exception
      */
     protected function initImageLayer($imageAreaStartX, $imageAreaStartY, $imageAreaWidth, $imageAreaHeight)

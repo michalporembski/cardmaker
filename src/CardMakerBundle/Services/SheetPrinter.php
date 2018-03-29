@@ -39,56 +39,61 @@ class SheetPrinter
         $this->printLines($pdf);
 
         $files = $this->files;
-        shuffle($files);
         $k = 0;
-        for ($i = 0; $i < 7; $i++) {
-            for ($j = 0; $j < 3; $j++) {
-                $pdf->Image(
-                    $files[$k]['front'],
-                    self::CARD_SPACE + $i * (self::CARD_WIDTH + self::CARD_SPACE),
-                    self::CARD_TOP + self::CARD_SPACE + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
-                    self::CARD_WIDTH,
-                    self::CARD_HEIGHT,
-                    'PNG',
-                    '',
-                    '',
-                    true,
-                    300,
-                    '',
-                    false,
-                    false,
-                    0,
-                    false,
-                    false,
-                    false
-                );
-                $k++;
+        for ($j = 0; $j < 3; $j++) {
+            for ($i = 0; $i < 7; $i++) {
+                if (isset($files[$k])) {
+                    $pdf->Image(
+                        $files[$k]['front'],
+                        self::CARD_SPACE + $i * (self::CARD_WIDTH + self::CARD_SPACE),
+                        self::CARD_TOP + self::CARD_SPACE + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
+                        self::CARD_WIDTH,
+                        self::CARD_HEIGHT,
+                        'PNG',
+                        '',
+                        '',
+                        true,
+                        300,
+                        '',
+                        false,
+                        false,
+                        0,
+                        false,
+                        false,
+                        false
+                    );
+                    $k++;
+                }
             }
         }
         $pdf->AddPage();
         $k = 0;
-        for ($i = 0; $i < 7; $i++) {
-            for ($j = 2; $j >= 0; $j--) {
-                $pdf->Image(
-                    $files[$k]['back'],
-                    self::CARD_SPACE + $i * (self::CARD_WIDTH + self::CARD_SPACE),
-                    self::CARD_TOP + self::CARD_SPACE + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
-                    self::CARD_WIDTH,
-                    self::CARD_HEIGHT,
-                    'PNG',
-                    '',
-                    '',
-                    true,
-                    300,
-                    '',
-                    false,
-                    false,
-                    0,
-                    false,
-                    false,
-                    false
-                );
-                $k++;
+        //        for ($j = 2; $j >= 0; $j--) {
+        //            for ($i = 0; $i < 7; $i++) {
+        for ($j = 0; $j < 3; $j++) {
+            for ($i = 6; $i >= 0; $i--) {
+                if (isset($files[$k])) {
+                    $pdf->Image(
+                        $files[$k]['back'],
+                        self::CARD_SPACE + $i * (self::CARD_WIDTH + self::CARD_SPACE),
+                        self::CARD_TOP + self::CARD_SPACE + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
+                        self::CARD_WIDTH,
+                        self::CARD_HEIGHT,
+                        'PNG',
+                        '',
+                        '',
+                        true,
+                        300,
+                        '',
+                        false,
+                        false,
+                        0,
+                        false,
+                        false,
+                        false
+                    );
+                    $k++;
+                }
             }
         }
         $pdf->Output('card_sheet.pdf', 'I');
@@ -114,7 +119,7 @@ class SheetPrinter
         $pdf->setPrintFooter(false);
         $pdf->SetAutoPageBreak(false, PDF_MARGIN_BOTTOM);
         $pdf->AddPage();
-        $pdf->setJPEGQuality(75);
+        $pdf->setJPEGQuality(85);
 
         return $pdf;
     }

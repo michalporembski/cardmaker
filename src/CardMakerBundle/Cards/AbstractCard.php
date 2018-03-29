@@ -4,36 +4,60 @@ namespace CardMakerBundle\Cards;
 
 /**
  * Class AbstractCard
+ *
  * @package CardMakerBundle\Cards
  */
 abstract class AbstractCard
 {
     protected $textTitle;
+
     protected $textTag;
+
     protected $image;
+
     protected $textCaption = null;
+
     protected $textDescription = [];
+
     protected $story = [];
+
     protected $level;
 
     protected $layerFile;
 
     protected $displayLevel = true;
+
     protected $displayImage = true;
 
     protected $textTitleSize = 28;
+
     protected $textLevelSize = 27;
+
     protected $textTagSize = 19;
+
     protected $textCaptionSize = 30;
+
     protected $textNormalSize = 21;
 
     protected $maxTitleWidth = 380;
+
     protected $maxTagWidth = 230;
+
     protected $maxCaptionWidth = 380;
 
     protected $maxWriteHeight = 670;
+
     protected $dummyTriangleStart = 560;
+
     protected $captionType = 0;
+
+    protected $imageAreaStartX;
+
+    protected $imageAreaStartY;
+
+    protected $imageAreaWidth;
+
+    protected $imageAreaHeight;
 
     /**
      * @var GdPrinter
@@ -42,6 +66,7 @@ abstract class AbstractCard
 
     /**
      * @param null $name
+     *
      * @return null|string
      */
     public function render($name = null)
@@ -212,6 +237,7 @@ abstract class AbstractCard
 
     /**
      * @param $baseWriteHeight
+     *
      * @return bool
      */
     protected function estimateDescriptionAutoBreak($baseWriteHeight): bool
@@ -223,6 +249,7 @@ abstract class AbstractCard
             $res = $this->breakLine($line, $writeHeight, $this->textNormalSize);
             if ($res === false) {
                 $this->textNormalSize = $this->textNormalSize - 1;
+
                 return $this->estimateDescriptionAutoBreak($baseWriteHeight);
             }
             $newLines = $res[0];
@@ -239,7 +266,8 @@ abstract class AbstractCard
 
     /**
      * @param $baseWriteHeight
-     * @return bool
+     *
+     * @return int
      */
     protected function estimateStoryAutoBreak($baseWriteHeight): int
     {
@@ -250,6 +278,7 @@ abstract class AbstractCard
             $res = $this->breakLine($line, $writeHeight, $this->textNormalSize);
             if ($res === false) {
                 $this->textNormalSize = $this->textNormalSize - 1;
+
                 return $this->estimateStoryAutoBreak($baseWriteHeight);
             }
             $newLines = $res[0];
@@ -282,6 +311,7 @@ abstract class AbstractCard
      * @param $line
      * @param $baseWriteHeight
      * @param $textNormalSize
+     *
      * @return array|bool
      */
     protected function breakLine($line, $baseWriteHeight, $textNormalSize)

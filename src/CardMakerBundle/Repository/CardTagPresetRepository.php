@@ -7,30 +7,51 @@ use CardMakerBundle\Entity\Layer;
 
 /**
  * Class CardTagPresetRepository
+ *
  * @package CardMakerBundle\Repository
  */
 class CardTagPresetRepository
 {
     const CARD_TAG_ENEMY_ANIMAL = 1;
+
     const CARD_TAG_ENEMY_CULTIST = 2;
+
     const CARD_TAG_ENEMY_CONSTRUCT = 3;
+
     const CARD_TAG_ENEMY_DEAMON = 4;
+
     const CARD_TAG_ENEMY_DRAGON = 5;
+
     const CARD_TAG_ENEMY_ELEMENTAL = 6;
+
     const CARD_TAG_ENEMY_FAE = 7;
+
     const CARD_TAG_ENEMY_LAW = 8;
+
     const CARD_TAG_ENEMY_MONSTER = 9;
+
     const CARD_TAG_ENEMY_NORM = 10;
+
     const CARD_TAG_ENEMY_OUTLAW = 11;
+
     const CARD_TAG_ENEMY_SPIRIT = 12;
+
     const CARD_TAG_ENEMY_UNDEAD = 13;
+
     const CARD_TAG_EVENT = 14;
+
     const CARD_TAG_ITEM = 15;
+
     const CARD_TAG_FOLLOWER = 16;
+
     const CARD_TAG_MAGIC_ITEM = 17;
+
     const CARD_TAG_MOON_EVENT = 18;
+
     const CARD_TAG_PLACE = 19;
+
     const CARD_TAG_SPELL = 20;
+
     const CARD_TAG_STRANGER = 21;
 
     const CARD_TAG_PRESETS = [
@@ -304,6 +325,7 @@ class CardTagPresetRepository
 
     /**
      * @param int $layer
+     *
      * @return array
      */
     public function getByLayer(int $layer): array

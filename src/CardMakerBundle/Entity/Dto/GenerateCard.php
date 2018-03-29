@@ -6,6 +6,7 @@ use CardMakerBundle\Handler\CardGenerate;
 
 /**
  * Class CardMakerBundle
+ *
  * @package Cardmaker\Entity\Dto
  */
 class GenerateCard
@@ -147,7 +148,7 @@ class GenerateCard
     /**
      * @return int
      */
-    public function getCaptionType():int
+    public function getCaptionType(): int
     {
         return $this->captionType;
     }
