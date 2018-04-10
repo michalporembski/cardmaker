@@ -23,9 +23,9 @@ class Warlock extends AbstractCard
 
     protected $titleHeight = 87;
 
-    protected $tagHeight = 444;
+    protected $tagHeight = -999;
 
-    protected $descriptionHeight = 150;
+    protected $descriptionHeight = 200;
 
     protected $cardLevelX = 390;
 

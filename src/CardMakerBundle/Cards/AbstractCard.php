@@ -188,8 +188,9 @@ abstract class AbstractCard
             $captionFont = $this->captionType == 2 ? 'b' : 'bi';
             $this->textCaptionSize = $this->gdPrinter->fitTextSize($this->textCaptionSize, $this->textCaption,
                 $this->maxCaptionWidth, $captionFont);
-            $writeHeight += (int)($this->textCaptionSize * 3 / 2);
+            $writeHeight += (int)($this->textCaptionSize * 1.5);
             $this->gdPrinter->centerText($this->textCaption, $writeHeight, $this->textCaptionSize, $captionFont);
+            $writeHeight -= (int)($this->textCaptionSize * 1.4);
         }
 
         if (!$this->textNormalSize) {

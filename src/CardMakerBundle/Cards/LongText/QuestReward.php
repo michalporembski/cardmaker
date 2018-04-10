@@ -18,7 +18,7 @@ class QuestReward extends AbstractCard
     protected $imageAreaHeight = 340;
 
     protected $titleHeight = 87;
-    protected $tagHeight = 444;
+    protected $tagHeight = -999;
     protected $descriptionHeight = 150;
 
     protected $cardLevelX = 390;
