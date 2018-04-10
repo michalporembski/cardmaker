@@ -5,13 +5,13 @@ namespace CardMakerBundle\Cards\LongText;
 use CardMakerBundle\Cards\AbstractCard;
 
 /**
- * Class Warlock
+ * Class Good
  *
  * @package CardMakerBundle\Cards\LongText
  */
-class Warlock extends AbstractCard
+class Good extends AbstractCard
 {
-    protected $layerFile = 'warlock_quest';
+    protected $layerFile = 'quest_reward';
 
     protected $imageAreaStartX = 20;
 

@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Fixtures\Characters;
+use AppBundle\Fixtures\RuneGates;
 use AppBundle\Form\CardGenerateType;
 use AppBundle\Services\Generator;
 use CardMakerBundle\Entity\Dto\GenerateCard;
@@ -54,23 +55,15 @@ class DefaultController extends Controller
      */
     public function karakteryAction(Request $request)
     {
-        $karaktery = Characters::CARDS;
+        $this->generateSheet(Characters::CARDS);
+    }
 
-        $cardGenerator = $this->get('cardmaker.handler.card_generate');
-        $command = new GenerateCard();
-        $command->setLayer(Layer::CARD_QUEST_REWARD);
-        $command->setSave(true);
-
-        $sheetPrinter = new SheetPrinter();
-        foreach ($karaktery as $data) {
-            $command->setText($data['desc']);
-            $command->setTitle($data['name']);
-            $command->setStory($data['story']);
-            $img = $cardGenerator->handle($command);
-            $sheetPrinter->addFile($img, $data['back']);
-        }
-        $sheetPrinter->printPDF();
-        die;
+    /**
+     * @Route("/rune_gates", name="rune_gates")
+     */
+    public function runeGatesAction(Request $request)
+    {
+        $this->generateSheet(RuneGates::CARDS);
     }
 
     /**
@@ -90,6 +83,33 @@ class DefaultController extends Controller
     public function errorAction(Request $request)
     {
         echo 'TODO: error page';
+        die;
+    }
+
+    /**
+     * @param array $cards
+     */
+    private function generateSheet(array $cards)
+    {
+        $cardGenerator = $this->get('cardmaker.handler.card_generate');
+        $command = new GenerateCard();
+        $command->setSave(true);
+
+        $sheetPrinter = new SheetPrinter();
+        foreach ($cards as $data) {
+            $command->setText($data['desc']);
+            $command->setTitle($data['name']);
+            $command->setStory($data['story'] ?? '');
+            $command->setCaption($data['caption'] ?? '');
+            // TODO: add support for other caption
+            $command->setCaptionType(isset($data['caption']) ? 1 : 0);
+            $command->setLevel($data['level'] ?? '');
+            $command->setTag($data['tag'] ?? '');
+            $command->setLayer($data['card']);
+            $img = $cardGenerator->handle($command);
+            $sheetPrinter->addFile($img, Layer::CARDS_BACK[$data['card']]);
+        }
+        $sheetPrinter->printPDF();
         die;
     }
 }

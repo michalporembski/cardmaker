@@ -11,9 +11,12 @@ use CardMakerBundle\Cards\LongText\Dragon2 as Dragon2Long;
 use CardMakerBundle\Cards\LongText\Dragon3 as Dragon3Long;
 use CardMakerBundle\Cards\LongText\Dungeon as DungeonLong;
 use CardMakerBundle\Cards\LongText\Equpiment as EqupimentLong;
+use CardMakerBundle\Cards\LongText\Evil;
+use CardMakerBundle\Cards\LongText\Good;
 use CardMakerBundle\Cards\LongText\Harbinger as HarbingerLong;
 use CardMakerBundle\Cards\LongText\Highland as HighlandLong;
 use CardMakerBundle\Cards\LongText\Nether as NetherLong;
+use CardMakerBundle\Cards\LongText\Neutral;
 use CardMakerBundle\Cards\LongText\QuestReward;
 use CardMakerBundle\Cards\LongText\Relict as RelictLong;
 use CardMakerBundle\Cards\LongText\Spell as SpellLong;
@@ -52,17 +55,19 @@ class CardGenerate
     ];
 
     const CAPTION_TYPE_NONE = 0;
+    const CAPTION_TYPE_ITALIC = 1;
+    const CAPTION_TYPE_REGULAR = 2;
 
     const CAPTION_TYPES = [
         'cardmaker.caption.none' => self::CAPTION_TYPE_NONE,
-        'cardmaker.caption.italic' => 1,
-        'cardmaker.caption.regular' => 2,
+        'cardmaker.caption.italic' => self::CAPTION_TYPE_ITALIC,
+        'cardmaker.caption.regular' => self::CAPTION_TYPE_REGULAR,
     ];
 
     /**
      * @param GenerateCard $generateCardCommand
      *
-     * @return bool|string
+     * @return null|string
      */
     public function handle(GenerateCard $generateCardCommand)
     {
@@ -106,7 +111,8 @@ class CardGenerate
         return md5(json_encode(
             [
                 'name' => $generateCardCommand->getTitle(),
-                'cap' => $generateCardCommand->getCaption()
+                'cap' => $generateCardCommand->getCaption(),
+                'layer' => $generateCardCommand->getLayer()
             ]
         ));
     }
@@ -145,12 +151,7 @@ class CardGenerate
     protected function getCardObject(int $layer, int $layoutSize): AbstractCard
     {
         $classes = $this->getClasses($layoutSize);
-
-        if (isset($classes[$layer])) {
-            $class = $classes[$layer];
-        } else {
-            $class = reset($classes);
-        }
+        $class = $classes[$layer] ?? reset($classes);
 
         return new $class();
     }
@@ -181,7 +182,10 @@ class CardGenerate
                 Layer::CARD_NETHER => NetherLong::class,
                 Layer::CARD_VAMPIRE => VampireLong::class,
                 Layer::CARD_WARLOCK => Warlock::class,
-                Layer::CARD_QUEST_REWARD => QuestReward::class
+                Layer::CARD_QUEST_REWARD => QuestReward::class,
+                Layer::CARD_ALIGNMENT_EVIL => Evil::class,
+                Layer::CARD_ALIGNMENT_GOOD => Good::class,
+                Layer::CARD_ALIGNMENT_NEUTRAL => Neutral::class,
             ];
         }
 
@@ -203,7 +207,10 @@ class CardGenerate
             Layer::CARD_NETHER => NetherShort::class,
             Layer::CARD_VAMPIRE => VampireShort::class,
             Layer::CARD_WARLOCK => Warlock::class,
-            Layer::CARD_QUEST_REWARD => QuestReward::class
+            Layer::CARD_QUEST_REWARD => QuestReward::class,
+            Layer::CARD_ALIGNMENT_EVIL => Evil::class,
+            Layer::CARD_ALIGNMENT_GOOD => Good::class,
+            Layer::CARD_ALIGNMENT_NEUTRAL => Neutral::class,
         ];
     }
 }
