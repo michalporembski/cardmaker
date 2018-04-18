@@ -1,13 +1,13 @@
 <?php
 
-namespace CardMakerBundle\Cards\LongText;
+namespace CardMakerBundle\Cards\NoImage;
 
 use CardMakerBundle\Cards\AbstractCard;
 
 /**
  * Class Neutral
  *
- * @package CardMakerBundle\Cards\LongText
+ * @package CardMakerBundle\Cards\NoImage
  */
 class Neutral extends AbstractCard
 {

@@ -49,6 +49,25 @@ class Layer
 
     const CARD_ALIGNMENT_NEUTRAL = 20;
 
+    const CARD_ARTEFACT = 21;
+
+    const CARD_KRESY = 22;
+
+    const CARD_BLACKSMITH = 23;
+
+    const CARD_UNHALLOWED1 = 24;
+
+    const CARD_UNHALLOWED2 = 25;
+
+    const CARD_GOBLINKING = 26;
+
+    const CARD_RATKING = 27;
+
+    const CARD_DENIZEN = 28;
+
+    // TODO: ..
+    const CARD_HERO = 255;
+
     const CARD_LAYERS = [
         'cardmaker.cards.adventure' => self::CARD_ADVENTURES,
         'cardmaker.cards.dragon1' => self::CARD_DRAGON1,
@@ -70,6 +89,14 @@ class Layer
         'cardmaker.cards.alignment-evil' => self::CARD_ALIGNMENT_EVIL,
         'cardmaker.cards.alignment-neutral' => self::CARD_ALIGNMENT_NEUTRAL,
         'cardmaker.cards.alignment-good' => self::CARD_ALIGNMENT_GOOD,
+        'cardmaker.cards.artefact' => self::CARD_ARTEFACT,
+        'cardmaker.cards.kresy' => self::CARD_KRESY,
+        'cardmaker.cards.blacksmith' => self::CARD_BLACKSMITH,
+        'cardmaker.cards.unhallowed1' => self::CARD_UNHALLOWED1,
+        'cardmaker.cards.unhallowed2' => self::CARD_UNHALLOWED2,
+        'cardmaker.cards.goblinking' => self::CARD_GOBLINKING,
+        'cardmaker.cards.ratking' => self::CARD_RATKING,
+        'cardmaker.cards.denizen' => self::CARD_DENIZEN,
     ];
 
     const CARDS_BACK = [
@@ -87,11 +114,19 @@ class Layer
         self::CARD_CITY => './resources/backs/small/city.png',
         self::CARD_HARBINGER => './resources/backs/small/harbinger.png',
         self::CARD_NETHER => './resources/backs/small/nether.png',
-        self::CARD_VAMPIRE => './resources/backs/small/adventure.png',
+        self::CARD_VAMPIRE => './resources/backs/small/vampire.png',
         self::CARD_WARLOCK => './resources/backs/small/warlockquest.png',
         self::CARD_QUEST_REWARD => './resources/backs/small/quest_reward.png',
         self::CARD_ALIGNMENT_NEUTRAL => './resources/backs/small/neutral.png',
         self::CARD_ALIGNMENT_GOOD => './resources/backs/small/good.png',
         self::CARD_ALIGNMENT_EVIL => './resources/backs/small/evil.png',
+        self::CARD_ARTEFACT => './resources/backs/small/artefact.png',
+        self::CARD_KRESY => './resources/backs/small/kresy.png',
+        self::CARD_BLACKSMITH => './resources/backs/small/blacksmith.png',
+        self::CARD_UNHALLOWED1 => './resources/backs/small/unhallowed1.png',
+        self::CARD_UNHALLOWED2 => './resources/backs/small/unhallowed2.png',
+        self::CARD_GOBLINKING => './resources/backs/small/goblinking.png',
+        self::CARD_RATKING => './resources/backs/small/ratking.png',
+        self::CARD_DENIZEN => './resources/backs/small/denizen.png',
     ];
 }

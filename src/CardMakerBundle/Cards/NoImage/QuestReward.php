@@ -1,17 +1,17 @@
 <?php
 
-namespace CardMakerBundle\Cards\ShortText;
+namespace CardMakerBundle\Cards\NoImage;
 
 use CardMakerBundle\Cards\AbstractCard;
 
 /**
- * Class Vampire
+ * Class QuestReward
  *
- * @package CardMakerBundle\Cards\ShortText
+ * @package CardMakerBundle\Cards\NoImage
  */
-class Vampire extends AbstractCard
+class QuestReward extends AbstractCard
 {
-    protected $layerFile = 'vampire_b';
+    protected $layerFile = 'quest_reward';
 
     protected $imageAreaStartX = 20;
 
@@ -21,17 +21,17 @@ class Vampire extends AbstractCard
 
     protected $imageAreaHeight = 340;
 
-    protected $titleHeight = 85;
+    protected $titleHeight = 87;
 
-    protected $tagHeight = 444;
+    protected $tagHeight = -999;
 
-    protected $descriptionHeight = 465;
+    protected $descriptionHeight = 150;
 
     protected $cardLevelX = 390;
 
     protected $cardLevelY = 670;
 
-    protected $maxTitleWidth = 380;
+    protected $maxTitleWidth = 370;
 
     protected $maxTagWidth = 230;
 
@@ -39,7 +39,9 @@ class Vampire extends AbstractCard
 
     protected $maxWriteHeight = 670;
 
-    protected $dummyTriangleStart = 560;
+    protected $dummyTriangleStart = 999;
 
     protected $displayLevel = false;
+
+    protected $displayImage = false;
 }

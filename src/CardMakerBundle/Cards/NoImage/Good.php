@@ -1,17 +1,17 @@
 <?php
 
-namespace CardMakerBundle\Cards\LongText;
+namespace CardMakerBundle\Cards\NoImage;
 
 use CardMakerBundle\Cards\AbstractCard;
 
 /**
- * Class Warlock
+ * Class Good
  *
- * @package CardMakerBundle\Cards\LongText
+ * @package CardMakerBundle\Cards\NoImage
  */
-class Warlock extends AbstractCard
+class Good extends AbstractCard
 {
-    protected $layerFile = 'warlock_quest';
+    protected $layerFile = 'quest_reward';
 
     protected $imageAreaStartX = 20;
 
@@ -23,9 +23,9 @@ class Warlock extends AbstractCard
 
     protected $titleHeight = 87;
 
-    protected $tagHeight = -999;
+    protected $tagHeight = 444;
 
-    protected $descriptionHeight = 200;
+    protected $descriptionHeight = 150;
 
     protected $cardLevelX = 390;
 

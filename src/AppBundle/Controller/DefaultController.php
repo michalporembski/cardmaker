@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Fixtures\Characters;
 use AppBundle\Fixtures\RuneGates;
+use AppBundle\Fixtures\Supplement;
 use AppBundle\Form\CardGenerateType;
 use AppBundle\Services\Generator;
 use CardMakerBundle\Entity\Dto\GenerateCard;
@@ -67,6 +68,14 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/supplement", name="supplement")
+     */
+    public function supplementAction(Request $request)
+    {
+        $this->generateSheet(Supplement::CARDS);
+    }
+
+    /**
      * @Route("/generate", name="generator")
      */
     public function generatorAction(Request $request)
@@ -104,6 +113,7 @@ class DefaultController extends Controller
             // TODO: add support for other caption
             $command->setCaptionType(isset($data['caption']) ? 1 : 0);
             $command->setLevel($data['level'] ?? '');
+            $command->setPlaces($data['places'] ?? []);
             $command->setTag($data['tag'] ?? '');
             $command->setLayer($data['card']);
             $img = $cardGenerator->handle($command);

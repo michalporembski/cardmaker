@@ -9,6 +9,12 @@ namespace CardMakerBundle\Cards;
  */
 abstract class AbstractCard
 {
+    const CAPTION_TYPE_BOLD = 2;
+
+    const CAPTION_TYPE_BOLD_ITALIC = 1;
+
+    const CAPTION_TYPE_UNDERLINE = 3;
+
     protected $textTitle;
 
     protected $textTag;
@@ -185,7 +191,13 @@ abstract class AbstractCard
 
         $writeHeight = $this->descriptionHeight;
         if ($this->captionType && $this->textCaption) {
-            $captionFont = $this->captionType == 2 ? 'b' : 'bi';
+            if ($this->captionType == self::CAPTION_TYPE_BOLD) {
+                $captionFont = 'b';
+            } elseif ($this->captionType == self::CAPTION_TYPE_BOLD_ITALIC) {
+                $captionFont = 'bi';
+            } else {
+                $captionFont = 'n';
+            }
             $this->textCaptionSize = $this->gdPrinter->fitTextSize($this->textCaptionSize, $this->textCaption,
                 $this->maxCaptionWidth, $captionFont);
             $writeHeight += (int)($this->textCaptionSize * 1.5);

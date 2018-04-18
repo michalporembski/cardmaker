@@ -82,6 +82,11 @@ class GenerateCard
     private $save = false;
 
     /**
+     * @var string[]
+     */
+    private $places;
+
+    /**
      * @return int|null
      */
     public function getLayer()
@@ -303,5 +308,21 @@ class GenerateCard
     public function setSave(bool $save)
     {
         $this->save = $save;
+    }
+
+    /**
+     * @param string[] $places
+     */
+    public function setPlaces(array $places)
+    {
+        $this->places = $places;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getPlaces(): array
+    {
+        return $this->places;
     }
 }

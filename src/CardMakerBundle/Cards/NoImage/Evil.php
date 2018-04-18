@@ -1,15 +1,15 @@
 <?php
 
-namespace CardMakerBundle\Cards\LongText;
+namespace CardMakerBundle\Cards\NoImage;
 
 use CardMakerBundle\Cards\AbstractCard;
 
 /**
- * Class Good
+ * Class Evil
  *
- * @package CardMakerBundle\Cards\LongText
+ * @package CardMakerBundle\Cards\NoImage
  */
-class Good extends AbstractCard
+class Evil extends AbstractCard
 {
     protected $layerFile = 'quest_reward';
 

@@ -11,18 +11,19 @@ use CardMakerBundle\Cards\LongText\Dragon2 as Dragon2Long;
 use CardMakerBundle\Cards\LongText\Dragon3 as Dragon3Long;
 use CardMakerBundle\Cards\LongText\Dungeon as DungeonLong;
 use CardMakerBundle\Cards\LongText\Equpiment as EqupimentLong;
-use CardMakerBundle\Cards\LongText\Evil;
-use CardMakerBundle\Cards\LongText\Good;
 use CardMakerBundle\Cards\LongText\Harbinger as HarbingerLong;
 use CardMakerBundle\Cards\LongText\Highland as HighlandLong;
 use CardMakerBundle\Cards\LongText\Nether as NetherLong;
-use CardMakerBundle\Cards\LongText\Neutral;
-use CardMakerBundle\Cards\LongText\QuestReward;
 use CardMakerBundle\Cards\LongText\Relict as RelictLong;
 use CardMakerBundle\Cards\LongText\Spell as SpellLong;
 use CardMakerBundle\Cards\LongText\Treasure as TreasureLong;
 use CardMakerBundle\Cards\LongText\Vampire as VampireLong;
-use CardMakerBundle\Cards\LongText\Warlock;
+use CardMakerBundle\Cards\NoImage\Denizen;
+use CardMakerBundle\Cards\NoImage\Evil;
+use CardMakerBundle\Cards\NoImage\Good;
+use CardMakerBundle\Cards\NoImage\Neutral;
+use CardMakerBundle\Cards\NoImage\QuestReward;
+use CardMakerBundle\Cards\NoImage\Warlock;
 use CardMakerBundle\Cards\ShortText\Adventures as AdventuresShort;
 use CardMakerBundle\Cards\ShortText\Bridge as BridgeShort;
 use CardMakerBundle\Cards\ShortText\City as CityShort;
@@ -55,7 +56,9 @@ class CardGenerate
     ];
 
     const CAPTION_TYPE_NONE = 0;
+
     const CAPTION_TYPE_ITALIC = 1;
+
     const CAPTION_TYPE_REGULAR = 2;
 
     const CAPTION_TYPES = [
@@ -80,6 +83,10 @@ class CardGenerate
         $card->setTextTag($generateCardCommand->getTag());
         $card->setTextCaption($generateCardCommand->getCaption());
         $card->setCaptionType($generateCardCommand->getCaptionType());
+        if (!empty($generateCardCommand->getPlaces())) {
+            $card->setTextCaption(implode($generateCardCommand->getPlaces(), ' • '));
+            $card->setCaptionType(AbstractCard::CAPTION_TYPE_UNDERLINE);
+        }
         // TODO: explode text by lines only if auto-line-break disabled
         $card->setTextDescription(explode(PHP_EOL, $generateCardCommand->getText()));
         $card->setStory(explode(PHP_EOL, $generateCardCommand->getStory()));
@@ -181,7 +188,9 @@ class CardGenerate
                 Layer::CARD_HARBINGER => HarbingerLong::class,
                 Layer::CARD_NETHER => NetherLong::class,
                 Layer::CARD_VAMPIRE => VampireLong::class,
+
                 Layer::CARD_WARLOCK => Warlock::class,
+                Layer::CARD_DENIZEN => Denizen::class,
                 Layer::CARD_QUEST_REWARD => QuestReward::class,
                 Layer::CARD_ALIGNMENT_EVIL => Evil::class,
                 Layer::CARD_ALIGNMENT_GOOD => Good::class,
@@ -206,8 +215,10 @@ class CardGenerate
             Layer::CARD_HARBINGER => HarbingerShort::class,
             Layer::CARD_NETHER => NetherShort::class,
             Layer::CARD_VAMPIRE => VampireShort::class,
+
             Layer::CARD_WARLOCK => Warlock::class,
             Layer::CARD_QUEST_REWARD => QuestReward::class,
+            Layer::CARD_DENIZEN => Denizen::class,
             Layer::CARD_ALIGNMENT_EVIL => Evil::class,
             Layer::CARD_ALIGNMENT_GOOD => Good::class,
             Layer::CARD_ALIGNMENT_NEUTRAL => Neutral::class,
