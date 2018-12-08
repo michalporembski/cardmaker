@@ -28,13 +28,13 @@ class Characters
         [
             'name' => 'Dobry: Męczeński',
             'story' => 'Droga do chwały prowadzi przez cierpienie. Wreszcie udało Ci się to pojąć.',
-            'desc' => 'Za każdym razem gdy stracisz punkt Życia zyskujesz punkt Losu.',
+            'desc' => 'Za każdym razem gdy stracisz punkt Życia odzyskujesz punkt Losu.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
             'name' => 'Dobry: Pomocny',
             'story' => 'Braterstwo wobec innych!',
-            'desc' => 'Za każdym razem gdy inny Poszukiwacz przebywający w tej samej Krainie, co ty, wda się w walkę z Wrogiem możesz go wspomóc. Przenieś się na obszar zajmowany przez tego Poszukiwacza i dodaj swoją początkową wartość Siły do jego skuteczności ataku. Jeśli Wróg zostanie zabity otrzymujesz Żeton Losu i tracisz następną turę.',
+            'desc' => 'Za każdym razem gdy inny Poszukiwacz przebywający w tej samej Krainie, co ty, wda się w walkę z Wrogiem możesz go wspomóc. Przenieś się na obszar zajmowany przez tego Poszukiwacza i dodaj swoją początkową wartość Siły do jego skuteczności ataku. Jeśli Wróg zostanie zabity odzyskujesz Żeton Losu i tracisz następną turę.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
@@ -47,6 +47,31 @@ class Characters
             'name' => 'Dobry: Pokutny',
             'story' => 'Piętno dawnych przewinień w końcu odmieniło Twe serce.',
             'desc' => 'Gdy będziesz musiał odrzucić tę kartę charakteru odzyskasz wszystkie punkty Życia i Żetony Losu. Niezależnie od polecenia wylosuj kartę dobrego charakteru.',
+            'card' => Layer::CARD_ALIGNMENT_GOOD,
+        ],
+
+        [
+            'name' => 'Dobry: Miłosierny',
+            'story' => 'Tylko okazując łaskę naprawdę zwyciężamy.',
+            'desc' => 'Gdy pokonasz w walce innego Poszukiwacza możesz okazać mu łaskę i zdecydować się nie odbierać mu sztuk złota, punktów Życia ani Przedmiotu. Zyskasz wtedy Żeton Losu.',
+            'card' => Layer::CARD_ALIGNMENT_GOOD,
+        ],
+        [
+            'name' => 'Dobry: Ascetyczny',
+            'story' => 'Wszelkie dobra tego świata są niczym w obliczu sił przeznaczenia.',
+            'desc' => 'Na początku swojej tury możesz odrzucić Przedmiot aby zyskać Żeton Losu.',
+            'card' => Layer::CARD_ALIGNMENT_GOOD,
+        ],
+        [
+            'name' => 'Dobry: Pełen wigoru',
+            'story' => 'Jest w Tobie dużo sił witalnych!',
+            'desc' => 'Zawsze gdy wymieniasz trofea na punkty siły, możesz odzyskać jeden punkt Życia',
+            'card' => Layer::CARD_ALIGNMENT_GOOD,
+        ],
+        [
+            'name' => 'Dobry: Błogosławiony',
+            'story' => 'Niebiosa nas prowadzą.',
+            'desc' => 'Przed wykonaniem rzutu jedną kością możesz zdecydować się odrzucić Żeton jasnej strony Losu, rzuć wtedy dwoma kośćmi i wybierz wynik.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
@@ -64,31 +89,55 @@ class Characters
         [
             'name' => 'Zły: Zepsuty',
             'story' => 'Każde życie ma wielką moc. A Ty potrafisz wydobyć tę moc.',
-            'desc' => 'Na początku swojej tury możesz odprawić mroczny rytuał. Odrzuć wtedy wybranego przyjaciela i wylosować 1 zaklęcie o ile pozwala ci na to moc.',
+            'desc' => 'Na początku swojej tury możesz odprawić rytuał. Odrzuć wtedy wybranego przyjaciela i wylosuj 1 zaklęcie o ile pozwala ci na to moc.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
             'name' => 'Zły: Haniebny',
             'story' => 'Cel uświęca środki.',
-            'desc' => 'Przed wykonaniem rzutu jedną kością możesz zdecydować się odrzucić Żeton jasnej strony Losu, rzuć wtedy dwoma kośćmi i wybierz wynik.',
+            'desc' => 'Gdy inny poszukiwacz będzie miał wykonać rzut jedną kością, możesz zdecydować się odrzucić Żeton ciemnej strony Losu, musi on wtedy rzuć dwoma kośćmi i wybrać niższy wynik.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
             'name' => 'Zły: Nieuczciwy',
             'story' => 'Zdrada nie jest Ci obca.',
-            'desc' => 'Gdy wykorzystujesz Żeton ciemnej strony Losu możesz przerzucić wszystkie używane kości.',
+            'desc' => 'Gdy wykorzystujesz Żeton ciemnej strony Losu możesz przerzucić dowolną ilość kości.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
             'name' => 'Zły: Żądny Mocy',
             'story' => 'Tylko moc, i nic więcej.',
-            'desc' => 'Gdy będziesz musiał odrzucić tę kartę charakteru zyskasz 1 punkt mocy.',
+            'desc' => 'Na początku swojej tury możesz odrzucić dwa punkty Życia aby otrzymać punkt Mocy. Następnie wylosuj nową kartę charakteru.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
             'name' => 'Zły: Szyderczy',
             'story' => 'Słabsi się nie liczą.',
-            'desc' => 'Podczas dowolnej walki możesz zdecydować się zakpić sobie z wroga, rzuć wtedy dwoma kośćmi i wybierz mniejszy wynik. To będzie twoja premia do skuteczności ataku. Jeżeli wygrasz walkę odzyskasz Żeton Losu. W takiej walce nie możesz użyć Losu.',
+            'desc' => 'Podczas dowolnej walki możesz zdecydować się zakpić sobie z wroga, rzuć wtedy dwoma kośćmi i wybierz mniejszy wynik. To będzie twoja premia do skuteczności ataku. Jeżeli wygrasz walkę odzyskasz Żeton ciemnej strony Losu. W takiej walce nie możesz użyć Losu.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Zły: Fanatyczny',
+            'story' => 'Zniszczyć wszystkie bestie!',
+            'desc' => 'Zamiast rzucać kością za ruch, możesz przesunąć się na dowolny najbliższy inny obszar w twojej Krainie, na którym znajduje się Wróg.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Zły: Okrutny',
+            'story' => 'Wiesz dobrze jak ranić innych.',
+            'desc' => 'Gdy pokonasz poszukiwacza w Walce możesz odebrać mu dwa punkty Życia zamiast jednego.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Zły: Chciwy',
+            'story' => 'Złoto to zawsze najlepsza nagroda.',
+            'desc' => 'Gdy pokonasz w walce innego Poszukiwacza i zdecydujesz się odebrać mu Przedmiot, możesz też odebrać mu 1 sztukę złota.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Zły: Zawistny',
+            'story' => 'Przeklinam was wszystkich',
+            'desc' => 'Gdy zostaniesz pokonany w walce przez innego Poszukiwacza, musi on odrzucić Żeton losu.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
@@ -100,7 +149,7 @@ class Characters
         [
             'name' => 'Neutralny: Chaotyczny',
             'story' => 'Nawet niebiosa nie wiedzą, jak Cię ocenić.',
-            'desc' => 'Na początku każdej tury odzyskujesz Żeton Losu, ale nie możesz używać Żetonów jasnej strony Losu.',
+            'desc' => 'Na początku każdej tury możesz odzyskać Żeton Losu, ale nie możesz używać Żetonów jasnej strony Losu.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [
@@ -133,42 +182,36 @@ class Characters
             'desc' => 'Po wykonaniu rzutu za ruch możesz odjąć 1 od uzyskanego wyniku, do minimum 1.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
-        //        [
-        //            'name' => 'Dobry: Miłosierny',
-        //            'story' => 'Tylko okazując łaskę naprawdę zwyciężamy.',
-        //            'desc' => 'Gdy pokonasz w walce innego Poszukiwacza możesz okazać mu łaskę i zdecydować się nie odbierać mu sztuk złota, punktów Życia ani Przedmiotu. Zyskasz wtedy Żeton Losu.',
-        //            'back' => './resources/backs/small/good.png'
-        //        ],
-        //        [
-        //            'name' => 'Dobry: Ascetyczny',
-        //            'story' => 'Wszelkie dobra tego świata są niczym w obliczu sił przeznaczenia.',
-        //            'desc' => 'Na początku swojej tury możesz odrzucić Przedmiot aby zyskać Żeton Losu.',
-        //            'back' => './resources/backs/small/good.png'
-        //        ],
-        //        [
-        //            'name' => 'Zły: Okrutny',
-        //            'story' => 'Wiesz dobrze jak ranić innych.',
-        //            'desc' => 'Gdy pokonasz poszukiwacza w Walce możesz odebrać mu dwa punkty Życia zamiast jednego.',
-        //            'back' => './resources/backs/small/evil.png'
-        //        ],
-        //        [
-        //            'name' => 'Zły: Chciwy',
-        //            'story' => 'Złoto to zawsze najlepsza nagroda.',
-        //            'desc' => 'Gdy pokonasz w walce innego Poszukiwacza i zdecydujesz się odebrać mu Przedmiot, możesz też odebrać mu 1 sztukę złota.',
-        //            'back' => './resources/backs/small/evil.png'
-        //        ],
-        //        [
-        //            'name' => 'Neutralny: Charyzmatyczny',
-        //            'story' => 'Ludzie Cię podziwiają i uwielbiają. Zupełnie nie wiadomo czemu.',
-        //            'desc' => 'Gdy pokonasz w walce innego Poszukiwacza możesz zdecydować się nie odbierać mu sztuk złota, punktów Życia ani Przedmiotu, zamiast tego możesz odebrać mu wybranego Przyjaciela.',
-        //            'back' => './resources/backs/small/neutral.png'
-        //        ],
-        //        [
-        //            'name' => 'Neutralny: Żałosny',
-        //            'story' => 'Niepotrafisz nawet przegrać z godnością',
-        //            'desc' => 'Gdy zostaniesz pokonany przez dobrego lub neutralnego poszukiwacza, nie będzie on mógł odebrać Ci punktu życia.',
-        //            'back' => './resources/backs/small/neutral.png'
-        //        ],
+        [
+            'name' => 'Neutralny: Twardy',
+            'story' => 'Zagryź zęby i wytrzymaj.',
+            'desc' => 'Jeżeli na skutek przegranej walki psychicznej tracisz Życie, możesz rzucić 1 kością. Jeśli wynik to 5 lub 6 to nie tracisz Życia (jednak nadal przegrywasz walkę psychiczną)',
+            'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
+        ],
+        [
+            'name' => 'Zły: Wściekły',
+            'story' => 'Zarżnąć ich!',
+            'desc' => 'Podczas walki, po wykonaniu rzutu możesz odrzucić Punkt Życia aby do swojej skuteczności dodać 1.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Neutralny: Żądny Przygód',
+            'story' => 'Wyzwania!',
+            'desc' => 'Za każdym razem gdy wylosujesz kartę Przygody, która jest Wrogiem, możesz wylosować 1 dodatkową kartę. Możesz tego dokonać tylko raz na turę.',
+            'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
+        ],
+        [
+            'name' => 'Neutralny: Charyzmatyczny',
+            'story' => 'Ludzie Cię podziwiają i uwielbiają. Zupełnie nie wiadomo czemu.',
+            'desc' => 'Gdy pokonasz w walce innego Poszukiwacza możesz zdecydować się nie odbierać mu sztuk złota, punktów Życia ani Przedmiotu, zamiast tego możesz odebrać mu wybranego Przyjaciela.',
+            'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
+        ],
+        [
+            'name' => 'Neutralny: Żałosny',
+            'story' => 'Niepotrafisz nawet przegrać z godnością',
+            'desc' => 'Gdy zostaniesz pokonany przez dobrego lub neutralnego poszukiwacza, nie będzie on mógł odebrać Ci punktu życia.',
+            'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
+        ],
         //        [
         //            'name' => 'Portal Spaczenia',
         //            'desc' => 'Każdy gracz który wejdzie we wrota spaczenia musi odrzucić bierzącą kartę charakteru i wylosować nową kartę złego charakteru. Każdy gracz który wyjdzie z Wrót Spaczenia musi odrzucić bierzącą kartę charakteru i wylosować nową kartę złego charakteru',
@@ -202,3 +245,15 @@ class Characters
         //        ],
     ];
 }
+
+/* druid:
+Rozpoczynasz grę posiadając jedno Zaklęcie.
+
+W dowolnym momencie możesz odrzucić
+punkt Losu aby zmienić swój Charakter.
+
+Kiedy znajdziesz się na obszarze Puszczy,
+możesz dobrać tyle Zaklęć, na ile pozwala
+ci wartość twojej Mocy.
+*/
+

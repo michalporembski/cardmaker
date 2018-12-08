@@ -32,12 +32,55 @@ class Supplement
             'card' => Layer::CARD_DENIZEN,
         ],
         [
-            'name' => 'Wrota Przyszłości 1',
-            'caption' => 'Runiczne Wrota',
-            'tag' => 'Miejsce',
-            'desc' => 'Podczas swojej następnej tury, zamiast normalnego ruchy możesz się przenieść na dowolne, lub inne odkryte Runiczne Wrota lub dowolny obszar Runów. Kiedy ktoś skorzysta z Runicznych Wrót, znikają one na stosie kart odrzuconych.',
-            'card' => Layer::CARD_ADVENTURES,
-            'level' => 6
+            'name' => 'Talizman Magii',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów możesz wkroczyć do Doliny Ognia.
+Zawsze musisz posiadać przynajmniej jedno Zaklęcie (za każdym razem, kiedy wykorzystasz swoje ostatnie Zaklęcie, losuje nowe).',
+            'card' => Layer::CARD_TALISMAN,
+            'level' => 5
+        ],
+        [
+            'name' => 'Talizman Bogactwa',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów możesz wkroczyć do Doliny Ognia.
+Na początku każdej swojej tury może otrzymać jedną Sztukę Złota.',
+            'card' => Layer::CARD_TALISMAN,
+            'level' => 5
+        ],
+        [
+            'name' => 'Talizman Zachłanności',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów możesz wkroczyć do Doliny Ognia.
+Za każdym razem gdy otrzymując Złoto możesz dobrać o jedną Sztukę Złota więcej.',
+            'card' => Layer::CARD_TALISMAN,
+            'level' => 5
+        ],
+        [
+            'name' => 'Talizman Szczęścia',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów możesz wkroczyć do Doliny Ognia.
+Na początku każdej swojej tury może otrzymać jedn Punkt Losu.',
+            'card' => Layer::CARD_TALISMAN,
+            'level' => 5
+        ],
+        [
+            'name' => 'Talizman Nikeczemności',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów możesz wkroczyć do Doliny Ognia.
+Przebywając w Krainie Wewnętrznej, na początku każdej swojej tury może wybrać Poszukiwacza który straci 1 Punkt Życia.',
+            'card' => Layer::CARD_TALISMAN,
+            'level' => 5
+        ],
+        [
+            'name' => 'Wierzchowiec',
+            'desc' => 'Możesz użyć tej akcji przed wykonaniem rzutu za ruch, weź dowolną odkrytą kartę wierzchowca znajdującą się w tej krainie.
+
+
+Możesz rzucić to zaklęcie w dowolnym momencie, zbierz wszystkich wrogów, ze wszystkich stosów kart odrzuconych, potasuj ich i umieść na szczytach odpowiednich stosów kart przygód.
+
+
+Możesz rzucić to zaklęcie na początku swojej tury, rzuć dwiema kośmi i wylosuj tyle kart duchów ile wynosi suma oczek. Umieść Duchy na wybranych przez Ciebie polach krainy w której się znajdujesz.',
+            'card' => Layer::CARD_QUEST_REWARD,
         ],
     ];
 }

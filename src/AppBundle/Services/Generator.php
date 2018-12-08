@@ -2,9 +2,7 @@
 
 namespace AppBundle\Services;
 
-use CardMakerBundle\Cards\CardFactory;
 use CardMakerBundle\Entity\Dto\GenerateCard;
-
 
 /**
  * Class Generator

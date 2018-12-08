@@ -11,7 +11,7 @@ use CardMakerBundle\Cards\AbstractCard;
  */
 class Good extends AbstractCard
 {
-    protected $layerFile = 'quest_reward';
+    protected $layerFile = 'good';
 
     protected $imageAreaStartX = 20;
 

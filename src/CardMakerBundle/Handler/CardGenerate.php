@@ -4,6 +4,7 @@ namespace CardMakerBundle\Handler;
 
 use CardMakerBundle\Cards\AbstractCard;
 use CardMakerBundle\Cards\LongText\Adventures as AdventuresLong;
+use CardMakerBundle\Cards\LongText\Talisman as TalismanLong;
 use CardMakerBundle\Cards\LongText\Bridge as BridgeLong;
 use CardMakerBundle\Cards\LongText\City as CityLong;
 use CardMakerBundle\Cards\LongText\Dragon1 as Dragon1Long;
@@ -25,6 +26,7 @@ use CardMakerBundle\Cards\NoImage\Neutral;
 use CardMakerBundle\Cards\NoImage\QuestReward;
 use CardMakerBundle\Cards\NoImage\Warlock;
 use CardMakerBundle\Cards\ShortText\Adventures as AdventuresShort;
+use CardMakerBundle\Cards\ShortText\Talisman as TalismanShort;
 use CardMakerBundle\Cards\ShortText\Bridge as BridgeShort;
 use CardMakerBundle\Cards\ShortText\City as CityShort;
 use CardMakerBundle\Cards\ShortText\Dragon1 as Dragon1Short;
@@ -173,6 +175,7 @@ class CardGenerate
         if (self::CARD_LAYOUT_SIZE['cardmaker.layout-size.big-text'] === $layoutSize) {
             return [
                 Layer::CARD_ADVENTURES => AdventuresLong::class,
+                Layer::CARD_TALISMAN => TalismanLong::class,
                 Layer::CARD_DRAGON1 => Dragon1Long::class,
                 Layer::CARD_DRAGON2 => Dragon2Long::class,
                 Layer::CARD_DRAGON3 => Dragon3Long::class,
@@ -200,6 +203,7 @@ class CardGenerate
 
         return [
             Layer::CARD_ADVENTURES => AdventuresShort::class,
+            Layer::CARD_TALISMAN => TalismanShort::class,
             Layer::CARD_DRAGON1 => Dragon1Short::class,
             Layer::CARD_DRAGON2 => Dragon2Short::class,
             Layer::CARD_DRAGON3 => Dragon3Short::class,

@@ -7,10 +7,12 @@ use AppBundle\Fixtures\RuneGates;
 use AppBundle\Fixtures\Supplement;
 use AppBundle\Form\CardGenerateType;
 use AppBundle\Services\Generator;
+use AppBundle\Services\RandomHero;
 use CardMakerBundle\Entity\Dto\GenerateCard;
 use CardMakerBundle\Entity\Layer;
 use CardMakerBundle\Exceptions\GeneratorException;
 use CardMakerBundle\Services\SheetPrinter;
+use CardMakerBundle\Services\SheetPrinter2;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -76,6 +78,15 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/hero", name="hero")
+     */
+    public function heroAction(Request $request)
+    {
+        $randomHero = new RandomHero();
+        $randomHero->generateHero();
+    }
+
+    /**
      * @Route("/generate", name="generator")
      */
     public function generatorAction(Request $request)
@@ -96,6 +107,55 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/print_folder", name="print_folder")
+     */
+    public function printFolder(Request $request)
+    {
+        try {
+            $sheetPrinter = new SheetPrinter();
+            $dir = "./print/";
+            $dh = opendir($dir);
+            while (($file = readdir($dh)) !== false) {
+//                echo "filename:" . $file . "<br>";
+                if ($file != '.' && $file != '..') {
+                    $sheetPrinter->addFile($dir.$file, Layer::CARDS_BACK[Layer::CARD_DENIZEN]);
+                }
+            }
+            closedir($dh);
+            $sheetPrinter->printPDF();
+        } catch (\Exception $e) {
+            var_dump($e->getMessage());
+            var_dump($e->getFile() . '::' . $e->getLine());
+        }
+        die;
+    }
+
+    /**
+     * HERO
+     * @Route("/print_folder2", name="print_folder")
+     */
+    public function printFolder2(Request $request)
+    {
+        try {
+            $sheetPrinter = new SheetPrinter2();
+            $dir = "./print_hero/";
+            $dh = opendir($dir);
+            while (($file = readdir($dh)) !== false) {
+                //                echo "filename:" . $file . "<br>";
+                if ($file != '.' && $file != '..') {
+                    $sheetPrinter->addFile($dir.$file, Layer::CARDS_BACK[Layer::CARD_DENIZEN]);
+                }
+            }
+            closedir($dh);
+            $sheetPrinter->printPDF();
+        } catch (\Exception $e) {
+            var_dump($e->getMessage());
+            var_dump($e->getFile() . '::' . $e->getLine());
+        }
+        die;
+    }
+
+    /**
      * @param array $cards
      */
     private function generateSheet(array $cards)
@@ -109,7 +169,7 @@ class DefaultController extends Controller
             $command->setText($data['desc']);
             $command->setTitle($data['name']);
             $command->setStory($data['story'] ?? '');
-            $command->setCaption($data['caption'] ?? '');
+            $command->setCaption($data['caption'] ?? null);
             // TODO: add support for other caption
             $command->setCaptionType(isset($data['caption']) ? 1 : 0);
             $command->setLevel($data['level'] ?? '');

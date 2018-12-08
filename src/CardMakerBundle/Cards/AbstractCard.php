@@ -203,6 +203,9 @@ abstract class AbstractCard
             $writeHeight += (int)($this->textCaptionSize * 1.5);
             $this->gdPrinter->centerText($this->textCaption, $writeHeight, $this->textCaptionSize, $captionFont);
             $writeHeight -= (int)($this->textCaptionSize * 1.4);
+        }else{
+            // ???
+            $writeHeight -= 50;
         }
 
         if (!$this->textNormalSize) {
