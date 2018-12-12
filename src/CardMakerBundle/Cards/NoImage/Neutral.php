@@ -9,7 +9,7 @@ use CardMakerBundle\Cards\AbstractCard;
  *
  * @package CardMakerBundle\Cards\NoImage
  */
-class Neutral extends AbstractCard
+class Neutral extends Evil
 {
     protected $layerFile = 'neutral';
 
@@ -21,11 +21,11 @@ class Neutral extends AbstractCard
 
     protected $imageAreaHeight = 340;
 
-    protected $titleHeight = 87;
+//    protected $titleHeight = 87;
 
     protected $tagHeight = 444;
 
-    protected $descriptionHeight = 150;
+//    protected $descriptionHeight = 200;
 
     protected $cardLevelX = 390;
 

@@ -21,11 +21,11 @@ class Evil extends AbstractCard
 
     protected $imageAreaHeight = 340;
 
-    protected $titleHeight = 87;
+    protected $titleHeight = 200;
 
     protected $tagHeight = 444;
 
-    protected $descriptionHeight = 150;
+    protected $descriptionHeight = 280;
 
     protected $cardLevelX = 390;
 

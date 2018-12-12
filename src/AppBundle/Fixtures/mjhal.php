@@ -24,5 +24,13 @@ class mjhal
             'card' => Layer::CARD_ADVENTURES,
             'level' => 3
         ],
+        [
+            'name' => 'Smok',
+            'caption' => 'Siła 7',
+            'tag' => 'Wróg - Potwór',
+            'desc' => 'Smok pozostanie tu dopuki ktoś go nie pokona.',
+            'card' => Layer::CARD_QUEST_REWARD,
+//            'level' => 3
+        ],
     ];
 }

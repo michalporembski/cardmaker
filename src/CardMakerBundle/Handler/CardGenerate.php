@@ -10,6 +10,7 @@ use CardMakerBundle\Cards\LongText\City as CityLong;
 use CardMakerBundle\Cards\LongText\Dragon1 as Dragon1Long;
 use CardMakerBundle\Cards\LongText\Dragon2 as Dragon2Long;
 use CardMakerBundle\Cards\LongText\Dragon3 as Dragon3Long;
+use CardMakerBundle\Cards\LongText\Woodland as WoodlandLong;
 use CardMakerBundle\Cards\LongText\Dungeon as DungeonLong;
 use CardMakerBundle\Cards\LongText\Equpiment as EqupimentLong;
 use CardMakerBundle\Cards\LongText\Harbinger as HarbingerLong;
@@ -31,6 +32,7 @@ use CardMakerBundle\Cards\ShortText\Bridge as BridgeShort;
 use CardMakerBundle\Cards\ShortText\City as CityShort;
 use CardMakerBundle\Cards\ShortText\Dragon1 as Dragon1Short;
 use CardMakerBundle\Cards\ShortText\Dragon2 as Dragon2Short;
+use CardMakerBundle\Cards\ShortText\Woodland as WoodlandShort;
 use CardMakerBundle\Cards\ShortText\Dragon3 as Dragon3Short;
 use CardMakerBundle\Cards\ShortText\Dungeon as DungeonShort;
 use CardMakerBundle\Cards\ShortText\Equpiment as EqupimentShort;
@@ -191,6 +193,7 @@ class CardGenerate
                 Layer::CARD_HARBINGER => HarbingerLong::class,
                 Layer::CARD_NETHER => NetherLong::class,
                 Layer::CARD_VAMPIRE => VampireLong::class,
+                Layer::CARD_WOODLAND => WoodlandLong::class,
 
                 Layer::CARD_WARLOCK => Warlock::class,
                 Layer::CARD_DENIZEN => Denizen::class,
@@ -219,6 +222,7 @@ class CardGenerate
             Layer::CARD_HARBINGER => HarbingerShort::class,
             Layer::CARD_NETHER => NetherShort::class,
             Layer::CARD_VAMPIRE => VampireShort::class,
+            Layer::CARD_WOODLAND => WoodlandShort::class,
 
             Layer::CARD_WARLOCK => Warlock::class,
             Layer::CARD_QUEST_REWARD => QuestReward::class,

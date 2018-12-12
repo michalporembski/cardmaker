@@ -65,6 +65,7 @@ class Layer
 
     const CARD_DENIZEN = 28;
     const CARD_TALISMAN = 29;
+    const CARD_WOODLAND = 30;
 
     // TODO: ..
     const CARD_HERO = 255;
@@ -99,6 +100,7 @@ class Layer
         'cardmaker.cards.ratking' => self::CARD_RATKING,
         'cardmaker.cards.denizen' => self::CARD_DENIZEN,
         'cardmaker.cards.talisman' => self::CARD_TALISMAN,
+        'cardmaker.cards.woodland' => self::CARD_WOODLAND,
     ];
 
     const CARDS_BACK = [
@@ -131,5 +133,6 @@ class Layer
         self::CARD_RATKING => './resources/backs/small/ratking.png',
         self::CARD_DENIZEN => './resources/backs/small/denizen.png',
         self::CARD_TALISMAN => './resources/backs/small/talisman.png',
+        self::CARD_WOODLAND => './resources/backs/small/woodland.png',
     ];
 }

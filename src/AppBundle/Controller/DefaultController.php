@@ -62,6 +62,18 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/karaktery-validate", name="karaktery_validate")
+     */
+    public function karakteryValidateAction(Request $request)
+    {
+        $data = Characters::CARDS;
+        foreach ($data as $card){
+            $this->validateCard($card);
+        }
+        die;
+    }
+
+    /**
      * @Route("/rune_gates", name="rune_gates")
      */
     public function runeGatesAction(Request $request)
@@ -181,5 +193,39 @@ class DefaultController extends Controller
         }
         $sheetPrinter->printPDF();
         die;
+    }
+
+    private function validateCard($card)
+    {
+        $text = $card['desc'];
+
+        $replaces = [
+            'gracz' => 'Poszukiwacz',
+            'Gracz' => 'Poszukiwacz',
+            ' możesz' => ', możesz',
+            'nie, możesz' => 'nie możesz',
+            'zamiast tego, możesz' => 'zamiast tego możesz',
+            'dowolnej walki' => 'jakiejkolwiek walki',
+            ' aby ' => ', aby ',
+            ',, aby ' => ', aby ',
+            'siły' => 'Siły',
+            'mocy' => 'Mocy',
+            'Żeton' => 'punkt',
+            'żeton' => 'punkt',
+            'przyjaciel' => 'Przyjaciel',
+            'charakter' => 'Charakter',
+            ' losu.' => ' Losu.',
+            ' losu,' => ' Losu,',
+            ' losu ' => ' Losu ',
+            ',,' => ' ,',
+        ];
+        foreach($replaces as $key=>$value){
+            $text = str_replace($key,$value,$text);
+        }
+        if($text !==$card['desc']){
+            echo $text.'<br>';
+        }else{
+            echo '<b>OK</b><br>';
+        }
     }
 }

@@ -38,63 +38,9 @@ class SheetPrinter
         $pdf = $this->preparePDF();
         $this->printLines($pdf);
 
-        $files = $this->files;
-        $k = 0;
-        for ($j = 0; $j < 3; $j++) {
-            for ($i = 0; $i < 7; $i++) {
-                if (isset($files[$k])) {
-                    $pdf->Image(
-                        $files[$k]['front'],
-                        self::CARD_SPACE + $i * (self::CARD_WIDTH + self::CARD_SPACE),
-                        self::CARD_TOP + self::CARD_SPACE + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
-                        self::CARD_WIDTH,
-                        self::CARD_HEIGHT,
-                        'PNG',
-                        '',
-                        '',
-                        true,
-                        300,
-                        '',
-                        false,
-                        false,
-                        0,
-                        false,
-                        false,
-                        false
-                    );
-                    $k++;
-                }
-            }
-        }
-        $pdf->AddPage();
-        $k = 0;
-        //        for ($j = 2; $j >= 0; $j--) {
-        //            for ($i = 0; $i < 7; $i++) {
-        for ($j = 0; $j < 3; $j++) {
-            for ($i = 6; $i >= 0; $i--) {
-                if (isset($files[$k])) {
-                    $pdf->Image(
-                        $files[$k]['back'],
-                        self::CARD_SPACE + $i * (self::CARD_WIDTH + self::CARD_SPACE),
-                        self::CARD_TOP + self::CARD_SPACE + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
-                        self::CARD_WIDTH,
-                        self::CARD_HEIGHT,
-                        'PNG',
-                        '',
-                        '',
-                        true,
-                        300,
-                        '',
-                        false,
-                        false,
-                        0,
-                        false,
-                        false,
-                        false
-                    );
-                    $k++;
-                }
-            }
+        $sheets = array_chunk($this->files,21);
+        foreach($sheets as $sheet) {
+            $this->printSheet($sheet, $pdf);
         }
         $pdf->Output('card_sheet.pdf', 'I');
     }
@@ -147,5 +93,69 @@ class SheetPrinter
                 300,
                 self::CARD_TOP + self::CARD_SPACE / 2 + $j * (self::CARD_HEIGHT + self::CARD_SPACE), $style);
         }
+    }
+
+    /**
+     * @param $files
+     * @param $pdf
+     */
+    private function printSheet($files, $pdf): void
+    {
+        $k = 0;
+        for ($j = 0; $j < 3; $j++) {
+            for ($i = 0; $i < 7; $i++) {
+                if (isset($files[$k])) {
+                    $pdf->Image(
+                        $files[$k]['front'],
+                        self::CARD_SPACE + $i * (self::CARD_WIDTH + self::CARD_SPACE),
+                        self::CARD_TOP + self::CARD_SPACE + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
+                        self::CARD_WIDTH,
+                        self::CARD_HEIGHT,
+                        'PNG',
+                        '',
+                        '',
+                        true,
+                        300,
+                        '',
+                        false,
+                        false,
+                        0,
+                        false,
+                        false,
+                        false
+                    );
+                    $k++;
+                }
+            }
+        }
+        $pdf->AddPage();
+        $k = 0;
+        for ($j = 0; $j < 3; $j++) {
+            for ($i = 6; $i >= 0; $i--) {
+                if (isset($files[$k])) {
+                    $pdf->Image(
+                        $files[$k]['back'],
+                        self::CARD_SPACE + $i * (self::CARD_WIDTH + self::CARD_SPACE),
+                        self::CARD_TOP + self::CARD_SPACE + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
+                        self::CARD_WIDTH,
+                        self::CARD_HEIGHT,
+                        'PNG',
+                        '',
+                        '',
+                        true,
+                        300,
+                        '',
+                        false,
+                        false,
+                        0,
+                        false,
+                        false,
+                        false
+                    );
+                    $k++;
+                }
+            }
+        }
+        $pdf->AddPage();
     }
 }
