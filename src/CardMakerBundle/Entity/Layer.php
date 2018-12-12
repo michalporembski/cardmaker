@@ -134,5 +134,6 @@ class Layer
         self::CARD_DENIZEN => './resources/backs/small/denizen.png',
         self::CARD_TALISMAN => './resources/backs/small/talisman.png',
         self::CARD_WOODLAND => './resources/backs/small/woodland.png',
+        self::CARD_HERO => './resources/backs/big/character.png',
     ];
 }

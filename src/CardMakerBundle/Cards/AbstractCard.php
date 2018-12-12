@@ -203,7 +203,7 @@ abstract class AbstractCard
             $writeHeight += (int)($this->textCaptionSize * 1.5);
             $this->gdPrinter->centerText($this->textCaption, $writeHeight, $this->textCaptionSize, $captionFont);
             $writeHeight -= (int)($this->textCaptionSize * 1.4);
-        }else{
+        } else {
             // ???
             $writeHeight -= 50;
         }
@@ -262,14 +262,14 @@ abstract class AbstractCard
 
         $writeHeight = $baseWriteHeight;
         foreach ($this->textDescription as $line) {
-            $res = $this->breakLine($line, $writeHeight, $this->textNormalSize);
-            if ($res === false) {
+            $lineBreakData = $this->breakLine($line, $writeHeight, $this->textNormalSize);
+            if ($lineBreakData === false) {
                 $this->textNormalSize = $this->textNormalSize - 1;
 
                 return $this->estimateDescriptionAutoBreak($baseWriteHeight);
             }
-            $newLines = $res[0];
-            $writeHeight = $res[1];
+            $newLines = $lineBreakData[0];
+            $writeHeight = $lineBreakData[1];
             $allLines = array_merge(
                 $allLines,
                 $newLines

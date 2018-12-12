@@ -19,15 +19,36 @@ class SheetPrinter
 
     const CARD_TOP = 5;
 
-    private $files = [];
+    const CARD_B_WIDTH = 128;
+
+    const CARD_B_HEIGHT = 103;
+
+    const CARD_B_SPACE = 0;
+
+    const CARD_B_TOP = 3;
+
+    const CARD_B_LEFT = 15;
+
+    private $smallCards = [];
+
+    private $bigCards = [];
 
     /**
      * @param $front
      * @param $back
      */
-    public function addFile($front, $back)
+    public function addSmallCard($front, $back)
     {
-        $this->files[] = ['front' => $front, 'back' => $back];
+        $this->smallCards[] = ['front' => $front, 'back' => $back];
+    }
+
+    /**
+     * @param $front
+     * @param $back
+     */
+    public function addBigCard($front, $back)
+    {
+        $this->bigCards[] = ['front' => $front, 'back' => $back];
     }
 
     /**
@@ -36,11 +57,14 @@ class SheetPrinter
     public function printPDF()
     {
         $pdf = $this->preparePDF();
-        $this->printLines($pdf);
 
-        $sheets = array_chunk($this->files,21);
+        $sheets = array_chunk($this->smallCards,21);
         foreach($sheets as $sheet) {
-            $this->printSheet($sheet, $pdf);
+            !empty($sheet) && $this->printSmallCardSheet($sheet, $pdf);
+        }
+        $sheets = array_chunk($this->bigCards,4);
+        foreach($sheets as $sheet) {
+            !empty($sheet) && $this->printBigCardSheet($sheet, $pdf);
         }
         $pdf->Output('card_sheet.pdf', 'I');
     }
@@ -64,7 +88,6 @@ class SheetPrinter
         $pdf->setPrintHeader(false);
         $pdf->setPrintFooter(false);
         $pdf->SetAutoPageBreak(false, PDF_MARGIN_BOTTOM);
-        $pdf->AddPage();
         $pdf->setJPEGQuality(85);
 
         return $pdf;
@@ -73,7 +96,7 @@ class SheetPrinter
     /**
      * @param TCPDF $pdf
      */
-    private function printLines(TCPDF $pdf)
+    private function printSmallCardLines(TCPDF $pdf)
     {
         $style = [
             'width' => 0.001,
@@ -97,10 +120,12 @@ class SheetPrinter
 
     /**
      * @param $files
-     * @param $pdf
+     * @param TCPDF $pdf
      */
-    private function printSheet($files, $pdf): void
+    private function printSmallCardSheet($files, TCPDF $pdf): void
     {
+        $pdf->AddPage();
+        $this->printSmallCardLines($pdf);
         $k = 0;
         for ($j = 0; $j < 3; $j++) {
             for ($i = 0; $i < 7; $i++) {
@@ -156,6 +181,70 @@ class SheetPrinter
                 }
             }
         }
+    }
+
+    /**
+     * @param $files
+     * @param TCPDF $pdf
+     */
+    public function printBigCardSheet($files, TCPDF $pdf)
+    {
+
         $pdf->AddPage();
+        $k = 0;
+        for ($j = 0; $j < 2; $j++) {
+            for ($i = 0; $i < 2; $i++) {
+                if (isset($files[$k])) {
+                    $pdf->Image(
+                        $files[$k]['front'],
+                        self::CARD_B_LEFT + $i * (self::CARD_B_WIDTH + self::CARD_B_SPACE),
+                        self::CARD_B_TOP + self::CARD_B_SPACE + $j * (self::CARD_B_HEIGHT + self::CARD_B_SPACE),
+                        self::CARD_B_WIDTH,
+                        self::CARD_B_HEIGHT,
+                        'PNG',
+                        '',
+                        '',
+                        true,
+                        300,
+                        '',
+                        false,
+                        false,
+                        0,
+                        false,
+                        false,
+                        false
+                    );
+                    $k++;
+                }
+            }
+        }
+        $pdf->AddPage();
+        $k = 0;
+        for ($j = 0; $j < 2; $j++) {
+            for ($i = 1; $i >= 0; $i--) {
+                if (isset($files[$k])) {
+                    $pdf->Image(
+                        $files[$k]['back'],
+                        self::CARD_B_LEFT + $i * (self::CARD_B_WIDTH + self::CARD_B_SPACE),
+                        self::CARD_B_TOP + self::CARD_B_SPACE + $j * (self::CARD_B_HEIGHT + self::CARD_B_SPACE),
+                        self::CARD_B_WIDTH,
+                        self::CARD_B_HEIGHT,
+                        'PNG',
+                        '',
+                        '',
+                        true,
+                        300,
+                        '',
+                        false,
+                        false,
+                        0,
+                        false,
+                        false,
+                        false
+                    );
+                    $k++;
+                }
+            }
+        }
     }
 }
