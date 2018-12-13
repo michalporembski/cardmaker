@@ -4,22 +4,25 @@ namespace CardMakerBundle\Handler;
 
 use CardMakerBundle\Cards\AbstractCard;
 use CardMakerBundle\Cards\LongText\Adventures as AdventuresLong;
-use CardMakerBundle\Cards\LongText\Talisman as TalismanLong;
 use CardMakerBundle\Cards\LongText\Bridge as BridgeLong;
 use CardMakerBundle\Cards\LongText\City as CityLong;
 use CardMakerBundle\Cards\LongText\Dragon1 as Dragon1Long;
 use CardMakerBundle\Cards\LongText\Dragon2 as Dragon2Long;
 use CardMakerBundle\Cards\LongText\Dragon3 as Dragon3Long;
-use CardMakerBundle\Cards\LongText\Woodland as WoodlandLong;
 use CardMakerBundle\Cards\LongText\Dungeon as DungeonLong;
 use CardMakerBundle\Cards\LongText\Equpiment as EqupimentLong;
 use CardMakerBundle\Cards\LongText\Harbinger as HarbingerLong;
 use CardMakerBundle\Cards\LongText\Highland as HighlandLong;
 use CardMakerBundle\Cards\LongText\Nether as NetherLong;
+use CardMakerBundle\Cards\LongText\Potion as PotionLong;
 use CardMakerBundle\Cards\LongText\Relict as RelictLong;
+use CardMakerBundle\Cards\LongText\Remnant as RemnantLong;
 use CardMakerBundle\Cards\LongText\Spell as SpellLong;
+use CardMakerBundle\Cards\LongText\Talisman as TalismanLong;
 use CardMakerBundle\Cards\LongText\Treasure as TreasureLong;
+use CardMakerBundle\Cards\LongText\Tunel as TunelLong;
 use CardMakerBundle\Cards\LongText\Vampire as VampireLong;
+use CardMakerBundle\Cards\LongText\Woodland as WoodlandLong;
 use CardMakerBundle\Cards\NoImage\Denizen;
 use CardMakerBundle\Cards\NoImage\Evil;
 use CardMakerBundle\Cards\NoImage\Good;
@@ -27,22 +30,25 @@ use CardMakerBundle\Cards\NoImage\Neutral;
 use CardMakerBundle\Cards\NoImage\QuestReward;
 use CardMakerBundle\Cards\NoImage\Warlock;
 use CardMakerBundle\Cards\ShortText\Adventures as AdventuresShort;
-use CardMakerBundle\Cards\ShortText\Talisman as TalismanShort;
 use CardMakerBundle\Cards\ShortText\Bridge as BridgeShort;
 use CardMakerBundle\Cards\ShortText\City as CityShort;
 use CardMakerBundle\Cards\ShortText\Dragon1 as Dragon1Short;
 use CardMakerBundle\Cards\ShortText\Dragon2 as Dragon2Short;
-use CardMakerBundle\Cards\ShortText\Woodland as WoodlandShort;
 use CardMakerBundle\Cards\ShortText\Dragon3 as Dragon3Short;
 use CardMakerBundle\Cards\ShortText\Dungeon as DungeonShort;
 use CardMakerBundle\Cards\ShortText\Equpiment as EqupimentShort;
 use CardMakerBundle\Cards\ShortText\Harbinger as HarbingerShort;
 use CardMakerBundle\Cards\ShortText\Highland as HighlandShort;
 use CardMakerBundle\Cards\ShortText\Nether as NetherShort;
+use CardMakerBundle\Cards\ShortText\Potion as PotionShort;
 use CardMakerBundle\Cards\ShortText\Relict as RelictShort;
+use CardMakerBundle\Cards\ShortText\Remnant as RemnantShort;
 use CardMakerBundle\Cards\ShortText\Spell as SpellShort;
+use CardMakerBundle\Cards\ShortText\Talisman as TalismanShort;
 use CardMakerBundle\Cards\ShortText\Treasure as TreasureShort;
+use CardMakerBundle\Cards\ShortText\Tunel as TunelShort;
 use CardMakerBundle\Cards\ShortText\Vampire as VampireShort;
+use CardMakerBundle\Cards\ShortText\Woodland as WoodlandShort;
 use CardMakerBundle\Entity\Dto\GenerateCard;
 use CardMakerBundle\Entity\Layer;
 
@@ -144,6 +150,9 @@ class CardGenerate
         if ($generateCardCommand->getCaption()) {
             $len += 20;
         }
+        if (strpos($generateCardCommand->getText(), AbstractCard::LINE_TEXT) > 0) {
+            $len += 100;
+        }
         $len += strlen($generateCardCommand->getStory());
 
         if ($len > 230) {
@@ -194,6 +203,9 @@ class CardGenerate
                 Layer::CARD_NETHER => NetherLong::class,
                 Layer::CARD_VAMPIRE => VampireLong::class,
                 Layer::CARD_WOODLAND => WoodlandLong::class,
+                Layer::CARD_TUNEL => TunelLong::class,
+                Layer::CARD_POTION => PotionLong::class,
+                Layer::CARD_REMNANT => RemnantLong::class,
 
                 Layer::CARD_WARLOCK => Warlock::class,
                 Layer::CARD_DENIZEN => Denizen::class,
@@ -223,6 +235,9 @@ class CardGenerate
             Layer::CARD_NETHER => NetherShort::class,
             Layer::CARD_VAMPIRE => VampireShort::class,
             Layer::CARD_WOODLAND => WoodlandShort::class,
+            Layer::CARD_TUNEL => TunelShort::class,
+            Layer::CARD_POTION => PotionShort::class,
+            Layer::CARD_REMNANT => RemnantShort::class,
 
             Layer::CARD_WARLOCK => Warlock::class,
             Layer::CARD_QUEST_REWARD => QuestReward::class,

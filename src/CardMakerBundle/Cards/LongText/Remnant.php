@@ -9,27 +9,27 @@ use CardMakerBundle\Cards\AbstractCard;
  *
  * @package CardMakerBundle\Cards\LongText
  */
-class Bridge extends AbstractCard
+class Remnant extends AbstractCard
 {
-    protected $layerFile = 'bridge_a';
+    protected $layerFile = 'remnant_a';
 
-    protected $imageAreaStartX = 20;
+    protected $imageAreaStartX = 25;
 
     protected $imageAreaStartY = 110;
 
-    protected $imageAreaWidth = 415;
+    protected $imageAreaWidth = 410;
 
-    protected $imageAreaHeight = 340;
+    protected $imageAreaHeight = 230;
 
-    protected $titleHeight = 85;
+    protected $titleHeight = 89;
 
-    protected $tagHeight = 444;
+    protected $tagHeight = 331;
 
-    protected $descriptionHeight = 465;
+    protected $descriptionHeight = 355;
 
-    protected $cardLevelX = 390;
+    protected $cardLevelX = 391;
 
-    protected $cardLevelY = 670;
+    protected $cardLevelY = 671;
 
     protected $maxTitleWidth = 380;
 
@@ -40,6 +40,4 @@ class Bridge extends AbstractCard
     protected $maxWriteHeight = 670;
 
     protected $dummyTriangleStart = 560;
-
-    protected $displayLevel = false;
 }

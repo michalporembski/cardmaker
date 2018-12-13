@@ -159,12 +159,12 @@ class DefaultController extends Controller
             $command->setTitle($data['name']);
             $command->setStory($data['story'] ?? '');
             $command->setCaption($data['caption'] ?? null);
-            // TODO: add support for other caption
-            $command->setCaptionType(isset($data['caption']) ? 1 : 0);
+            $command->setCaptionType($data['caption_type'] ?? isset($data['caption']));
             $command->setLevel($data['level'] ?? '');
             $command->setPlaces($data['places'] ?? []);
             $command->setTag($data['tag'] ?? '');
             $command->setLayer($data['card']);
+            $command->setImage($data['image'] ?? '');
             $img = $cardGenerator->handle($command);
             $sheetPrinter->addSmallCard($img, Layer::CARDS_BACK[$data['card']]);
         }
@@ -179,18 +179,18 @@ class DefaultController extends Controller
     {
         // TODO
         // this should work, but it doesn't...
-//        $replaces = [
-//            'o ' => 'o&nbsp;',
-//            'i ' => 'i&nbsp;',
-//            'a ' => 'a&nbsp;',
-//            '1 ' => '1&nbsp;',
-//            '2 ' => '2&nbsp;',
-//            '3 ' => '3&nbsp;',
-//        ];
-//
-//        foreach ($replaces as $key => $value) {
-//            $text = str_replace($key, html_entity_decode($value), $text);
-//        }
+        //        $replaces = [
+        //            'o ' => 'o&nbsp;',
+        //            'i ' => 'i&nbsp;',
+        //            'a ' => 'a&nbsp;',
+        //            '1 ' => '1&nbsp;',
+        //            '2 ' => '2&nbsp;',
+        //            '3 ' => '3&nbsp;',
+        //        ];
+        //
+        //        foreach ($replaces as $key => $value) {
+        //            $text = str_replace($key, html_entity_decode($value), $text);
+        //        }
 
         return $text;
     }
@@ -251,9 +251,9 @@ class DefaultController extends Controller
             $text .= '.';
         }
         if ($text !== $card['desc']) {
-            echo '<b style="color:red">'.$text . '</b><br>';
+            echo '<b style="color:red">' . $text . '</b><br>';
         } else {
-            echo '<span style="color:green">'.$text.'</span><br>';
+            echo '<span style="color:green">' . $text . '</span><br>';
         }
     }
 }

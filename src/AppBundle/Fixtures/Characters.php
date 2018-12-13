@@ -245,7 +245,7 @@ class Characters
         [
             'name' => 'Ambitny',
             'story' => 'Zawsze chcesz zwyciężać, nigdy jednak nie posuniesz się do przeklinania swych wrogów.',
-            'desc' => 'Każdy twój rzut kością, możesz przerzucić drugi raz za pomocą Losu. Nie, możesz jednak posiadać punktów ciemnej strony Losu. Przewracaj wszystkię na jasną stronę.',
+            'desc' => 'Ujawniając swój Charakter otrzymujesz 2 punkty Losu.' . "\n" . 'Każdy twój rzut kością, możesz przerzucić drugi raz za pomocą Losu. Nie możesz używać ciemnej strony Losu. Wszystkie posiadane punkty Losu musisz przewracać na jasną stronę.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [
@@ -308,72 +308,167 @@ class Characters
             'desc' => 'Gdy będziesz musiał odrzucić tę kartę Charakteru odzyskasz wszystkie punkty Życia i punkty Losu. Niezależnie od polecenia wylosuj kartę Dobrego Charakteru.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
-        //        //        [
-        //        //            'name' => 'Uparty',
-        //        //            'story' => '',
-        //        //            'desc' => '',
-        //        //            'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
-        //        //        ],
         //        [
-        //            'name' => 'Lustro Spaczenia',
-        //            'tag' => 'Miejsce',
-        //            'desc' => 'Na twojej drodze pojawiło się Lustro Spaczenia, jeżeli zdecydujesz się przez nie przejść, będziesz mógł natychmiast wykonać dodatkową turę, będziesz jednak musiał zmienić Charakter na Zły. Kiedy ktoś skożysta z Lustra Spaczenia to rozpadnie się i trafi na stos kart odrzuconych.',
-        //            'card' => Layer::CARD_DUNGEON,
-        //            'level' => 6
+        //            'name' => 'Uparty',
+        //            'story' => '',
+        //            'desc' => '',
+        //            'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         //        ],
-        //        [
-        //            'name' => 'Mikstura Amnezji',
-        //            'caption' => 'Drobiazg',
-        //            'tag' => 'Magiczny Przedmiot',
-        //            'desc' => 'W dowolnej chwili, możesz odrzucić Miksturę Amnezji oraz swoją kartę Charakteru, aby wylosować nową kartę Charakteru.',
-        //            'card' => Layer::CARD_BLACKSMITH,
-        //            'level' => 6
-        //        ],
-        //        [
-        //            'name' => 'Talizman Trwałości',
-        //            'tag' => 'Magiczny Przedmiot',
-        //            'desc' => 'Nie możesz zmienić charakteru wbrew swojej woli',
-        //            'card' => Layer::CARD_TALISMAN,
-        //            'level' => 6
-        //        ],
-        //        [
-        //            'name' => 'Księga Charakterów',
-        //            'tag' => 'Magiczny Przedmiot',
-        //            'desc' => 'Połóż na tej karcie 3 kart charakteru, w dowolnym momencie możesz odrzucić swoją kartę charakteru i wziąść jedną kartę z księgi charakteru, od tej pory to będzie twój Charakter',
-        //            'card' => Layer::CARD_RELICT,
-        //            'level' => 6
-        //        ],
-        //        [
-        //            'name' => 'Złodziej Duszy',
-        //            'caption' => 'Broń',
-        //            'tag' => 'Magiczny Przedmiot',
-        //            'desc' => 'Podczas walki złodziej duszy dodaje 2 punkty do twojej Siły. Jeżeli pokonasz Poszukiwacza możesz mu odebrać  kartę Charakteru i zmusić go do wylosowania nowej.',
-        //            'card' => Layer::CARD_TREASURE,
-        //            'level' => 6
-        //        ],
-        //        [
-        //            'name' => 'Kostur Druida',
-        //            'tag' => 'Magiczny Przedmiot',
-        //            'desc' => 'Podczas walki złodziej duszy dodaje 1 punkt do twojej Siły. Jeżeli pokonasz Poszukiwacza możesz mu odebrać  kartę Charakteru i zmusić go do wylosowania nowej.',
-        //            'card' => Layer::CARD_WOODLAND,
-        //            'level' => 6
-        //        ],
-        //        [
-        //            'name' => 'Mikstura Wytrwałości',
-        //            'caption' => 'Drobiazg',
-        //            'tag' => 'Magiczny Przedmiot',
-        //            'desc' => 'W dowolnej chwili możesz odrzucić Miksturę Wytrwałości aby zapobiec zmianie Charakteru.',
-        //            'card' => Layer::CARD_EQUIPMENT,
-        //            'level' => 6
-        //        ],
-        //        [
-        //            'name' => 'Pieczęć Stałości',
-        //            'caption' => 'Klątwa',
-        //            'tag' => 'Zaklęcie',
-        //            'desc' => 'Zaklęcie to możesz żucić w dowolnym momencie na dowolnego poszukiwacza. Za każdym razem gdy ma on odrzucić kartę charakteru zamiast tego musi odrzucić punkt życia.',
-        //            'card' => Layer::CARD_SPELL,
-        //            'level' => 6
-        //        ],
+        [
+            'name' => 'Wieczysta Przysięga',
+            'caption' => 'Klątwa',
+            'tag' => 'Zaklęcie',
+            'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Za każdym razem gdy ma on odrzucić kartę Charakteru zamiast tego musi odrzucić punkt Życia.',
+            'card' => Layer::CARD_SPELL,
+            'image' => './charaktery/spell7.jpg',
+        ],
+        [
+            'name' => 'Pieczęć Stałości',
+            'caption' => 'Aura',
+            'tag' => 'Zaklęcie',
+            'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Od tej pory będzie ignorował wszystkie efekty zmieniające Charakter.',
+            'card' => Layer::CARD_SPELL,
+            'image' => './charaktery/spell1.png',
+        ],
+        [
+            'name' => 'Zamiana Dusz',
+            'tag' => 'Zaklęcie',
+            'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Odbierz mu jego kartę Charakteru i przekaż swoją.',
+            'card' => Layer::CARD_SPELL,
+            'image' => './charaktery/spell5.jpg',
+        ],
+        [
+            'name' => 'Dzień Nawrócenia',
+            'tag' => 'Księżycowe Zdarzenie',
+            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Dnia.' . "\n---\n" . 'Na początku swojej tury, każdy Zły i Neutralny poszukiwacz może stać się Dobry.' . "\n---\n" . 'Odrzuć tę kartę, kiedy zapada Noc.',
+            'card' => Layer::CARD_HIGHLAND,
+            'image' => './charaktery/grace.png',
+            'level' => 1
+        ],
+        [
+            'name' => 'Noc Zwątpienia',
+            'tag' => 'Księżycowe Zdarzenie',
+            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Nocy.' . "\n---\n" . 'Na końcu swojej tury, każdy Dobry i Neutralny poszukiwacz może stać się Zły.' . "\n---\n" . 'Odrzuć tę kartę, kiedy wstaje Dzień.',
+            'card' => Layer::CARD_WOODLAND,
+            'image' => './charaktery/fear.jpg',
+            'level' => 1
+        ],
+        // + księżycowe zdarzenie które zapobiega zmianie charakteru
+        // + przedmiot który zapobiega zmianie charakteru
+        // + zaklęcie które zapobiega zmianie charakteru
+        [
+            'name' => 'Lustro Spaczenia',
+            'tag' => 'Miejsce',
+            'desc' => 'Na twojej drodze pojawiło się Lustro Spaczenia, jeżeli zdecydujesz się przez nie przejść, będziesz mógł natychmiast wykonać dodatkową turę, będziesz jednak musiał zmienić Charakter na Zły. Kiedy ktoś skożysta z Lustra Spaczenia to rozpadnie się i trafi na stos kart odrzuconych.',
+            'card' => Layer::CARD_DUNGEON,
+            'image' => './charaktery/evil_mirror.jpg',
+            'level' => 6
+        ],
+        [
+            'name' => 'Mikstura Amnezji',
+            'caption' => 'Drobiazg',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnej chwili, możesz odrzucić Miksturę Amnezji oraz swoją kartę Charakteru, aby wylosować nową kartę wybranego prze ciebie Charakteru.',
+            'card' => Layer::CARD_ARTEFACT,
+            'image' => './charaktery/potion1.jpg',
+            'level' => 5
+        ],
+        [
+            'name' => 'Mikstura Wytrwałości',
+            'caption' => 'Drobiazg',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnej chwili, możesz odrzucić Miksturę Wytrwałości, aby zapobiec zmianie Charakteru.',
+            'card' => Layer::CARD_POTION,
+            'image' => './charaktery/potion2.jpg',
+            'level' => 5
+        ],
+        [
+            'name' => 'Talizman Trwałości',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'Tylko posiadając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Nie możesz zmienić Charakteru wbrew swojej woli. Za każdym razem, gdy jakiś efekt nakaże ci zmienić Charakter zyskujesz punkt Życia.',
+            'card' => Layer::CARD_TALISMAN,
+            'image' => './charaktery/talisman2.jpg',
+            'level' => 5
+        ],
+        [
+            'name' => 'Księga Charakterów',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'Po wylosowaniu Księgi Charakterów połóż na niej 3 karty Charakteru. W dowolnym momencie, możesz odrzucić swoją kartę Charakteru i wziąść jedną kartę z Księgi Charakteru, od tej pory to będzie twój Charakter. Kiedy nie będzie już kart Charakteru na tej karcie, odrzuć ją.',
+            'card' => Layer::CARD_RELICT,
+            'image' => './charaktery/book2.jpg',
+            'level' => 5
+        ],
+        [
+            'name' => 'Złodziej Duszy',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'Podczas walki Złodziej Duszy dodaje 2 punkty do twojej Siły. Jeżeli pokonasz Poszukiwacza, możesz mu odebrać kartę Charakteru i zmusić go do wylosowania nowej. Swoją poprzednią kartę Charakteru musisz odrzucić.',
+            'card' => Layer::CARD_TREASURE,
+            'image' => './charaktery/sword3.jpg',
+            'level' => 5
+        ],
+        [
+            'name' => 'Zatruwacz Serc',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'Podczas walki Zatruwacz Serc dodaje 1 punkty do twojej Siły. Jeżeli pokonasz Poszukiwacza, możesz go zmusić do odrzucenia karty Charakteru i przekazać swoją kartę Charakteru. Następnie wylosuj kartę dowolnego Charakteru.',
+            'card' => Layer::CARD_REMNANT,
+            'image' => './charaktery/sword1.jpg',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_WOODLAND,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Anielska Pieczęć',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'Jeżeli pokonasz Złego lub Neutralnego Poszukiwacza w jakiejkolwiek walce, oprócz zwykłęj nagrody, możesz zmienić jego Charakter na dobry.',
+            'card' => Layer::CARD_HARBINGER,
+            'image' => './charaktery/seal2.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Wędrowna Cyganka',
+            'tag' => 'Nieznajomy',
+            'desc' => 'Wędrowna Cyganka oferuje ci możliwość poznania Zaklęć i Charakteru wybranego poszukiwacza, jeżeli zapłacisz jej sztukę złota.',
+            'card' => Layer::CARD_HIGHLAND,
+            'image' => './charaktery/gypsy3.jpg',
+            'level' => 4
+        ],
+        [
+            'name' => 'Widzący Duch',
+            'tag' => 'Nieznajomy',
+            'desc' => 'Napotkałeś Ducha który przjżał cię na wskroś. Ujawnij swoją kartę Charakteru lub odrzuć punkt Życia. Następnie Widzący Duch udaje się na stos kart odrzuconych.',
+            'card' => Layer::CARD_BRIDGE,
+            'image' => './charaktery/ghost1.jpg',
+            'level' => 4
+        ],
+        [
+            'name' => 'Strudzona Zmora',
+            'tag' => 'Wróg - Duch',
+            'caption' => 'Moc 1',
+            'caption_type' => 2,
+            'desc' => 'Strudzona Zmora nęka żywych w tej okolicy. Jeżeli z nią przegrasz oprócz utraty 1 punktu Życia będziesz musiał ujawnić swoją kartę Charakteru.',
+            'card' => Layer::CARD_TUNEL,
+            'image' => './charaktery/wraith1.jpg',
+            'level' => 3
+        ],
+        [
+            'name' => 'Gnieworodny Satyr',
+            'tag' => 'Wróg - Potwór',
+            'caption' => 'Siła 1',
+            'caption_type' => 2,
+            'desc' => 'Na tym obszarze grasuje Gnieworodny Satyr. Jeżeli z nim przegra, Dobry i Neutralny Poszukiwacz, oprócz utraty 1 punktu Życia będziesz musiał zmienić Charakter na zły.',
+            'card' => Layer::CARD_UNHALLOWED2,
+            'image' => './charaktery/satyr1.jpg',
+            'level' => 2
+        ],
     ];
 }
 

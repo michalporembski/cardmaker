@@ -135,6 +135,18 @@ class GdPrinter
         imagettftext($this->gdResource, $size, 0, $writeStart, $height, $color, $this->fonts[$font], $text);
     }
 
+    public function printLine($height)
+    {
+        imageline(
+            $this->gdResource,
+            self::CARD_WIDTH / 4,
+            $height,
+            3 * self::CARD_WIDTH / 4,
+            $height,
+            $this->textColor
+        );
+    }
+
     /**
      * @param $size
      * @param $font

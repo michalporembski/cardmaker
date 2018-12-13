@@ -5,13 +5,13 @@ namespace CardMakerBundle\Cards\LongText;
 use CardMakerBundle\Cards\AbstractCard;
 
 /**
- * Class Nether
+ * Class Tunel
  *
  * @package CardMakerBundle\Cards\LongText
  */
-class Nether extends AbstractCard
+class Tunel extends AbstractCard
 {
-    protected $layerFile = 'nether_a';
+    protected $layerFile = 'tunel_a';
 
     protected $imageAreaStartX = 20;
 
@@ -41,5 +41,5 @@ class Nether extends AbstractCard
 
     protected $dummyTriangleStart = 560;
 
-    protected $displayLevel = false;
+    protected $displayLevel = true;
 }

@@ -15,6 +15,8 @@ abstract class AbstractCard
 
     const CAPTION_TYPE_UNDERLINE = 3;
 
+    const LINE_TEXT = '---';
+
     protected $textTitle;
 
     protected $textTag;
@@ -225,13 +227,19 @@ abstract class AbstractCard
     protected function writeDescription($writeHeight)
     {
         foreach ($this->textDescription as $line) {
-            if ($this->dummyTriangleStart < $writeHeight) {
-                $offset = ($this->dummyTriangleStart - $writeHeight) / 3;
+            if ($line === self::LINE_TEXT) {
+                $writeHeight += 10;
+                $this->gdPrinter->printLine($writeHeight);
+                $writeHeight += 5;
             } else {
-                $offset = 0;
+                if ($this->dummyTriangleStart < $writeHeight) {
+                    $offset = ($this->dummyTriangleStart - $writeHeight) / 3;
+                } else {
+                    $offset = 0;
+                }
+                $writeHeight += (int)($this->textNormalSize * 3 / 2);
+                $this->gdPrinter->centerText($line, $writeHeight, $this->textNormalSize, 'l', $offset);
             }
-            $writeHeight += (int)($this->textNormalSize * 3 / 2);
-            $this->gdPrinter->centerText($line, $writeHeight, $this->textNormalSize, 'l', $offset);
         }
     }
 
@@ -262,6 +270,11 @@ abstract class AbstractCard
 
         $writeHeight = $baseWriteHeight;
         foreach ($this->textDescription as $line) {
+            if ($line === self::LINE_TEXT) {
+                $allLines[] = $line;
+                $writeHeight += 15;
+                continue;
+            }
             $lineBreakData = $this->breakLine($line, $writeHeight, $this->textNormalSize);
             if ($lineBreakData === false) {
                 $this->textNormalSize = $this->textNormalSize - 1;

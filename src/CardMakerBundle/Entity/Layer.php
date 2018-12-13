@@ -64,8 +64,16 @@ class Layer
     const CARD_RATKING = 27;
 
     const CARD_DENIZEN = 28;
+
     const CARD_TALISMAN = 29;
+
     const CARD_WOODLAND = 30;
+
+    const CARD_TUNEL = 31;
+
+    const CARD_POTION = 32;
+
+    const CARD_REMNANT = 33;
 
     // TODO: ..
     const CARD_HERO = 255;
@@ -82,6 +90,8 @@ class Layer
         'cardmaker.cards.spell' => self::CARD_SPELL,
         'cardmaker.cards.treasure' => self::CARD_TREASURE,
         'cardmaker.cards.bridge' => self::CARD_BRIDGE,
+        'cardmaker.cards.tunel' => self::CARD_TUNEL,
+        'cardmaker.cards.potion' => self::CARD_POTION,
         'cardmaker.cards.city' => self::CARD_CITY,
         'cardmaker.cards.harbringer' => self::CARD_HARBINGER,
         'cardmaker.cards.nether' => self::CARD_NETHER,
@@ -101,6 +111,7 @@ class Layer
         'cardmaker.cards.denizen' => self::CARD_DENIZEN,
         'cardmaker.cards.talisman' => self::CARD_TALISMAN,
         'cardmaker.cards.woodland' => self::CARD_WOODLAND,
+        'cardmaker.cards.remnant' => self::CARD_REMNANT,
     ];
 
     const CARDS_BACK = [
@@ -115,6 +126,7 @@ class Layer
         self::CARD_SPELL => './resources/backs/small/spell.png',
         self::CARD_TREASURE => './resources/backs/small/treasure.png',
         self::CARD_BRIDGE => './resources/backs/small/bridge.png',
+        self::CARD_TUNEL => './resources/backs/small/tunel.png',
         self::CARD_CITY => './resources/backs/small/city.png',
         self::CARD_HARBINGER => './resources/backs/small/harbinger.png',
         self::CARD_NETHER => './resources/backs/small/nether.png',
@@ -134,6 +146,8 @@ class Layer
         self::CARD_DENIZEN => './resources/backs/small/denizen.png',
         self::CARD_TALISMAN => './resources/backs/small/talisman.png',
         self::CARD_WOODLAND => './resources/backs/small/woodland.png',
+        self::CARD_POTION => './resources/backs/small/potion.png',
+        self::CARD_REMNANT => './resources/backs/small/remnant.png',
         self::CARD_HERO => './resources/backs/big/character.png',
     ];
 }
