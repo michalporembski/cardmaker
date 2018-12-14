@@ -252,6 +252,7 @@ class DefaultController extends Controller
         }
         if ($text !== $card['desc']) {
             echo '<b style="color:red">' . $text . '</b><br>';
+            echo '<b>' . $card['desc'] . '</b><br>';
         } else {
             echo '<span style="color:green">' . $text . '</span><br>';
         }

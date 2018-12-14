@@ -8,7 +8,7 @@ class Hero
 {
     const CARDS = [
         [
-            'name' => 'Wrota Przyszłości 1',
+            'name' => 'Niszczyciel',
             'perks' => [
                 'Rozpoczynasz grę, posiadając Tarczę (z talii Ekwipunku).',
                 'Nie tracisz punktu Życia na Pustyni.',

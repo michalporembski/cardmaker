@@ -9,20 +9,23 @@ use AppBundle\Entity\Hero;
  * Kiedy masz wykonać rzut kością za ruch,
  * Kiedy znajdziesz się na obszarze [Puszczy/Cmentarza/Kapliczki/Wioski..],
  * Za każdym razem, kiedy zabijesz Wroga,
- * Za każdym razem, kiedy [wygrasz/przegrasz] [walkę/walkę psychiczną/jaką kolwiek walkę],
+ * Za każdym razem, kiedy [wygrasz/przegrasz/zremisujesz] [walkę/walkę psychiczną/jaką kolwiek walkę],
  * Za każdym razem, kiedy się modlisz,
+ * Za każdym razem, kiedy badasz obszar,
+ * Za każdym razem, kiedy badasz obszar zawierający jakieś przedmioty,
+ * Za każdym razem, kiedy badasz obszar na którym znajduje się jakiś [Nieznajomy/Miejsce/Przyjaciel/Wróg],
  * Za każdym razem, kiedy otrzymujesz [punkt Siły/punkt Mocy/punkt Siły lub Mocy/Zaklęcie]
  * Za każdym razem, kiedy wyrzucisz [1,6] za ruch,
- * Za każdym razem, kiedy wykonasz zadanie Czarownika, zamiast otrzymać Talizman,
+ * Za każdym razem, kiedy wykonasz zadanie Czarownika, zamiast otrzymać Talizman(normalną nagrodę?),
  * Za każdym razem, kiedy wykonasz zadanie Czarownika,
  * Za każdym razem, kiedy tracisz [punkt Życia/Sztukę Złota/punkt Losu],
  * Za każdym razem, kiedy inny gracz [rzuca Zaklęcie/odrzuca Zaklęcie/otrzymuje Zaklęcie/otrzymuje punkt Losu..],
  * Za każdym razem, kiedy odbierasz innemu Poszukiwaczowi [punkt Życia/Przedmiot],
  * Za każdym razem, kiedy pokonasz innego Poszukiwacza,
- * Za każdym razem, kiedy pokonasz innego Poszukiwacza, zamiast otrzymać zwyklą nagrodę możesz
+ * Za każdym razem, kiedy pokonasz innego Poszukiwacza, zamiast otrzymać zwyklą nagrodę,
  * Za każdym razem, masz losować kartę przygody,
  * Za każdym razem, kiedy wylosujesz kartę przygody,
- * Za każdym razem, kiedy losując kartę przygody wyciągniesz [Przyjaciela/Wroga/Zdarzenie/Nieznajomego/Miejsce/Przedmiot]
+ * Za każdym razem, kiedy losując kartę przygody wyciągniesz [Przyjaciela/Wroga/Zdarzenie/Nieznajomego/Miejsce/Przedmiot/Magiczny Przedmiot]
  * -możesz [-/odrzucić [punkt Losu/punkt Życia/Trofeum/Przyjaciela/Przedmiot] aby]
  * --otrzymać
  * ---1 Zaklęcie, jeśli pozwala ci na to twoja Moc.
