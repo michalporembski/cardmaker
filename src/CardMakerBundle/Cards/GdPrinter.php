@@ -139,9 +139,9 @@ class GdPrinter
     {
         imageline(
             $this->gdResource,
-            self::CARD_WIDTH / 4,
+            self::CARD_WIDTH / 5,
             $height,
-            3 * self::CARD_WIDTH / 4,
+            4 * self::CARD_WIDTH / 5,
             $height,
             $this->textColor
         );

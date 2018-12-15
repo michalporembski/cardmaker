@@ -237,12 +237,12 @@ class DefaultController extends Controller
             ' dwa,' => ' 2,',
             'o jeden' => 'o 1',
             'jeden punkt' => '1 punkt',
-            '1 Przyjaciela' => ' 1 Przyjaciela',
-            '1 punkt' => ' 1 punkt',
-            '1 Zaklęcie' => ' 1 Zaklęcie',
+            'jednego Przyjaciela' => '1 Przyjaciela',
+            //            'jedno Zaklęcie' => '1 Zaklęcie',
             // czyszczenie podwojen
             '1 1' => '1',
             ',,' => ',',
+            '  ' => ' ',
         ];
         foreach ($replaces as $key => $value) {
             $text = str_replace($key, $value, $text);

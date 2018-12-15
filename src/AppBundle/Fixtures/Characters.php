@@ -35,7 +35,7 @@ class Characters
         [
             'name' => 'Męczeński',
             'story' => 'Droga do chwały prowadzi przez cierpienie. Wreszcie udało Ci się to pojąć.',
-            'desc' => 'Za każdym razem gdy stracisz punkt Życia odzyskujesz punkt Losu.',
+            'desc' => 'Za każdym razem gdy stracisz przynajmniej 1 punkt Życia zyskujesz punkt Losu.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
@@ -50,12 +50,6 @@ class Characters
             'desc' => 'Twoich rzutów kością nie da się przerzucać punktami ciemnej strony Losu.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
-        //        [
-        //            'name' => 'Odpowiedzialny',
-        //            'story' => 'Dbasz o swoich towarzyszy.',
-        //            'desc' => 'Możesz ujawnić swój Charakter w momencie, gdy miałbyś stracić Przyjaciela. Zapobiegniesz utracie Przyjaciela i zyskujesz punkt Losu.',
-        //            'card' => Layer::CARD_ALIGNMENT_GOOD,
-        //        ],
         [
             'name' => 'Miłosierny',
             'story' => 'Tylko okazując łaskę naprawdę zwyciężamy.',
@@ -71,7 +65,7 @@ class Characters
         [
             'name' => 'Ascetyczny',
             'story' => 'Wszelkie dobra tego świata są niczym w obliczu sił przeznaczenia.',
-            'desc' => 'Na początku swojej tury, możesz odrzucić dowolny Przedmiot, aby zyskać punkt Losu.',
+            'desc' => 'Na początku swojej tury, możesz odrzucić dowolny Przedmiot (nawet przeklęty), aby zyskać punkt Losu.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
@@ -92,42 +86,12 @@ class Characters
             'desc' => 'Przed wykonaniem rzutu jedną kością, możesz zdecydować się odrzucić punkt jasnej strony Losu. Rzuć wtedy dwoma kośćmi i wybierz wynik, który ci się podoba.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
-        //        [
-        //            'name' => 'Cierpliwy',
-        //            'story' => '',
-        //            'desc' => '',
-        //            'card' => Layer::CARD_ALIGNMENT_GOOD,
-        //        ],
-        //        [
-        //            'name' => 'Bezinteresowny',
-        //            'story' => '',
-        //            'desc' => '',
-        //            'card' => Layer::CARD_ALIGNMENT_GOOD,
-        //        ],
-        //        [
-        //            'name' => 'Odpowiedzialny',
-        //            'story' => '',
-        //            'desc' => '',
-        //            'card' => Layer::CARD_ALIGNMENT_GOOD,
-        //        ],
         [
             'name' => 'Waleczny',
             'story' => 'Stawisz czoła każdemu przyciwnikowi.',
             'desc' => 'Za każdym razem, kiedy wdajesz się w walkę z Wrogiem lub Poszukiwaczem, którego Siła jest wyższa niż twoja Siła, możesz dodac 1 do skuteczności swojego ataku.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
-        //        [
-        //            'name' => 'Wierny',
-        //            'story' => '',
-        //            'desc' => '',
-        //            'card' => Layer::CARD_ALIGNMENT_GOOD,
-        //        ],
-        //        [
-        //            'name' => 'Ufny',
-        //            'story' => '',
-        //            'desc' => '',
-        //            'card' => Layer::CARD_ALIGNMENT_GOOD,
-        //        ],
         [
             'name' => 'Heroiczny',
             'story' => 'Odwagi Ci nie brak.',
@@ -149,7 +113,7 @@ class Characters
         [
             'name' => 'Sadystyczny',
             'story' => 'Ludzie nie doceniają radości jaką niesie wsłuchiwanie się w ludzkie cierpienie.',
-            'desc' => 'Za każdym razem gdy odbierzesz innemu Poszukiwaczowi punkt Życia odzyskujesz punkt ciemnej strony Losu.',
+            'desc' => 'Za każdym razem gdy odbierzesz innemu Poszukiwaczowi punkt Życia, możesz odzyskać punkt ciemnej strony Losu.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
@@ -161,7 +125,7 @@ class Characters
         [
             'name' => 'Haniebny',
             'story' => 'Cel uświęca środki.',
-            'desc' => 'Gdy inny Poszukiwacz będzie miał wykonać rzut jedną kością, możesz zdecydować się odrzucić punkt ciemnej strony Losu, musi on wtedy rzuć dwoma kośćmi a ty wybierasz wynik.',
+            'desc' => 'Gdy inny Poszukiwacz będzie miał wykonać rzut jedną kością, możesz zdecydować się odrzucić punkt ciemnej strony Losu, musi on wtedy rzuć dwoma kośćmi, a ty wybierasz wynik.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
@@ -188,12 +152,6 @@ class Characters
             'desc' => 'Podczas jakiejkolwiek walki, możesz zdecydować się zakpić sobie z wroga, rzuć wtedy dwoma kośćmi i wybierz mniejszy wynik. To będzie twoja premia do skuteczności ataku. Jeżeli wygrasz walkę odzyskasz punkt ciemnej strony Losu. W takiej walce nie możesz użyć Losu.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
-        //        [
-        //            'name' => 'Fanatyczny',
-        //            'story' => 'Zniszczyć wszystkie bestie!',
-        //            'desc' => 'Zamiast rzucać kością za ruch, możesz przesunąć się na dowolny, najbliższy inny obszar w twojej Krainie, na którym znajduje się Wróg.',
-        //            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        //        ],
         [
             'name' => 'Okrutny',
             'story' => 'Wiesz dobrze jak ranić innych.',
@@ -317,22 +275,15 @@ class Characters
         [
             'name' => 'Zachłanny',
             'story' => 'Zawsze chcesz posiadać więcej!',
-            'desc' => 'Możesz nieść o 1 przedmiot więcej.' . "\n---\n" . 'Za każdym razem gdy badasz obszar zawierający jakieś Przedmioty, te posiadają numer spotkania 1.',
+            'desc' => 'Za każdym razem gdy badasz obszar zawierający jakieś Przedmioty, te posiadają numer spotkania 1.' . "\n---\n" . 'Możesz nieść o 1 przedmiot więcej.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
-        //        [
-        //            'name' => 'Uparty',
-        //            'story' => '',
-        //            'desc' => '',
-        //            'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
-        //        ],
         [
-            'name' => 'Wieczysta Przysięga',
-            'caption' => 'Aura',
+            'name' => 'Przeszywające Widzenie',
             'tag' => 'Zaklęcie',
-            'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Za każdym razem gdy ma on odrzucić kartę Charakteru zamiast tego musi odrzucić punkt Życia.',
+            'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Podglądnij jego Zaklęcia i kartę Charakteru.',
             'card' => Layer::CARD_SPELL,
-            'image' => './charaktery/spell6.jpg',
+            'image' => './charaktery/spell0.png',
         ],
         [
             'name' => 'Pieczęć Stałości',
@@ -343,38 +294,41 @@ class Characters
             'image' => './charaktery/spell1.png',
         ],
         [
+            'name' => 'Prawdziwa Natura',
+            'tag' => 'Zaklęcie',
+            'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Musi on natychmiast ujawnić swoją kartę Charakteru.',
+            'card' => Layer::CARD_SPELL,
+            'image' => './charaktery/spell3.jpg',
+        ],
+        [
             'name' => 'Zamiana Dusz',
             'tag' => 'Zaklęcie',
             'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Odbierz mu jego kartę Charakteru i przekaż swoją.',
             'card' => Layer::CARD_SPELL,
             'image' => './charaktery/spell5.jpg',
         ],
-        // + zaklęcie które zapobiega zmianie charakteru
-        // + zaklęcie które zmusza do ujawnienia charakteru
-        // podglądanie zaklęć i karty charakteru
-        // aura: nie możesz zrobić rzeczy które mogłby sprawić że staniesz się zły (odwiedzić mistyka/użyć kostura druida) ??
         [
-            'name' => 'Dzień Nawrócenia',
-            'tag' => 'Księżycowe Zdarzenie',
-            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Dnia.' . "\n---\n" . 'Na początku swojej tury, każdy Zły i Neutralny poszukiwacz może stać się Dobry.' . "\n---\n" . 'Odrzuć tę kartę, kiedy zapada Noc.',
-            'card' => Layer::CARD_HIGHLAND,
-            'image' => './charaktery/grace.png',
-            'level' => 1
+            'name' => 'Wieczysta Przysięga',
+            'caption' => 'Aura',
+            'tag' => 'Zaklęcie',
+            'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Za każdym razem gdy ma on odrzucić kartę Charakteru zamiast tego musi odrzucić punkt Życia.',
+            'card' => Layer::CARD_SPELL,
+            'image' => './charaktery/spell6.jpg',
         ],
         [
-            'name' => 'Noc Zwątpienia',
-            'tag' => 'Księżycowe Zdarzenie',
-            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Nocy.' . "\n---\n" . 'Na końcu swojej tury, każdy Dobry i Neutralny poszukiwacz może stać się Zły.' . "\n---\n" . 'Odrzuć tę kartę, kiedy wstaje Dzień.',
-            'card' => Layer::CARD_WOODLAND,
-            'image' => './charaktery/fear.jpg',
-            'level' => 1
+            'name' => 'Ochrona Duszy',
+            'tag' => 'Zaklęcie',
+            'desc' => 'Możesz rzucić to Zaklęcie na dowolnego Poszukiwacza który właśnie ma zmienić Charakter, aby temu zapobiec.',
+            'card' => Layer::CARD_SPELL,
+            'image' => './charaktery/spell7.jpg',
         ],
-        // + księżycowe zdarzenie które zapobiega zmianie charakteru
-        // + przedmiot który zapobiega zmianie charakteru
-        // + przeklęty przedmiot który zapobiega zmianie charakteru
-        // + przyjaciel który zapobiega zmianie charakteru
-        // + przeklęty przyjaciel który zapobiega zmianie charakteru
-
+        [
+            'name' => 'Rytułał Księżyca',
+            'tag' => 'Zaklęcie',
+            'desc' => 'Możesz rzucić to Zaklęcie w trakcie działania dowolnego Zdarzenia. Efekt Zdażenia zostanie wydłużony o jedną turę.',
+            'card' => Layer::CARD_SPELL,
+            'image' => './charaktery/spell12.jpg',
+        ],
         [
             'name' => 'Magiczny Archiwista',
             'places' => ['Zamek', 'Miasto'],
@@ -400,6 +354,12 @@ class Characters
             'card' => Layer::CARD_DENIZEN,
         ],
         [
+            'name' => 'Jasnowidz',
+            'places' => ['Zamek', 'Miasto', 'Wioska'],
+            'desc' => 'Jasnowidz za 1 sztukę złota oferuje ci pokazać kim mógłbyś być. Wylosuj po 1 karcie Charakteru każdego typu, jedna z nich, może być twoim nowym Charakterem.',
+            'card' => Layer::CARD_DENIZEN,
+        ],
+        [
             'name' => 'Talizman Wytrwałości',
             'tag' => 'Magiczny Przedmiot',
             'desc' => 'Tylko posiadając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Nie możesz zmienić Charakteru wbrew swojej woli. Za każdym razem, gdy jakiś efekt nakaże ci zmienić Charakter zyskujesz punkt Życia.',
@@ -407,60 +367,80 @@ class Characters
             'image' => './charaktery/talisman8.jpg',
             'level' => 5
         ],
+        //        [
+        //            'name' => 'Talizman Magii',
+        //            'tag' => 'Magiczny Przedmiot',
+        //            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Zawsze musisz posiadać przynajmniej jedno Zaklęcie (za każdym razem, kiedy wykorzystasz swoje ostatnie Zaklęcie, losuje nowe).',
+        //            'card' => Layer::CARD_TALISMAN,
+        //            'image' => './charaktery/talisman7.jpg',
+        //            'level' => 5
+        //        ],
+        //        [
+        //            'name' => 'Talizman Bogactwa',
+        //            'tag' => 'Magiczny Przedmiot',
+        //            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Na początku każdej swojej tury może otrzymać jedną Sztukę Złota.',
+        //            'card' => Layer::CARD_TALISMAN,
+        //            'image' => './charaktery/talisman6.jpg',
+        //            'level' => 5
+        //        ],
+        //        [
+        //            'name' => 'Talizman Zachłanności',
+        //            'tag' => 'Magiczny Przedmiot',
+        //            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Za każdym razem gdy otrzymując Złoto, możesz dobrać o jedną Sztukę Złota więcej.',
+        //            'card' => Layer::CARD_TALISMAN,
+        //            'image' => './charaktery/talisman5.jpg',
+        //            'level' => 5
+        //        ],
+        //        [
+        //            'name' => 'Talizman Szczęścia',
+        //            'tag' => 'Magiczny Przedmiot',
+        //            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Na początku każdej swojej tury może odzyskać jedn punkt Losu.',
+        //            'card' => Layer::CARD_TALISMAN,
+        //            'image' => './charaktery/talisman4.jpg',
+        //            'level' => 5
+        //        ],
+        //        [
+        //            'name' => 'Talizman Nikeczemności',
+        //            'tag' => 'Magiczny Przedmiot',
+        //            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Przebywając w Krainie Wewnętrznej, na początku każdej swojej tury, możesz wybrać Poszukiwacza który straci 1 punkt Życia.',
+        //            'card' => Layer::CARD_TALISMAN,
+        //            'image' => './charaktery/talisman3.jpg',
+        //            'level' => 5
+        //        ],
         [
-            'name' => 'Talizman Magii',
-            'tag' => 'Magiczny Przedmiot',
-            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Zawsze musisz posiadać przynajmniej jedno Zaklęcie (za każdym razem, kiedy wykorzystasz swoje ostatnie Zaklęcie, losuje nowe).',
-            'card' => Layer::CARD_TALISMAN,
-            'image' => './charaktery/talisman7.jpg',
-            'level' => 5
+            'name' => 'Dzień Nawrócenia',
+            'tag' => 'Księżycowe Zdarzenie',
+            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Dnia.' . "\n---\n" . 'Na początku swojej tury, każdy Zły i Neutralny poszukiwacz może stać się Dobry.' . "\n---\n" . 'Odrzuć tę kartę, kiedy zapada Noc.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/grace.png',
+            'level' => 1
         ],
         [
-            'name' => 'Talizman Bogactwa',
-            'tag' => 'Magiczny Przedmiot',
-            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Na początku każdej swojej tury może otrzymać jedną Sztukę Złota.',
-            'card' => Layer::CARD_TALISMAN,
-            'image' => './charaktery/talisman6.jpg',
-            'level' => 5
+            'name' => 'Noc Zwątpienia',
+            'tag' => 'Księżycowe Zdarzenie',
+            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Nocy.' . "\n---\n" . 'Na końcu swojej tury, każdy Dobry i Neutralny poszukiwacz może stać się Zły.' . "\n---\n" . 'Odrzuć tę kartę, kiedy wstaje Dzień.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/fear.jpg',
+            'level' => 1
         ],
         [
-            'name' => 'Talizman Zachłanności',
-            'tag' => 'Magiczny Przedmiot',
-            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Za każdym razem gdy otrzymując Złoto, możesz dobrać o jedną Sztukę Złota więcej.',
-            'card' => Layer::CARD_TALISMAN,
-            'image' => './charaktery/talisman5.jpg',
-            'level' => 5
+            'name' => 'Festiwal Równowagi',
+            'tag' => 'Księżycowe Zdarzenie',
+            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Nocy.' . "\n---\n" . 'Żaden Poczukiwacz nie może zmienić Charakteru. Wszystkie efekty zmiany Charakteru należy ignorować.' . "\n---\n" . 'Odrzuć tę kartę, kiedy wstaje Dzień.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/elf_dance.jpg',
+            'level' => 1
         ],
-        [
-            'name' => 'Talizman Szczęścia',
-            'tag' => 'Magiczny Przedmiot',
-            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Na początku każdej swojej tury może odzyskać jedn punkt Losu.',
-            'card' => Layer::CARD_TALISMAN,
-            'image' => './charaktery/talisman4.jpg',
-            'level' => 5
-        ],
-        [
-            'name' => 'Talizman Nikeczemności',
-            'tag' => 'Magiczny Przedmiot',
-            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Przebywając w Krainie Wewnętrznej, na początku każdej swojej tury, możesz wybrać Poszukiwacza który straci 1 punkt Życia.',
-            'card' => Layer::CARD_TALISMAN,
-            'image' => './charaktery/talisman3.jpg',
-            'level' => 5
-        ],
-        [
-            'name' => 'Lustro Spaczenia',
-            'tag' => 'Miejsce',
-            'desc' => 'Na twojej drodze pojawiło się Lustro Spaczenia, jeżeli zdecydujesz się przez nie przejść, będziesz mógł natychmiast wykonać dodatkową turę, będziesz jednak musiał zmienić Charakter na Zły. Kiedy ktoś skożysta z Lustra Spaczenia to rozpadnie się i trafi na stos kart odrzuconych.',
-            'card' => Layer::CARD_DUNGEON,
-            'image' => './charaktery/evil_mirror.jpg',
-            'level' => 6
-        ],
+        // + przedmiot który zapobiega zmianie charakteru
+        // + przeklęty przedmiot który zapobiega zmianie charakteru
+        // + przyjaciel który zapobiega zmianie charakteru
+        // + przeklęty przyjaciel który zapobiega zmianie charakteru
         [
             'name' => 'Mikstura Amnezji',
             'caption' => 'Drobiazg',
             'tag' => 'Magiczny Przedmiot',
             'desc' => 'W dowolnej chwili, możesz odrzucić Miksturę Amnezji oraz swoją kartę Charakteru, aby wylosować nową kartę wybranego prze ciebie Charakteru.',
-            'card' => Layer::CARD_ARTEFACT,
+            'card' => Layer::CARD_POTION,
             'image' => './charaktery/potion1.jpg',
             'level' => 5
         ],
@@ -474,9 +454,61 @@ class Characters
             'level' => 5
         ],
         [
+            'name' => 'Dobry Duszek',
+            'tag' => 'Przyjaciel',
+            'desc' => 'Dobry Duszek nigdy nie przyłączy się do Złego Poszukiwacza.' . "\n---\n" . 'Ignorujesz wszelkie efekty nakazujące zmianę Charakteru na Zły lub Neutralny.',
+            'card' => Layer::CARD_WOODLAND,
+            'image' => './charaktery/pixie.jpg',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kusicielka',
+            'caption' => 'Przeklęty',
+            'tag' => 'Przyjaciel',
+            'desc' => 'Kusicielka nigdy nie przyłączy się do Złego Poszukiwacza.' . "\n---\n" . 'Pod koniec każdej tury wylosuj kartę Charakteru, możesz ją zachować odrzucając swoją aktualną kartę Charakteru. Gdy się na to zdecyujesz porzuć Kusicielkę na obszarze na którym się znajdujesz.',
+            'card' => Layer::CARD_WOODLAND,
+            'image' => './charaktery/sukkub.jpg',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_WOODLAND,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Gnieworodny Satyr',
+            'tag' => 'Wróg - Potwór',
+            'caption' => 'Siła 4',
+            'caption_type' => 2,
+            'desc' => 'Na tym obszarze grasuje Gnieworodny Satyr. Jeżeli z nim przegra, Dobry i Neutralny Poszukiwacz, oprócz utraty 1 punktu Życia będziesz musiał zmienić Charakter na zły.',
+            'card' => Layer::CARD_UNHALLOWED2,
+            'image' => './charaktery/satyr1.jpg',
+            'level' => 2
+        ],
+        [
+            'name' => 'Widzący Mędrzec',
+            'tag' => 'Przyjaciel',
+            'desc' => 'Jeżeli zakończysz ruch na obszarze na którym znajduje się inny Poszukiwacz, możesz podglądnąć jego kartę Charakteru.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/wiseman.jpg',
+            'level' => 5
+        ],
+        [
+            'name' => 'Lustro Spaczenia',
+            'tag' => 'Miejsce',
+            'desc' => 'Na twojej drodze pojawiło się Lustro Spaczenia, jeżeli zdecydujesz się przez nie przejść, będziesz mógł natychmiast wykonać dodatkową turę, będziesz jednak musiał zmienić Charakter na Zły. Kiedy ktoś skożysta z Lustra Spaczenia to rozpadnie się i trafi na stos kart odrzuconych.',
+            'card' => Layer::CARD_DUNGEON,
+            'image' => './charaktery/evil_mirror.jpg',
+            'level' => 6
+        ],
+        [
             'name' => 'Księga Charakterów',
             'tag' => 'Magiczny Przedmiot',
-            'desc' => 'Po wylosowaniu Księgi Charakterów połóż na niej 3 karty Charakteru. W dowolnym momencie, możesz odrzucić swoją kartę Charakteru i wziąść jedną kartę z Księgi Charakteru, od tej pory to będzie twój Charakter. Kiedy nie będzie już kart Charakteru na tej karcie, odrzuć ją.',
+            'desc' => 'Po wylosowaniu Księgi Charakterów połóż na niej 3 karty Charakteru, po jednej każdego typu. W dowolnym momencie, możesz odrzucić swoją kartę Charakteru i wziąść jedną kartę z Księgi Charakteru, od tej pory to będzie twój Charakter. Kiedy nie będzie już kart Charakteru na tej karcie, odrzuć ją.',
             'card' => Layer::CARD_RELICT,
             'image' => './charaktery/book2.jpg',
             'level' => 5
@@ -497,15 +529,6 @@ class Characters
             'desc' => 'Podczas walki Zatruwacz Serc dodaje 1 punkty do twojej Siły. Jeżeli pokonasz Poszukiwacza, możesz go zmusić do odrzucenia karty Charakteru i przekazać swoją kartę Charakteru. Następnie wylosuj kartę dowolnego Charakteru.',
             'card' => Layer::CARD_REMNANT,
             'image' => './charaktery/sword1.jpg',
-            'level' => 5
-        ],
-        [
-            'name' => 'Kostur Druida',
-            'caption' => 'Broń',
-            'tag' => 'Magiczny Przedmiot',
-            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
-            'card' => Layer::CARD_WOODLAND,
-            'image' => './charaktery/druid_staff.png',
             'level' => 5
         ],
         [
@@ -541,16 +564,6 @@ class Characters
             'card' => Layer::CARD_TUNEL,
             'image' => './charaktery/wraith1.jpg',
             'level' => 3
-        ],
-        [
-            'name' => 'Gnieworodny Satyr',
-            'tag' => 'Wróg - Potwór',
-            'caption' => 'Siła 1',
-            'caption_type' => 2,
-            'desc' => 'Na tym obszarze grasuje Gnieworodny Satyr. Jeżeli z nim przegra, Dobry i Neutralny Poszukiwacz, oprócz utraty 1 punktu Życia będziesz musiał zmienić Charakter na zły.',
-            'card' => Layer::CARD_UNHALLOWED2,
-            'image' => './charaktery/satyr1.jpg',
-            'level' => 2
         ],
     ];
 }
