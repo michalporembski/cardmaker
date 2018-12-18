@@ -8,7 +8,11 @@ class Characters
 {
     const BIG_CARDS = [
         [
-            'front' => './charaktery/druid.png',
+            'front' => './charaktery/character/druid.png',
+            'back' => Layer::CARD_HERO,
+        ],
+        [
+            'front' => './charaktery/character/dragon_rider.png',
             'back' => Layer::CARD_HERO,
         ],
     ];
@@ -107,7 +111,7 @@ class Characters
         [
             'name' => 'Obłudny',
             'story' => 'Oszukać naiwnych jest naprawdę prosto.',
-            'desc' => 'Przed odbyciem każdego spotkania z Poszukiwaczem, Nieznajomym bądź Mieszkańcem, możesz określić Charakter z jakim będziesz rozpatrywał to spotkanie.',
+            'desc' => 'Przed odbyciem każdego spotkania z Poszukiwaczem, Nieznajomym, Wrogiem bądź Mieszkańcem, możesz określić Charakter z jakim będziesz rozpatrywał to spotkanie.' . "\n---\n" . "Możesz zignorować efekt nakazujący zmianę Charakteru.",
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
@@ -329,30 +333,30 @@ class Characters
             'card' => Layer::CARD_SPELL,
             'image' => './charaktery/spell12.jpg',
         ],
-        [
-            'name' => 'Magiczny Archiwista',
-            'places' => ['Zamek', 'Miasto'],
-            'desc' => 'Odrzuć dowolne ze swoich Zaklęć, aby otrzymać 1 sztukę złota.',
-            'card' => Layer::CARD_DENIZEN,
-        ],
-        [
-            'name' => 'Ekscetryczny Kolekcjoner',
-            'places' => ['Zamek', 'Miasto'],
-            'desc' => 'Ekscentryczny Kolejconer oferuje ci 2 sztuki złota za każdy Magiczny Przedmiot, jeżeli przedmiot jest przeklęty dostaniesz za niego 3 sztuki złota.',
-            'card' => Layer::CARD_DENIZEN,
-        ],
-        [
-            'name' => 'Handlarz Niewolników',
-            'places' => ['Miasto', 'Gospoda', 'Wioska'],
-            'desc' => 'Handlarz Niewolników oferuje ci 1 sztukę złota za każdego Przyjaciela. Jeżeli zdecydujesz się sprzedać któregoś z przyjaciół twój Charakter zmieni się na Zły.',
-            'card' => Layer::CARD_DENIZEN,
-        ],
-        [
-            'name' => 'Ekspert od Demolki',
-            'places' => ['Miasto', 'Gospoda', 'Wioska'],
-            'desc' => 'Ekspert od Demolki za 1 sztukę złota oferuje ci usunięcie z mapy wysadzenie dowolnego miejsca w tej krainie. Jeżeli się na to zdecydujesz wybierz odkrytą kartę miejsca i usuń ją z mapy.',
-            'card' => Layer::CARD_DENIZEN,
-        ],
+//        [
+//            'name' => 'Magiczny Archiwista',
+//            'places' => ['Zamek', 'Miasto'],
+//            'desc' => 'Odrzuć dowolne ze swoich Zaklęć, aby otrzymać 1 sztukę złota.',
+//            'card' => Layer::CARD_DENIZEN,
+//        ],
+//        [
+//            'name' => 'Ekscetryczny Kolekcjoner',
+//            'places' => ['Zamek', 'Miasto'],
+//            'desc' => 'Ekscentryczny Kolejconer oferuje ci 2 sztuki złota za każdy Magiczny Przedmiot, jeżeli przedmiot jest przeklęty dostaniesz za niego 3 sztuki złota.',
+//            'card' => Layer::CARD_DENIZEN,
+//        ],
+//        [
+//            'name' => 'Handlarz Niewolników',
+//            'places' => ['Miasto', 'Gospoda', 'Wioska'],
+//            'desc' => 'Handlarz Niewolników oferuje ci 1 sztukę złota za każdego Przyjaciela. Jeżeli zdecydujesz się sprzedać któregoś z przyjaciół twój Charakter zmieni się na Zły.',
+//            'card' => Layer::CARD_DENIZEN,
+//        ],
+//        [
+//            'name' => 'Ekspert od Demolki',
+//            'places' => ['Miasto', 'Gospoda', 'Wioska'],
+//            'desc' => 'Ekspert od Demolki za 1 sztukę złota oferuje ci usunięcie z mapy wysadzenie dowolnego miejsca w tej krainie. Jeżeli się na to zdecydujesz wybierz odkrytą kartę miejsca i usuń ją z mapy.',
+//            'card' => Layer::CARD_DENIZEN,
+//        ],
         [
             'name' => 'Jasnowidz',
             'places' => ['Zamek', 'Miasto', 'Wioska'],
@@ -435,6 +439,7 @@ class Characters
         // + przeklęty przedmiot który zapobiega zmianie charakteru
         // + przyjaciel który zapobiega zmianie charakteru
         // + przeklęty przyjaciel który zapobiega zmianie charakteru
+        // księżycowe zdarzenie które zabierze neutralnym graczą punkt życia
         [
             'name' => 'Mikstura Amnezji',
             'caption' => 'Drobiazg',
@@ -568,7 +573,7 @@ class Characters
     ];
 }
 
-/* druid:
+/* Druid:
 Rozpoczynasz grę posiadając jedno Zaklęcie.
 
 W dowolnym momencie możesz odrzucić
@@ -578,6 +583,15 @@ Kiedy znajdziesz się na obszarze Puszczy,
 możesz dobrać tyle Zaklęć, na ile pozwala
 ci wartość twojej Mocy.
 
+Smocza Amazonka:
+
+Za każdym razem, kiedy wdajesz się
+w walkę lub walkę psychiczną ze Smokiem,
+dodaj 3 do swojego rzutu ataku.
+
+Jeżeli pokonasz Smoka, możesz go dosiąść
+zamiast zachować go jako trofeum
+możesz dobrać kartę Smoka z tali Stajni
 
 1. Przygotowanie:
 Przed rozpoczęciem rozgrywki, po wylosowaniu postaci każdy gracz dobiera 2 karty charakteru odpowiadające charakterowi jego postaci. Musi wybrać z pośród nich jedną, drugą zaś odrzucić. Wylosowaną kartę zachować rewersem do góry. Gracz nie ujawnia zdolności wynikającej z jego charakteru.
