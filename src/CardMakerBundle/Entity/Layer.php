@@ -148,6 +148,7 @@ class Layer
         self::CARD_WOODLAND => './resources/backs/small/woodland.png',
         self::CARD_POTION => './resources/backs/small/potion.png',
         self::CARD_REMNANT => './resources/backs/small/remnant.png',
+        // big cards
         self::CARD_HERO => './resources/backs/big/character.png',
     ];
 }

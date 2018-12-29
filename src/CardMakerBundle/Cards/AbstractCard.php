@@ -73,11 +73,11 @@ abstract class AbstractCard
     protected $gdPrinter;
 
     /**
-     * @param null $name
+     * @param null $path
      *
      * @return null|string
      */
-    public function render($name = null)
+    public function render($path = null)
     {
         if ($this->displayImage) {
             $this->gdPrinter = new GdPrinter(
@@ -101,7 +101,7 @@ abstract class AbstractCard
         $this->gdPrinter->centerText($this->textTag, $this->tagHeight, $this->textTagSize, 'n');
         $this->writeCardText();
 
-        return $this->gdPrinter->render($name);
+        return $this->gdPrinter->render($path);
     }
 
     /**

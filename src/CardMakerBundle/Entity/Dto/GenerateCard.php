@@ -57,9 +57,19 @@ class GenerateCard
     private $story;
 
     /**
-     * @var int|null
+     * @var string[]
      */
-    private $layoutSize;
+    private $places;
+
+    /**
+     * @var string|null
+     */
+    private $image;
+
+    //    /**
+    //     * @var string|null
+    //     */
+    //    private $imageUrl;
 
     /**
      * @var int|null
@@ -67,24 +77,16 @@ class GenerateCard
     private $textSize;
 
     /**
-     * @var string|null
+     * Template type: auto/short text/long text
+     *
+     * @var int|null
      */
-    private $image;
-
-    /**
-     * @var string|null
-     */
-    private $imageUrl;
+    private $layoutSize;
 
     /**
      * @var bool
      */
     private $save = false;
-
-    /**
-     * @var string[]
-     */
-    private $places;
 
     /**
      * @return int|null
@@ -278,21 +280,21 @@ class GenerateCard
         $this->image = $image;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getImageUrl()
-    {
-        return $this->imageUrl;
-    }
-
-    /**
-     * @param null|string $imageUrl
-     */
-    public function setImageUrl($imageUrl)
-    {
-        $this->imageUrl = $imageUrl;
-    }
+    //    /**
+    //     * @return null|string
+    //     */
+    //    public function getImageUrl()
+    //    {
+    //        return $this->imageUrl;
+    //    }
+    //
+    //    /**
+    //     * @param null|string $imageUrl
+    //     */
+    //    public function setImageUrl($imageUrl)
+    //    {
+    //        $this->imageUrl = $imageUrl;
+    //    }
 
     /**
      * @return bool
@@ -324,5 +326,25 @@ class GenerateCard
     public function getPlaces(): array
     {
         return $this->places;
+    }
+
+    public function getCardData(): array
+    {
+        return [
+            $this->layer,
+            $this->mode,
+            $this->title,
+            $this->tag,
+            $this->captionType,
+            $this->caption,
+            $this->level,
+            $this->text,
+            $this->story,
+            $this->places,
+            $this->image,
+            //     $this->imageUrl,
+            $this->textSize,
+            $this->layoutSize
+        ];
     }
 }

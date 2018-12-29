@@ -66,14 +66,13 @@ class GdPrinter
     }
 
     /**
-     * @param $name
+     * @param $path
      *
      * @return null|string
      */
-    public function render($name)
+    public function render($path)
     {
-        if ($name) {
-            $path = './generated/' . $name . '.png';
+        if ($path) {
             imagepng($this->gdResource, $path);
         } else {
             header('Content-Type: image/png');

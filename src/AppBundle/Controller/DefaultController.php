@@ -215,6 +215,7 @@ class DefaultController extends Controller
             ' aby ' => ', aby ',
             // mylone zwroty
             'dowolnej walki' => 'jakiejkolwiek walki',
+            ' zyskujesz punkt' => ' otrzymujesz punkt',
             // słowa pisane z dużej litery
             ' siły' => ' Siły',
             ' siła' => ' Siła',

@@ -84,6 +84,10 @@ class CardGenerate
      */
     public function handle(GenerateCard $generateCardCommand)
     {
+        $path = $this->getCardPath($this->buildCardHash($generateCardCommand));
+        if (file_exists($path)) {
+            return $path;
+        }
         $layoutSize = $this->getLayoutSize($generateCardCommand);
         $card = $this->getCardObject($generateCardCommand->getLayer(), $layoutSize);
 
@@ -107,10 +111,7 @@ class CardGenerate
             $card->setImage($generateCardCommand->getImage());
         }
 
-        $name = $this->buildCardHash($generateCardCommand);
-
-        // TODO: check if card does not exist - if exists then skip
-        return $card->render($name);
+        return $card->render($path);
     }
 
     /**
@@ -120,18 +121,29 @@ class CardGenerate
      */
     protected function buildCardHash(GenerateCard $generateCardCommand)
     {
+        // TODO: we should support package generation, that would place cards of each deck in separate folder
         if (!$generateCardCommand->isSave()) {
             return null;
         }
+        $name = $generateCardCommand->getLayer() .
+            '_' . substr($generateCardCommand->getTitle(), 0, 20) .
+            '_' . substr(base_convert(md5(json_encode($generateCardCommand->getCardData())),16,36), 0, 5);
 
-        // TODO: use all order fields
-        return md5(json_encode(
-            [
-                'name' => $generateCardCommand->getTitle(),
-                'cap' => $generateCardCommand->getCaption(),
-                'layer' => $generateCardCommand->getLayer()
-            ]
-        ));
+        return $name;
+    }
+
+    /**
+     * @param string|null $name
+     *
+     * @return string|null
+     */
+    protected function getCardPath($name)
+    {
+        if (!$name) {
+            return null;
+        }
+
+        return './generated/' . $name . '.png';
     }
 
     /**
