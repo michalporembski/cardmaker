@@ -62,6 +62,57 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/karaktery_i", name="karaktery_i")
+     */
+    public function karakteryInstructionAction(Request $request)
+    {
+        $text = '1. Przygotowanie:
+Przed rozpoczęciem rozgrywki, z gry należy usunąć wszelkie karty pozwalające na zmianę charakteru w dowolnym momencie,
+bez ograniczeń. Do takich kart należy Poszukiwacz Druid, oraz karta Przygody Kostur Druida.
+Po wylosowaniu postaci każdy gracz dobiera 3 karty charakteru odpowiadające charakterowi jego postaci. Musi wybrać z 
+pośród nich jedną, drugą zaś odrzucić. Wylosowaną kartę zachować rewersem do góry. Gracz nie ujawnia zdolności 
+wynikającej z jego charakteru.
+2. Ujawnienie Charakteru:
+W momencie gdy gracz będzie chciał skorzystać z umiejętności wynikającej z karty charakteru musi odwrócić tę kartę 
+ujawniając ją. Od tej pory wszyscy gracze znają jego charakter. Należy pamiętać o tym że niektóre karty charakteru dają 
+jednorazowy efekt, oraz o tym że niektóre karty charakteru nakładają ograniczenie na gracza. Ograniczenia działać będą 
+dopiero po ujawnieniu karty charakteru.
+3. Zmiana Charakteru:
+Gdy gracz będzie musiał zmienić Charakter losuje on nową kartę Charakteru, poprzednią zaś odrzuca. W sytuacji gdy 
+pozostali gracze wiedzą jaką kartę charakteru otrzymuje gracz, musi on odrazu ujawnić swoją kartę charakteru.
+Przykład: Złodziej nie ujawnił jeszcze swojej karty charakteru. Złodziej rzuca zaklęcie Zamiana Dusz na Wojownika 
+który już wcześniej ujawnił swoj charakter. Złodziej otrzymuje kartę Charakteru wojownika i odrazu musi ją ujawnić, 
+zaś Wojownik otrzymuje kartę charakteru Złodzieja, która w dalszym ciągu pozostanie nie jawna dla pozostałych graczy.
+4. Zmiana Charakteru na taki sam:
+W niektórych sytuacjach, jakiś efekt może nakazywać Poszukiwaczowi zmianą Charakteru na Charakter tej samej 
+przynależności. Wtedy gracz może zdecydować czy chcę wymienić kartę charakteru, czy ją zachować. Jedynym wyjątkiem od 
+tej reguły są sytuacje w których graczowi zostało nakazanę odrzucić, lub przekazać innemu graczowi swoją kartę 
+charakteru.
+Przykład:
+Mroczna Kultyska rzuca zaklęcie Zamiana Dusz na Niebiańską Istotę. Niebiańska Istota odrzuca swoją aktualną kartę 
+charakteru, (gdyż Mroczna Kultystka nie może jej zachować) dobiera nową i traci punkt Życia. Mroczna Kultystka też 
+odrzuca swoją kartę charakteru (gdyż Niebiańska Istota nie może jej zachować) i dobiera nową kartę złego Charakteru.
+5. Aury:
+W dodatku pojawiają się zaklęcia oznaczone jako aury. Należy je stosować tylko i wyłącznie z innymi dodatkami które 
+używają zaklęć tak oznaczonych.
+6. Interakcje z innymi dodatkami:
+Dodatek został zaprojektowany tak, aby współpracować z innymi dodatkami, jednak w przypadku niejednoznacznych sytuacji, 
+wszelkie niedomówienia w zasadach należy rozwiązywać głośnym krzykiem, zawszę stosując zasadę iż ten kto głośniej 
+krzyczy musi mieć racje.
+7. Opracowanie
+Pomysł i wykonanie: MjhaL
+Szablony: Arthan & Bluedogon
+Korekta i Testy: Pablo, Mrówa
+Pozostałe Grafiki: inni';
+        $cardGenerator = $this->get('cardmaker.handler.card_generate');
+        $command = new GenerateCard();
+        $command->setText($this->removeOrphans($text));
+        $command->setLayer(Layer::CARD_INFO);
+        $img = $cardGenerator->handle($command);
+        var_dump($img);
+    }
+
+    /**
      * @Route("/karaktery-validate", name="karaktery_validate")
      */
     public function karakteryValidateAction(Request $request)

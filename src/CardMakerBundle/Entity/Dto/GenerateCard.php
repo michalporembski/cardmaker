@@ -59,7 +59,7 @@ class GenerateCard
     /**
      * @var string[]
      */
-    private $places;
+    private $places = [];
 
     /**
      * @var string|null

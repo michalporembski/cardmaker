@@ -15,9 +15,11 @@ class SheetPrinter
 
     const CARD_HEIGHT = 62.2;
 
-    const CARD_SPACE = 2.2;
+    const CARD_SPACE = 3;
 
     const CARD_TOP = 5;
+
+    const CARD_LEFT = 18;
 
     const CARD_B_WIDTH = 128;
 
@@ -58,7 +60,7 @@ class SheetPrinter
     {
         $pdf = $this->preparePDF();
 
-        $sheets = array_chunk($this->smallCards,21);
+        $sheets = array_chunk($this->smallCards,18);
         foreach($sheets as $sheet) {
             !empty($sheet) && $this->printSmallCardSheet($sheet, $pdf);
         }
@@ -106,9 +108,9 @@ class SheetPrinter
             'phase' => 10,
             'color' => [100, 100, 100]
         ];
-        for ($i = 0; $i < 8; $i++) {
-            $pdf->Line(self::CARD_SPACE / 2 + $i * (self::CARD_WIDTH + self::CARD_SPACE), 0,
-                self::CARD_SPACE / 2 + $i * (self::CARD_WIDTH + self::CARD_SPACE),
+        for ($i = 0; $i < 7; $i++) {
+            $pdf->Line(self::CARD_LEFT - self::CARD_SPACE / 2 + $i * (self::CARD_WIDTH + self::CARD_SPACE), 0,
+                self::CARD_LEFT - self::CARD_SPACE / 2 + $i * (self::CARD_WIDTH + self::CARD_SPACE),
                 200, $style);
         }
         for ($j = 0; $j < 4; $j++) {
@@ -128,11 +130,11 @@ class SheetPrinter
         $this->printSmallCardLines($pdf);
         $k = 0;
         for ($j = 0; $j < 3; $j++) {
-            for ($i = 0; $i < 7; $i++) {
+            for ($i = 0; $i <= 5; $i++) {
                 if (isset($files[$k])) {
                     $pdf->Image(
                         $files[$k]['front'],
-                        self::CARD_SPACE + $i * (self::CARD_WIDTH + self::CARD_SPACE),
+                        self::CARD_LEFT + $i * (self::CARD_WIDTH + self::CARD_SPACE),
                         self::CARD_TOP + self::CARD_SPACE + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
                         self::CARD_WIDTH,
                         self::CARD_HEIGHT,
@@ -156,11 +158,11 @@ class SheetPrinter
         $pdf->AddPage();
         $k = 0;
         for ($j = 0; $j < 3; $j++) {
-            for ($i = 6; $i >= 0; $i--) {
+            for ($i = 5; $i >= 0; $i--) {
                 if (isset($files[$k])) {
                     $pdf->Image(
                         $files[$k]['back'],
-                        self::CARD_SPACE + $i * (self::CARD_WIDTH + self::CARD_SPACE),
+                        self::CARD_LEFT + $i * (self::CARD_WIDTH + self::CARD_SPACE),
                         self::CARD_TOP + self::CARD_SPACE + $j * (self::CARD_HEIGHT + self::CARD_SPACE),
                         self::CARD_WIDTH,
                         self::CARD_HEIGHT,

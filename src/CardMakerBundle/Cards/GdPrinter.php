@@ -9,9 +9,8 @@ namespace CardMakerBundle\Cards;
  */
 class GdPrinter
 {
-    const CARD_WIDTH = 465;
-
-    const CARD_HEIGHT = 730;
+    protected $cardWidth;
+    protected $cardHeight;
 
     protected $layerFile;
 
@@ -51,11 +50,15 @@ class GdPrinter
         $imageAreaStartX = null,
         $imageAreaStartY = null,
         $imageAreaWidth = null,
-        $imageAreaHeight = null
+        $imageAreaHeight = null,
+        $cardWidth = null,
+        $cardHeight = null
     ) {
+        $this->cardWidth = $cardWidth;
+        $this->cardHeight = $cardHeight;
         $this->layerFile = $layerFile;
         $this->image = $image;
-        $this->gdResource = imagecreatetruecolor(self::CARD_WIDTH, self::CARD_HEIGHT);
+        $this->gdResource = imagecreatetruecolor($this->cardWidth, $this->cardHeight);
         $this->textColor = imagecolorallocate($this->gdResource, 0, 0, 0);
         $this->textColorWhite = imagecolorallocate($this->gdResource, 255, 255, 255);
         imagefill($this->gdResource, 0, 0, $this->textColorWhite);
@@ -129,7 +132,7 @@ class GdPrinter
     {
         $color = $white ? $this->textColorWhite : $this->textColor;
         $textWidth = $this->getTextWidth($size, $font, $text);
-        $writeStart = floor((self::CARD_WIDTH - $textWidth) / 2) + $offset;
+        $writeStart = floor(($this->cardWidth - $textWidth) / 2) + $offset;
 
         imagettftext($this->gdResource, $size, 0, $writeStart, $height, $color, $this->fonts[$font], $text);
     }
@@ -138,9 +141,9 @@ class GdPrinter
     {
         imageline(
             $this->gdResource,
-            self::CARD_WIDTH / 5,
+            $this->cardWidth / 5,
             $height,
-            4 * self::CARD_WIDTH / 5,
+            4 * $this->cardWidth / 5,
             $height,
             $this->textColor
         );
@@ -210,8 +213,32 @@ class GdPrinter
         } else {
             throw new \Exception('unknown format');
         }
-        imagecopyresized($this->gdResource, $cardImage, $imageAreaStartX, $imageAreaStartY, 0, 0, $imageAreaWidth,
-            $imageAreaHeight, $src2w, $src2h);
+
+        if($imageAreaWidth/$imageAreaHeight > $src2w/$src2h){
+            $src2hNew = $src2w * $imageAreaHeight/$imageAreaWidth;
+            $srcX = 0;
+            $srcY = ($src2h-$src2hNew)/2;
+            $src2h = $src2hNew;
+
+        }else{
+            $src2wNew = $src2h * $imageAreaWidth/$imageAreaHeight;
+            $srcX = ($src2w-$src2wNew)/2;
+            $srcY = 0;
+            $src2w = $src2wNew;
+        }
+
+        imagecopyresized(
+            $this->gdResource,
+            $cardImage,
+            $imageAreaStartX,
+            $imageAreaStartY,
+            $srcX,
+            $srcY,
+            $imageAreaWidth,
+            $imageAreaHeight,
+            $src2w,
+            $src2h
+        );
         imagedestroy($cardImage);
     }
 
@@ -223,11 +250,11 @@ class GdPrinter
         list($src2w, $src2h, $type, $attr) = getimagesize($this->getLayerFile());
         $cardLayer = imagecreatefrompng($this->getLayerFile());
         if ($src2w < 260) {
-            imagecopyresized($this->gdResource, $cardLayer, (2 * $src2w - self::CARD_WIDTH) / -2,
-                (2 * $src2h - self::CARD_HEIGHT) / -2, 0, 0, 2 * $src2w, 2 * $src2h, $src2w, $src2h);
+            imagecopyresized($this->gdResource, $cardLayer, (2 * $src2w - $this->cardWidth) / -2,
+                (2 * $src2h - $this->cardHeight) / -2, 0, 0, 2 * $src2w, 2 * $src2h, $src2w, $src2h);
         } else {
-            imagecopy($this->gdResource, $cardLayer, ($src2w - self::CARD_WIDTH) / -2,
-                ($src2h - self::CARD_HEIGHT) / -2, 0, 0, $src2w, $src2h);
+            imagecopy($this->gdResource, $cardLayer, ($src2w - $this->cardWidth) / -2,
+                ($src2h - $this->cardHeight) / -2, 0, 0, $src2w, $src2h);
         }
         imagedestroy($cardLayer);
     }

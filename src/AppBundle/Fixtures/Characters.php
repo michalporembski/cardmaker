@@ -103,94 +103,10 @@ class Characters
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
-            'name' => 'Obłudny',
-            'story' => 'Oszukać naiwnych jest naprawdę prosto.',
-            'desc' => 'Przed odbyciem każdego spotkania z Poszukiwaczem, Nieznajomym, Wrogiem bądź Mieszkańcem, możesz określić Charakter z jakim będziesz rozpatrywał to spotkanie.' . "\n---\n" . "Możesz zignorować efekt nakazujący zmianę Charakteru.",
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Sadystyczny',
-            'story' => 'Ludzie nie doceniają radości jaką niesie wsłuchiwanie się w ludzkie cierpienie.',
-            'desc' => 'Za każdym razem gdy odbierzesz innemu Poszukiwaczowi punkt Życia, możesz odzyskać punkt ciemnej strony Losu.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Zepsuty',
-            'story' => 'Każde życie ma wielką moc. A Ty potrafisz wydobyć tę moc.',
-            'desc' => 'Na początku swojej tury, możesz odprawić rytuał. Odrzuć wtedy wybranego Przyjaciela i wylosuj Zaklęcie o ile pozwala ci na to Moc.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Haniebny',
-            'story' => 'Cel uświęca środki.',
-            'desc' => 'Gdy inny Poszukiwacz będzie miał wykonać rzut jedną kością, możesz zdecydować się odrzucić punkt ciemnej strony Losu, musi on wtedy rzuć dwoma kośćmi, a ty wybierasz wynik.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Nieuczciwy',
-            'story' => 'Zdrada nie jest Ci obca.',
-            'desc' => 'Ujawniając Charakter, odzyskujesz wszystkie punkty Losu.' . "\n---\n" . 'Gdy wykorzystujesz punkt ciemnej strony Losu, możesz przerzucić dowolną ilość kości.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Żądny Mocy',
-            'story' => 'Tylko moc, i nic więcej.',
-            'desc' => 'Ujawniając Charakter, możesz odrzucić 2 punkty Życia, aby otrzymać punkt Mocy.' . "\n---\n" . 'W walce psychicznej dodaj 1 do skuteczności swojego ataku.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Żądny Magii',
-            'story' => 'Dla niej możesz przekląć samego siebie.',
-            'desc' => 'Ujawniając Charakter, limit posiadanych przez Ciebie Zaklęć zostanie zwiększony o 1, musisz jednak odrzucić 2 punkty Losu lub Życia.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Szyderczy',
-            'story' => 'Słabsi się nie liczą.',
-            'desc' => 'Podczas jakiejkolwiek walki, możesz zdecydować się zakpić sobie z wroga, rzuć wtedy dwoma kośćmi i wybierz mniejszy wynik. To będzie twoja premia do skuteczności ataku. Jeżeli wygrasz walkę odzyskasz punkt ciemnej strony Losu. W takiej walce nie możesz użyć Losu.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Okrutny',
-            'story' => 'Wiesz dobrze jak ranić innych.',
-            'desc' => 'Gdy pokonasz Poszukiwacza w jakiejkolwiek walce, możesz odebrać mu 2 punkty Życia zamiast jednego.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Chciwy',
-            'story' => 'Złoto to zawsze najlepsza nagroda.',
-            'desc' => 'Gdy pokonasz w jakiejkolwiek walce innego Poszukiwacza i zdecydujesz się odebrać mu Przedmiot, możesz też odebrać mu 1 sztukę złota.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Pamiętliwy',
-            'story' => 'Przeklinam was wszystkich!',
-            'desc' => 'Gdy zostaniesz pokonany w jakiejkolwiek walce przez innego Poszukiwacza, musi on odrzucić punkt Losu.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Złorzeczący',
-            'story' => 'Poświęcisz wiele, aby zobaczyć nieszczęście innych!',
-            'desc' => 'Gdy inny Poszukiwacz będzie chciał odrzucić punkt Losu, aby ponowić rzut kością, możesz odrzucić punkt Mocy i Losu, aby temu zapobiec.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Wściekły',
-            'story' => 'Zarżnąć ich!',
-            'desc' => 'Podczas walki, po wykonaniu rzutu, możesz odrzucić punkt Życia, aby do swojej skuteczności dodać 2.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Mizantropiczny',
-            'story' => 'Wszyscy zasługują na śmierć.',
-            'desc' => 'Odbywając spotkanie z Nieznajomym, możesz potraktować jego kartę jakby był Wrogiem o Sile 0. Rzuć trzema kośćmi, aby określić skuteczność ataku Nieznajomego. Jeżeli wygrasz, a skuteczność ataku Nieznajomego osiągnie 10, jako nagrodę otrzymasz punkt Siły.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
-        [
-            'name' => 'Zachłanny',
-            'story' => 'Zawsze chcesz posiadać więcej!',
-            'desc' => 'Za każdym razem gdy badasz obszar zawierający jakieś Przedmioty, te posiadają numer spotkania 1.' . "\n---\n" . 'Możesz nieść o 1 przedmiot więcej.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
+            'name' => 'Ambitny',
+            'story' => 'Zawsze chcesz zwyciężać, nigdy jednak nie posuniesz się do przeklinania swych wrogów.',
+            'desc' => 'Ujawniając Charakter otrzymujesz 2 punkty Losu.' . "\n---\n" . 'Każdy twój rzut kością, możesz przerzucić drugi raz za pomocą Losu. Nie możesz używać ciemnej strony Losu. Wszystkie posiadane punkty Losu musisz przewracać na jasną stronę.',
+            'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
             'name' => 'Nieufny',
@@ -200,7 +116,7 @@ class Characters
         ],
         [
             'name' => 'Tchórzliwy',
-            'story' => 'Dorze jest być odważnym, ale jeszcze lepiej być żywym.',
+            'story' => 'Dobrze jest być odważnym, ale jeszcze lepiej być żywym.',
             'desc' => 'Ujawniając Charakteru, przed walką, możesz się wymknąć.' . "\n---\n" . 'Przed każdą walką, możesz spróbować uciec. Rzuć kością, jeżeli uzyskasz 5 lub 6 uda ci się.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
@@ -208,12 +124,6 @@ class Characters
             'name' => 'Chaotyczny',
             'story' => 'Nawet niebiosa nie wiedzą, jak Cię ocenić.',
             'desc' => 'Na początku każdej tury, możesz odzyskać punkt Losu. Nie, możesz używać punktów jasnej strony Losu, ale, możesz je odrzucać.',
-            'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
-        ],
-        [
-            'name' => 'Ambitny',
-            'story' => 'Zawsze chcesz zwyciężać, nigdy jednak nie posuniesz się do przeklinania swych wrogów.',
-            'desc' => 'Ujawniając Charakter otrzymujesz 2 punkty Losu.' . "\n---\n" . 'Każdy twój rzut kością, możesz przerzucić drugi raz za pomocą Losu. Nie możesz używać ciemnej strony Losu. Wszystkie posiadane punkty Losu musisz przewracać na jasną stronę.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [
@@ -289,6 +199,102 @@ class Characters
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [
+            'name' => 'Zachłanny',
+            'story' => 'Zawsze chcesz posiadać więcej!',
+            'desc' => 'Za każdym razem gdy badasz obszar zawierający jakieś Przedmioty, te posiadają numer spotkania 1.' . "\n---\n" . 'Możesz nieść o 1 przedmiot więcej.',
+            'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
+        ],
+        [
+            'name' => 'Obłudny',
+            'story' => 'Oszukać naiwnych jest naprawdę prosto.',
+            'desc' => 'Przed odbyciem każdego spotkania z Poszukiwaczem, Nieznajomym, Wrogiem bądź Mieszkańcem, możesz określić Charakter z jakim będziesz rozpatrywał to spotkanie.' . "\n---\n" . "Możesz zignorować efekt nakazujący zmianę Charakteru.",
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Sadystyczny',
+            'story' => 'Ludzie nie doceniają radości jaką niesie wsłuchiwanie się w ludzkie cierpienie.',
+            'desc' => 'Za każdym razem gdy odbierzesz innemu Poszukiwaczowi punkt Życia, możesz odzyskać punkt ciemnej strony Losu.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Zepsuty',
+            'story' => 'Każde życie ma wielką moc. A Ty potrafisz wydobyć tę moc.',
+            'desc' => 'Na początku swojej tury, możesz odprawić rytuał. Odrzuć wtedy wybranego Przyjaciela i wylosuj Zaklęcie o ile pozwala ci na to Moc.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Haniebny',
+            'story' => 'Cel uświęca środki.',
+            'desc' => 'Gdy inny Poszukiwacz będzie miał wykonać rzut jedną kością, możesz zdecydować się odrzucić punkt ciemnej strony Losu, musi on wtedy rzuć dwoma kośćmi, a ty wybierasz wynik.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Nieuczciwy',
+            'story' => 'Szczęście szybko opuszcza twoich wrogów.',
+            'desc' => 'Ujawniając Charakter, odzyskujesz wszystkie punkty Losu.' . "\n---\n" . 'Gdy wykorzystujesz punkt ciemnej strony Losu, możesz przerzucić dowolną ilość nie swoich kości.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Zdradliwy',
+            'story' => 'Zdrada nie jest Ci obca.',
+            'desc' => 'Gdy wykorzystujesz punkt jasnej strony Losu, możesz przerzucić nie swoją kość.' . "\n---\n" . 'Nigdy nie możesz otrzymać bądź odzyskać więcej niż 1 punkt Losu.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Żądny Mocy',
+            'story' => 'Tylko moc, i nic więcej.',
+            'desc' => 'Ujawniając Charakter, możesz odrzucić 2 punkty Życia, aby otrzymać punkt Mocy.' . "\n---\n" . 'W walce psychicznej dodaj 1 do skuteczności swojego ataku.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Żądny Magii',
+            'story' => 'Dla niej możesz przekląć samego siebie.',
+            'desc' => 'Ujawniając Charakter, limit posiadanych przez Ciebie Zaklęć zostanie zwiększony o 1, musisz jednak odrzucić 2 punkty Losu lub Życia.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Szyderczy',
+            'story' => 'Słabsi się nie liczą.',
+            'desc' => 'Podczas jakiejkolwiek walki, możesz zdecydować się zakpić sobie z wroga, rzuć wtedy dwoma kośćmi i wybierz mniejszy wynik. To będzie twoja premia do skuteczności ataku. Jeżeli wygrasz walkę odzyskasz punkt ciemnej strony Losu. W takiej walce nie możesz użyć Losu.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Okrutny',
+            'story' => 'Wiesz dobrze jak ranić innych.',
+            'desc' => 'Gdy pokonasz Poszukiwacza w jakiejkolwiek walce, możesz odebrać mu 2 punkty Życia zamiast jednego.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Chciwy',
+            'story' => 'Złoto to zawsze najlepsza nagroda.',
+            'desc' => 'Gdy pokonasz w jakiejkolwiek walce innego Poszukiwacza i zdecydujesz się odebrać mu Przedmiot, możesz też odebrać mu 1 sztukę złota.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Pamiętliwy',
+            'story' => 'Przeklinam was wszystkich!',
+            'desc' => 'Gdy zostaniesz pokonany w jakiejkolwiek walce przez innego Poszukiwacza, musi on odrzucić punkt Losu.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Złorzeczący',
+            'story' => 'Poświęcisz wiele, aby zobaczyć nieszczęście innych!',
+            'desc' => 'Gdy inny Poszukiwacz będzie chciał odrzucić punkt Losu, aby ponowić rzut kością, możesz odrzucić punkt Mocy i Losu, aby temu zapobiec.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Wściekły',
+            'story' => 'Zarżnąć ich!',
+            'desc' => 'Podczas walki, po wykonaniu rzutu, możesz odrzucić punkt Życia, aby do swojej skuteczności dodać 2.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Mizantropiczny',
+            'story' => 'Wszyscy zasługują na śmierć.',
+            'desc' => 'Odbywając spotkanie z Nieznajomym, możesz potraktować jego kartę jakby był Wrogiem o Sile 0. Rzuć trzema kośćmi, aby określić skuteczność ataku Nieznajomego. Jeżeli wygrasz, a skuteczność ataku Nieznajomego osiągnie 10, jako nagrodę otrzymasz punkt Siły.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
             'name' => 'Przeszywające Widzenie',
             'tag' => 'Zaklęcie',
             'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Podglądnij jego Zaklęcia i kartę Charakteru.',
@@ -337,8 +343,10 @@ class Characters
             'tag' => 'Zaklęcie',
             'desc' => 'Możesz rzucić to Zaklęcie w trakcie działania dowolnego Zdarzenia. Efekt Zdażenia zostanie wydłużony o jedną turę.',
             'card' => Layer::CARD_SPELL,
-            'image' => './charaktery/spell12.jpg',
+            'image' => './charaktery/spell17.jpg',
         ],
+        // małpowanie czary
+        // podpalenie +explozja
         [
             'name' => 'Magiczny Archiwista',
             'places' => ['Zamek', 'Miasto'],
@@ -430,7 +438,7 @@ class Characters
             'tag' => 'Księżycowe Zdarzenie',
             'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Dnia.' . "\n---\n" . 'Na początku swojej tury, każdy Neutralny poszukiwacz może stać się Dobry lub zły. W przeciwnym wypadku musi odrzucić punkt Życia, Losu, przedmiot lub 1 Sztukę Złota.' . "\n---\n" . 'Odrzuć tę kartę, kiedy zapada Noc.',
             'card' => Layer::CARD_ADVENTURES,
-            'image' => './charaktery/war2.jpg',
+            'image' => './charaktery/battle2.jpg',
             'level' => 1
         ],
         [
@@ -438,7 +446,7 @@ class Characters
             'tag' => 'Księżycowe Zdarzenie',
             'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Dnia.' . "\n---\n" . 'Po wykonaniu ruchu, każdy Dobry poszukiwacz musi przenieść na obszar na którym się znajduje najbliższego wroga.' . "\n---\n" . 'Odrzuć tę kartę, kiedy zapada Noc.',
             'card' => Layer::CARD_ADVENTURES,
-            'image' => './charaktery/war.jpg',
+            'image' => './charaktery/war1b.jpg',
             'level' => 1
         ],
         [
@@ -454,7 +462,7 @@ class Characters
             'tag' => 'Księżycowe Zdarzenie',
             'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Nocy.' . "\n---\n" . 'Żaden Poczukiwacz nie może zmienić Charakteru. Wszystkie efekty zmiany Charakteru należy ignorować.' . "\n---\n" . 'Odrzuć tę kartę, kiedy wstaje Dzień.',
             'card' => Layer::CARD_ADVENTURES,
-            'image' => './charaktery/elf_dance.jpg',
+            'image' => './charaktery/fire_dance.jpg',
             'level' => 1
         ],
         // + przedmiot który zapobiega zmianie charakteru
@@ -494,7 +502,7 @@ class Characters
             'tag' => 'Przyjaciel',
             'desc' => 'Kusicielka nigdy nie przyłączy się do Złego Poszukiwacza.' . "\n---\n" . 'Pod koniec każdej tury wylosuj kartę Charakteru, możesz ją zachować odrzucając swoją aktualną kartę Charakteru. Gdy się na to zdecyujesz porzuć Kusicielkę na obszarze na którym się znajdujesz.',
             'card' => Layer::CARD_WOODLAND,
-            'image' => './charaktery/sukkub.jpg',
+            'image' => './charaktery/sukkub2.jpg',
             'level' => 5
         ],
         [
@@ -583,11 +591,11 @@ class Characters
             'level' => 4
         ],
         [
-            'name' => 'Widzący Duch',
+            'name' => 'Widząca Wiedźma',
             'tag' => 'Nieznajomy',
-            'desc' => 'Napotkałeś Ducha który przjżał cię na wskroś. Ujawnij swoją kartę Charakteru lub odrzuć punkt Życia. Następnie Widzący Duch udaje się na stos kart odrzuconych.',
+            'desc' => 'Napotkałeś Widzącą Wiedźme która przjżała cię na wskroś. Ujawnij swoją kartę Charakteru lub odrzuć punkt Życia. Następnie Widząca Wiedźma udaje się na stos kart odrzuconych.',
             'card' => Layer::CARD_BRIDGE,
-            'image' => './charaktery/ghost1.jpg',
+            'image' => './charaktery/ghost_seer.jpg',
             'level' => 4
         ],
         [
@@ -624,17 +632,36 @@ zamiast zachować go jako trofeum
 możesz dobrać kartę Smoka z tali Stajni
 
 1. Przygotowanie:
-Przed rozpoczęciem rozgrywki, po wylosowaniu postaci każdy gracz dobiera 2 karty charakteru odpowiadające charakterowi jego postaci. Musi wybrać z pośród nich jedną, drugą zaś odrzucić. Wylosowaną kartę zachować rewersem do góry. Gracz nie ujawnia zdolności wynikającej z jego charakteru.
+Przed rozpoczęciem rozgrywki, z gry należy usunąć wszelkie karty pozwalające na zmianę charakteru w dowolnym momencie, bez ograniczeń. Do takich kart należy Poszukiwacz Druid, oraz karta Przygody Kostur Druida.
+
+Po wylosowaniu postaci każdy gracz dobiera 3 karty charakteru odpowiadające charakterowi jego postaci. Musi wybrać z pośród nich jedną, drugą zaś odrzucić. Wylosowaną kartę zachować rewersem do góry. Gracz nie ujawnia zdolności wynikającej z jego charakteru.
 
 2. Ujawnienie Charakteru:
 W momencie gdy gracz będzie chciał skorzystać z umiejętności wynikającej z karty charakteru musi odwrócić tę kartę ujawniając ją. Od tej pory wszyscy gracze znają jego charakter. Należy pamiętać o tym że niektóre karty charakteru dają jednorazowy efekt, oraz o tym że niektóre karty charakteru nakładają ograniczenie na gracza. Ograniczenia działać będą dopiero po ujawnieniu karty charakteru.
 
-Objaśnienie:
-Dodatek ma ułatwiać grę słabszym graczą.
+3. Zmiana Charakteru:
+Gdy gracz będzie musiał zmienić Charakter losuje on nową kartę Charakteru, poprzednią zaś odrzuca. W sytuacji gdy pozostali gracze wiedzą jaką kartę charakteru otrzymuje gracz, musi on odrazu ujawnić swoją kartę charakteru.
 
-Karty charakteru mają stanowić pewnego rodzaju asy z rękawa. Gracz nie powinien nie roztropnie ich ujawniać, gracze którzy zbyt długo nie ujawniają swojej karty charakteru powinni wzbudzać podejrzenia.
+Przykład: Złodziej nie ujawnił jeszcze swojej karty charakteru. Złodziej rzuca zaklęcie Zamiana Dusz na Wojownika który już wcześniej ujawnił swoj charakter. Złodziej otrzymuje kartę Charakteru wojownika i odrazu musi ją ujawnić, zaś Wojownik otrzymuje kartę charakteru Złodzieja, która w dalszym ciągu pozostanie nie jawna dla pozostałych graczy.
 
-Ponad to z gry trzeba usunąć wszystkie karty które dawałby możliwość niekontrolowanej zmiany charakteru, np postać Druida lub Kostur Druida.
+4. Zmiana Charakteru na taki sam:
+W niektórych sytuacjach, jakiś efekt może nakazywać Poszukiwaczowi zmianą Charakteru na Charakter tej samej przynależności. Wtedy gracz może zdecydować czy chcę wymienić kartę charakteru, czy ją zachować. Jedynym wyjątkiem od tej reguły są sytuacje w których graczowi zostało nakazanę odrzucić, lub przekazać innemu graczowi swoją kartę charakteru.
 
+Przykład:
+Mroczna Kultyska rzuca zaklęcie Zamiana Dusz na Niebiańską Istotę. Niebiańska Istota odrzuca swoją aktualną kartę charakteru, (gdyż Mroczna Kultystka nie może jej zachować) dobiera nową i traci punkt Życia. Mroczna Kultystka też odrzuca swoją kartę charakteru (gdyż Niebiańska Istota nie może jej zachować) i dobiera nową kartę złego Charakteru.
+
+5. Aury:
+W dodatku pojawiają się zaklęcia oznaczone jako aury. Należy je stosować tylko i wyłącznie z innymi dodatkami które używają zaklęć tak oznaczonych.
+
+6. Interakcje z innymi dodatkami:
+
+Dodatek został zaprojektowany tak, aby współpracować z innymi dodatkami, jednak w przypadku niejednoznacznych sytuacji, wszelkie niedomówienia w zasadach należy rozwiązywać głośnym krzykiem, zawszę stosując zasadę iż ten kto głośniej krzyczy musi mieć racje.
+
+7. Opracowanie
+
+Pomysł i wykonanie: MjhaL
+Szablony: Arthan & Bluedogon
+Korekta i Testy: Pablo, Mrówa
+Pozostałe Grafiki: inni
 
 */

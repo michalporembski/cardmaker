@@ -17,6 +17,10 @@ abstract class AbstractCard
 
     const LINE_TEXT = '---';
 
+    protected $cardWidth = 465;
+
+    protected $cardHeight = 730;
+
     protected $textTitle;
 
     protected $textTag;
@@ -67,6 +71,8 @@ abstract class AbstractCard
 
     protected $imageAreaHeight;
 
+    protected $maxWidth = 403;
+
     /**
      * @var GdPrinter
      */
@@ -86,11 +92,20 @@ abstract class AbstractCard
                 $this->imageAreaStartX,
                 $this->imageAreaStartY,
                 $this->imageAreaWidth,
-                $this->imageAreaHeight
+                $this->imageAreaHeight,
+                $this->cardWidth,
+                $this->cardHeight
             );
         } else {
             $this->gdPrinter = new GdPrinter(
-                $this->layerFile
+                $this->layerFile,
+                null,
+                null,
+                null,
+                null,
+                null,
+                $this->cardWidth,
+                $this->cardHeight
             );
         }
         $this->textTitleSize = $this->gdPrinter->fitTextSize($this->textTitleSize, $this->textTitle,
@@ -288,6 +303,11 @@ abstract class AbstractCard
                 $newLines
             );
         }
+//        foreach ($allLines as $l){
+//            echo '<br>'.$l;
+//        }
+//        die;
+//        var_dump($allLines);die;
         $this->textDescription = $allLines;
 
         return true;
@@ -354,9 +374,9 @@ abstract class AbstractCard
             $actualLine .= $word . ' ';
             $lineWidth = $this->gdPrinter->getTextWidth($textNormalSize, 'l', $actualLine);
             if ($this->dummyTriangleStart < $writeHeight) {
-                $maxWidth = 403 - $writeHeight + $this->dummyTriangleStart;
+                $maxWidth = $this->maxWidth - $writeHeight + $this->dummyTriangleStart;
             } else {
-                $maxWidth = 403;
+                $maxWidth = $this->maxWidth;
             }
             if ($lineWidth > $maxWidth) {
                 $writeHeight += (int)($textNormalSize * 3 / 2);

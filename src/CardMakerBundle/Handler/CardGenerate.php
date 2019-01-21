@@ -3,6 +3,7 @@
 namespace CardMakerBundle\Handler;
 
 use CardMakerBundle\Cards\AbstractCard;
+use CardMakerBundle\Cards\Info;
 use CardMakerBundle\Cards\LongText\Adventures as AdventuresLong;
 use CardMakerBundle\Cards\LongText\Bridge as BridgeLong;
 use CardMakerBundle\Cards\LongText\City as CityLong;
@@ -225,6 +226,8 @@ class CardGenerate
                 Layer::CARD_ALIGNMENT_EVIL => Evil::class,
                 Layer::CARD_ALIGNMENT_GOOD => Good::class,
                 Layer::CARD_ALIGNMENT_NEUTRAL => Neutral::class,
+
+                Layer::CARD_INFO => Info::class,
             ];
         }
 
@@ -257,6 +260,8 @@ class CardGenerate
             Layer::CARD_ALIGNMENT_EVIL => Evil::class,
             Layer::CARD_ALIGNMENT_GOOD => Good::class,
             Layer::CARD_ALIGNMENT_NEUTRAL => Neutral::class,
+
+            Layer::CARD_INFO => Info::class,
         ];
     }
 }

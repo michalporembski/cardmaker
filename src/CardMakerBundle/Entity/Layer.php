@@ -76,7 +76,8 @@ class Layer
     const CARD_REMNANT = 33;
 
     // TODO: ..
-    const CARD_HERO = 255;
+    const CARD_HERO = 254;
+    const CARD_INFO = 255;
 
     const CARD_LAYERS = [
         'cardmaker.cards.adventure' => self::CARD_ADVENTURES,
@@ -150,5 +151,6 @@ class Layer
         self::CARD_REMNANT => './resources/backs/small/remnant.png',
         // big cards
         self::CARD_HERO => './resources/backs/big/character.png',
+        self::CARD_INFO => './resources/backs/big/info.png',
     ];
 }
