@@ -2,8 +2,7 @@
 
 namespace AppBundle\Services;
 
-use CardMakerBundle\Cards\CardFactory;
-
+use CardMakerBundle\Entity\Dto\GenerateCard;
 
 /**
  * Class Generator
@@ -62,8 +61,17 @@ class Generator
             $len += 20;
         }
         $longtext = $len > 230;
-        $g = new CardFactory();
-        $card = $g->getCard($layer, $title, $tag, $text, $level, $image, $longtext, $caption, 0, false);
+        $g = new GenerateCard();
+        $g->setSave(false);
+        $g->setCaption($caption);
+        $g->setImage($image);
+        $g->setLayer($layer);
+        $g->setLayoutSize(0);
+        $g->setLevel($level);
+        $g->setTag($tag);
+        $g->setTitle($title);
+        $g->setText($text);
+        return $g;
     }
 
 

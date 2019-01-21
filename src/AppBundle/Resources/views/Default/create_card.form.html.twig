@@ -2,7 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <title>CardMaker</title>
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
 </head>
 <body>
 
@@ -15,52 +16,93 @@
                 {{ form_errors(form) }}
                 <div class="form-group">
                     {{ form_label(form.layer) }}
-                    {{ form_widget(form.layer) }}
+                    {{ form_widget(form.layer, {'attr': {'class': 'form-control'}}) }}
                 </div>
+                {#<div class="form-group">#}
+                    {#{{ form_label(form.tagPreset) }}#}
+                    {#{{ form_widget(form.tagPreset, {'attr': {'class': 'form-control'}}) }}#}
+                {#</div>#}
                 <div class="form-group">
                     {{ form_label(form.title) }}
-                    {{ form_widget(form.title) }}
+                    {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                <div class="form-group">
+                <div class="form-group js-advanced">
                     {{ form_label(form.tag) }}
-                    {{ form_widget(form.tag) }}
+                    {{ form_widget(form.tag, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                <div class="form-group">
+                <div class="form-group js-advanced">
+                    {{ form_label(form.captionType) }}
+                    {{ form_widget(form.captionType, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group js-caption js-advanced">
                     {{ form_label(form.caption) }}
-                    {{ form_widget(form.caption) }}
+                    {{ form_widget(form.caption, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.level) }}
-                    {{ form_widget(form.level) }}
+                    {{ form_widget(form.level, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.text) }}
-                    {{ form_widget(form.text) }}
+                    {{ form_widget(form.text, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                <div class="form-group">
+                <div class="form-group js-advanced">
                     {{ form_label(form.layoutSize) }}
-                    {{ form_widget(form.layoutSize) }}
+                    {{ form_widget(form.layoutSize, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                <div class="form-group">
+                <div class="form-group js-advanced">
                     {{ form_label(form.textSize) }}
-                    {{ form_widget(form.textSize) }}
+                    {{ form_widget(form.textSize, {'attr': {'class': 'form-control'}}) }}
                 </div>
                 <div class="form-group">
                     {{ form_label(form.image) }}
-                    {{ form_widget(form.image) }}
+                    {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
                 </div>
-                <input type="submit" class="btn btn-primary pull-right" value="Podgląd"/>
+                <div class="form-group">
+                    {{ form_label(form.mode) }}
+                    {{ form_widget(form.mode, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <input type="submit" class="btn btn-primary pull-right"
+                       value="{{ 'cardmaker.buttons.preview'|trans }}"/>
                 {{ form_end(form) }}
             </div>
         </div>
         <div class="col-sm-6">
             {% if card %}
-            <a href="{{ card }}">
-                <img src="{{ card }}" alt="zesrało się"/><br/>
-            </a>
+                <a href="{{ card }}">
+                    <img src="{{ card }}" alt="{{ 'cardmaker.labels.card-label'|trans }}"/><br/>
+                </a>
             {% endif %}
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        if ($('#card_generate_captionType').val() > 0) {
+            $('.js-caption').show()
+        } else {
+            $('.js-caption').hide()
+        }
+        $('#card_generate_captionType').change(function () {
+            if ($('#card_generate_captionType').val() > 0) {
+                $('.js-caption').show()
+            } else {
+                $('.js-caption').hide()
+            }
+        });
+        if ($('#card_generate_mode').val() > 0) {
+            $('.js-advanced').show()
+        } else {
+            $('.js-advanced').hide()
+        }
+        $('#card_generate_mode').change(function () {
+            if ($('#card_generate_mode').val() > 0) {
+                $('.js-advanced').show()
+            } else {
+                $('.js-advanced').hide()
+            }
+        });
+    })
+</script>
 </body>
 </html>

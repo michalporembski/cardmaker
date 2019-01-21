@@ -30,5 +30,5 @@ class Spell extends AbstractCard
     protected $maxCaptionWidth = 380;
 
     protected $maxWriteHeight = 670;
-    protected $dummyTraiangleStart = 560;
+    protected $dummyTriangleStart = 560;
 }

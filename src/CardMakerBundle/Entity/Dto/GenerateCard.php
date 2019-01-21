@@ -2,8 +2,11 @@
 
 namespace CardMakerBundle\Entity\Dto;
 
+use CardMakerBundle\Handler\CardGenerate;
+
 /**
  * Class CardMakerBundle
+ *
  * @package Cardmaker\Entity\Dto
  */
 class GenerateCard
@@ -14,6 +17,11 @@ class GenerateCard
     private $layer;
 
     /**
+     * @var int|null
+     */
+    private $mode;
+
+    /**
      * @var string|null
      */
     private $title;
@@ -22,6 +30,11 @@ class GenerateCard
      * @var string|null
      */
     private $tag;
+
+    /**
+     * @var int
+     */
+    private $captionType = CardGenerate::CAPTION_TYPE_NONE;
 
     /**
      * @var string|null
@@ -39,9 +52,24 @@ class GenerateCard
     private $text;
 
     /**
-     * @var int|null
+     * @var string|null
      */
-    private $layoutSize;
+    private $story;
+
+    /**
+     * @var string[]
+     */
+    private $places = [];
+
+    /**
+     * @var string|null
+     */
+    private $image;
+
+    //    /**
+    //     * @var string|null
+    //     */
+    //    private $imageUrl;
 
     /**
      * @var int|null
@@ -49,14 +77,11 @@ class GenerateCard
     private $textSize;
 
     /**
-     * @var string|null
+     * Template type: auto/short text/long text
+     *
+     * @var int|null
      */
-    private $image;
-
-    /**
-     * @var string|null
-     */
-    private $imageUrl;
+    private $layoutSize;
 
     /**
      * @var bool
@@ -77,6 +102,22 @@ class GenerateCard
     public function setLayer($layer)
     {
         $this->layer = $layer;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getMode()
+    {
+        return $this->mode;
+    }
+
+    /**
+     * @param int|null $mode
+     */
+    public function setMode($mode)
+    {
+        $this->mode = $mode;
     }
 
     /**
@@ -109,6 +150,22 @@ class GenerateCard
     public function setTag($tag)
     {
         $this->tag = $tag;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCaptionType(): int
+    {
+        return $this->captionType;
+    }
+
+    /**
+     * @param int $captionType
+     */
+    public function setCaptionType(int $captionType)
+    {
+        $this->captionType = $captionType;
     }
 
     /**
@@ -160,6 +217,22 @@ class GenerateCard
     }
 
     /**
+     * @return null|string
+     */
+    public function getStory()
+    {
+        return $this->story;
+    }
+
+    /**
+     * @param null|string $story
+     */
+    public function setStory($story)
+    {
+        $this->story = $story;
+    }
+
+    /**
      * @return int|null
      */
     public function getLayoutSize()
@@ -207,21 +280,21 @@ class GenerateCard
         $this->image = $image;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getImageUrl()
-    {
-        return $this->imageUrl;
-    }
-
-    /**
-     * @param null|string $imageUrl
-     */
-    public function setImageUrl($imageUrl)
-    {
-        $this->imageUrl = $imageUrl;
-    }
+    //    /**
+    //     * @return null|string
+    //     */
+    //    public function getImageUrl()
+    //    {
+    //        return $this->imageUrl;
+    //    }
+    //
+    //    /**
+    //     * @param null|string $imageUrl
+    //     */
+    //    public function setImageUrl($imageUrl)
+    //    {
+    //        $this->imageUrl = $imageUrl;
+    //    }
 
     /**
      * @return bool
@@ -239,4 +312,39 @@ class GenerateCard
         $this->save = $save;
     }
 
+    /**
+     * @param string[] $places
+     */
+    public function setPlaces(array $places)
+    {
+        $this->places = $places;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getPlaces(): array
+    {
+        return $this->places;
+    }
+
+    public function getCardData(): array
+    {
+        return [
+            $this->layer,
+            $this->mode,
+            $this->title,
+            $this->tag,
+            $this->captionType,
+            $this->caption,
+            $this->level,
+            $this->text,
+            $this->story,
+            $this->places,
+            $this->image,
+            //     $this->imageUrl,
+            $this->textSize,
+            $this->layoutSize
+        ];
+    }
 }

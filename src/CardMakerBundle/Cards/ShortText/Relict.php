@@ -29,5 +29,5 @@ class Relict extends AbstractCard
     protected $maxCaptionWidth = 380;
 
     protected $maxWriteHeight = 670;
-    protected $dummyTraiangleStart = 530;
+    protected $dummyTriangleStart = 530;
 }
