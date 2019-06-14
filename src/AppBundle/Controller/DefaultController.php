@@ -12,7 +12,6 @@ use CardMakerBundle\Entity\Dto\GenerateCard;
 use CardMakerBundle\Entity\Layer;
 use CardMakerBundle\Exceptions\GeneratorException;
 use CardMakerBundle\Services\SheetPrinter;
-use CardMakerBundle\Services\SheetPrinter2;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -307,6 +306,15 @@ Pozostałe Grafiki: inni';
             echo '<b>' . $card['desc'] . '</b><br>';
         } else {
             echo '<span style="color:green">' . $text . '</span><br>';
+        }
+        if (isset($card['name'])) {
+            echo '<span style="color:blue">' . $card['name'] . '</span><br>';
+        }
+        if (isset($card['story'])) {
+            echo '<span style="color:blue">' . $card['story'] . '</span><br>';
+        }
+        if (isset($card['tag'])) {
+            echo '<span style="color:blue">' . $card['tag'] . '</span><br>';
         }
     }
 }
