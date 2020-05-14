@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class DefaultController
  *
- * @package AppBundle\Controller
+ * @package \AppBundle\Controller
  */
 class DefaultController extends Controller
 {
@@ -52,6 +52,13 @@ class DefaultController extends Controller
         );
     }
 
+    /**
+     * @Route("/aaa", name="aaa")
+     */
+    public function aaaaAction(Request $request)
+    {
+        echo 'aaa';die;
+    }
     /**
      * @Route("/karaktery", name="karaktery")
      */

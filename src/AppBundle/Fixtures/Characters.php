@@ -7,31 +7,195 @@ use CardMakerBundle\Entity\Layer;
 class Characters
 {
     const BIG_CARDS = [
-        [
-            'front' => './charaktery/character/druid.png',
-            'back' => Layer::CARD_HERO,
-        ],
+//        [
+//            'front' => './charaktery/character/druid.png',
+//            'back' => Layer::CARD_HERO,
+//        ],
 //        [
 //            'front' => './charaktery/character/dragon_rider.png',
 //            'back' => Layer::CARD_HERO,
 //        ],
+//        [
+//            'front' => './charaktery/character/jasnowidz.png',
+//            'back' => Layer::CARD_HERO,
+//        ],
+    ];
+    const CARDS = [
+                [
+                    'name' => 'Kostur Druida',
+                    'caption' => 'Broń',
+                    'tag' => 'Magiczny Przedmiot',
+                    'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+                    'card' => Layer::CARD_ADVENTURES,
+                    'image' => './charaktery/druid_staff.png',
+                    'level' => 5
+                ],
         [
-            'front' => './charaktery/character/jasnowidz.png',
-            'back' => Layer::CARD_HERO,
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
+        ],
+        [
+            'name' => 'Kostur Druida',
+            'caption' => 'Broń',
+            'tag' => 'Magiczny Przedmiot',
+            'desc' => 'W dowolnym momencie, możesz odrzucić punkt Losu, aby zmienić swój Charakter.',
+            'card' => Layer::CARD_ADVENTURES,
+            'image' => './charaktery/druid_staff.png',
+            'level' => 5
         ],
     ];
-
-    const CARDS = [
+    const CARDS_2 = [
         [
             'name' => 'Szlachetny',
-            'story' => 'Twoje szlachetne serce potrafi stawić opór przeznaczeniu i je odmienić.',
+            'story' => 'Twoje szlachetne serce potrafi stawić opór przeznaczeniu
+i je odmienić.',
             'desc' => 'Możesz ujawnić swój Charakter w momencie, gdy miałbyś odrzucić Przyjaciela. Zapobiegniesz jego utracie.' . "\n---\n" . 'Za każdym razem, gdy miałbyś utracić Przyjaciela, zamiast tego możesz odrzucić punkt Życia.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
             'name' => 'Pobożny',
             'story' => 'Niebiosa poznały się na Twoim czystym sercu.',
-            'desc' => 'Za każdym razem, gdy się modlisz, możesz dodać 1 do wyniku rzutu.',
+            'desc' => 'Możesz ujawnić swój Charakter przed modlitwą aby rzucać dodatkową kością i&#160;wybrać wynik.' . "\n---\n" . 'Za każdym razem, gdy się modlisz, możesz dodać 1&#160;do wyniku rzutu.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
@@ -43,13 +207,13 @@ class Characters
         [
             'name' => 'Męczeński',
             'story' => 'Droga do chwały prowadzi przez cierpienie. Wreszcie udało Ci się to pojąć.',
-            'desc' => 'Za każdym razem, gdy stracisz przynajmniej 1 punkt Życia, otrzymujesz punkt Losu.',
+            'desc' => 'Za każdym razem, gdy stracisz przynajmniej 1&#160;punkt Życia, otrzymujesz punkt Losu.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [// Może powinno być tylko dla silniejszych wrogów?
             'name' => 'Pomocny',
             'story' => 'Braterstwo wobec innych!',
-            'desc' => 'Za każdym razem, gdy inny Poszukiwacz przebywający w tej samej Krainie, co ty, wda się w walkę z Wrogiem, możesz go wspomóc. Przenieś się na obszar zajmowany przez tego Poszukiwacza i dodaj swoją początkową wartość Siły do jego skuteczności ataku. Jeśli Wróg zostanie zabity, odzyskujesz punkt Losu.',
+            'desc' => 'Za każdym razem, gdy inny Poszukiwacz przebywający w tej samej Krainie, co ty, wda się w walkę z Wrogiem, możesz go wspomóc. Przenieś się na obszar zajmowany przez tego Poszukiwacza i&#160;dodaj swoją początkową wartość Siły do jego skuteczności ataku. Jeśli Wróg zostanie zabity, odzyskujesz punkt Losu.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
@@ -61,7 +225,7 @@ class Characters
         [
             'name' => 'Życzliwy',
             'story' => 'Jesteś życzliwy dla innych, a inni dla Ciebie.',
-            'desc' => 'Na obszarach Wioski, Miasta i Zamku, możesz odzyskać 1 punkt Życia za darmo.',
+            'desc' => 'Możesz ujawnić swój Charakter, na obszarze Wioski, Miasta lub Zamku, otrzymasz wtedy 1&#160;sztukę złota.' . "\n---\n" .'Na obszarach Wioski, Miasta i&#160;Zamku, możesz odzyskać 1&#160;punkt Życia za darmo.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
@@ -73,31 +237,31 @@ class Characters
         [
             'name' => 'Pełen wigoru',
             'story' => 'Jest w Tobie dużo sił witalnych!',
-            'desc' => 'Zawsze, gdy wymieniasz trofea na punkty Siły, możesz odzyskać 1 punkt Życia.',
+            'desc' => 'Zawsze, gdy wymieniasz trofea na punkty Siły, możesz odzyskać 1&#160;punkt Życia.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
             'name' => 'Przyjacielski',
             'story' => 'Z każdym potrafisz się zaprzyjaźnić',
-            'desc' => 'Za każdym razem, gdy dołączy do ciebie Przyjaciel, odzyskujesz 1 punkt Losu.' . "\n---\n" . 'Za każdym razem, gdy badasz obszar na którym znajdują się jacyś Przyjaciele, posiadają oni numer spotkania 1.',
+            'desc' => 'Za każdym razem, gdy dołączy do ciebie Przyjaciel, odzyskujesz 1&#160;punkt Losu.' . "\n---\n" . 'Za każdym razem, gdy badasz obszar na którym znajdują się jacyś Przyjaciele, posiadają oni numer spotkania 1.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
             'name' => 'Błogosławiony',
             'story' => 'Niebiosa nas prowadzą.',
-            'desc' => 'Przed wykonaniem rzutu jedną kością, możesz zdecydować się odrzucić punkt jasnej strony Losu. Rzuć wtedy dwoma kośćmi i wybierz wynik, który ci się podoba.',
+            'desc' => 'Przed wykonaniem rzutu jedną kością, możesz zdecydować się odrzucić punkt jasnej strony Losu. Rzuć wtedy dwoma kośćmi i&#160;wybierz wynik, który ci się podoba.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
             'name' => 'Waleczny',
             'story' => 'Stawisz czoła każdemu przeciwnikowi.',
-            'desc' => 'Za każdym razem, kiedy wdajesz się w walkę z Wrogiem lub Poszukiwaczem, którego Siła jest wyższa niż twoja Siła, możesz dodać 1 do skuteczności swojego ataku.',
+            'desc' => 'Możesz ujawnić swój Charakter, przed rozpatrzeniem walki, możesz dodać 1&#160;do skuteczności swojego ataku.' . "\n---\n" . 'Za każdym razem, kiedy wdajesz się w walkę z Wrogiem lub Poszukiwaczem, którego Siła jest wyższa niż twoja Siła, możesz dodać 1&#160;do skuteczności swojego ataku.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
             'name' => 'Heroiczny',
             'story' => 'Odwagi Ci nie brak.',
-            'desc' => 'Ujawniając kartę Charakteru, przed walką, możesz automatycznie wygrać walkę.' . "\n---\n" . 'Za każdym razem, kiedy wdajesz się w jakąkolwiek walkę z co najmniej dwoma Wrogami, dodaj 2 do skuteczności twojego ataku.',
+            'desc' => 'Ujawniając kartę Charakteru, przed walką, możesz dodać 2 do skuteczności swojego ataku.' . "\n---\n" . 'Za każdym razem, kiedy wdajesz się w jakąkolwiek walkę z co najmniej dwoma Wrogami, dodaj 2 do skuteczności twojego ataku.',
             'card' => Layer::CARD_ALIGNMENT_GOOD,
         ],
         [
@@ -121,26 +285,26 @@ class Characters
         [
             'name' => 'Tchórzliwy',
             'story' => 'Dobrze jest być odważnym, ale jeszcze lepiej być żywym.',
-            'desc' => 'Ujawniając kartę Charakteru, przed walką, możesz się wymknąć.' . "\n---\n" . 'Przed każdą walką, możesz spróbować wymknąć się. Rzuć kością, jeżeli uzyskasz 5 lub 6 uda ci się.',
+            'desc' => 'Możesz ujawnić swoją kartę Charakteru przed walką, aby możesz się wymknąć.' . "\n---\n" . 'Przed każdą walką, możesz spróbować wymknąć się. Rzuć kością, jeżeli uzyskasz 5 lub 6 uda ci się.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [//??
             'name' => 'Chaotyczny',
             'story' => 'Nawet niebiosa nie wiedzą, jak Cię ocenić.',
 //            'desc' => 'Na początku każdej tury, możesz odzyskać punkt Losu. Nie, możesz używać punktów jasnej strony Losu, ale, możesz je odrzucać.',
-            'desc' => 'Odrzuć wszystkie punkty jasnej strony Losu, które posiadasz. Możesz używać tylko punktów ciemnej strony Losu. Na początku każdej tury możesz odzyskać 1 punkt ciemnej strony Losu.',
+            'desc' => 'Ujawniając kartę Charakteru, odrzuć wszystkie punkty jasnej strony Losu, które posiadasz..' . "\n---\n" .'Możesz używać tylko punktów ciemnej strony Losu. Na początku każdej tury możesz odzyskać 1&#160;punkt ciemnej strony Losu.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [
             'name' => 'Nieustępliwy',
             'story' => 'Nigdy nie pogodzisz się z porażką.',
-            'desc' => 'Jeżeli przegrasz lub zremisujesz jakąkolwiek walkę, możesz odrzucić punkt jasnej strony Losu, aby zignorować jej wynik i natychmiast stoczyć walkę jeszcze raz. Wszystkie efekty, specjalne zdolności, Przedmioty i Zaklęcia wykorzystane podczas pierwszej walki działają również podczas drugiej. Musisz zaakceptować wynik drugiej walki.',
+            'desc' => 'Jeżeli przegrasz lub zremisujesz jakąkolwiek walkę, możesz odrzucić punkt jasnej strony Losu, aby zignorować jej wynik i&#160;natychmiast stoczyć walkę jeszcze raz. Wszystkie efekty, specjalne zdolności, Przedmioty i&#160;Zaklęcia wykorzystane podczas pierwszej walki działają również podczas drugiej. Musisz zaakceptować wynik drugiej walki.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [
             'name' => 'Spostrzegawczy',
             'story' => 'Dużo można wyczytać z ludzi których codziennie mijamy.',
-            'desc' => 'Możesz podglądać Zaklęcia i karty Charakteru Poszukiwaczy, którzy wylądują na twoim obszarze, lub gdy ty zakończysz ruch na ich obszarze.',
+            'desc' => 'Możesz podglądać Zaklęcia i&#160;karty Charakteru Poszukiwaczy, którzy wylądują na twoim obszarze, lub gdy ty zakończysz ruch na ich obszarze.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [
@@ -152,24 +316,24 @@ class Characters
         [
             'name' => 'Roztropny',
             'story' => 'Pośpiech się nie sprawdza.',
-            'desc' => 'Po wykonaniu rzutu za ruch, możesz odjąć 1 od uzyskanego wyniku, do minimum 1.',
+            'desc' => 'Po wykonaniu rzutu za ruch, możesz odjąć 1&#160;od uzyskanego wyniku, do minimum 1.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [
             'name' => 'Twardy',
-            'story' => 'Zagryź zęby i wytrzymaj.',
-            'desc' => 'Jeśli w wyniku przegranej walki psychicznej tracisz punkty Życia, możesz rzucić 1 kością. Jeśli wypadnie 5 lub 6, nie tracisz punktów Życia, chociaż przegrałeś walkę.',
+            'story' => 'Zagryź zęby i&#160;wytrzymaj.',
+            'desc' => 'Jeśli w wyniku przegranej walki psychicznej tracisz punkty Życia, możesz rzucić 1&#160;kością. Jeśli wypadnie 5 lub 6, nie tracisz punktów Życia, chociaż przegrałeś walkę.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [
             'name' => 'Żądny Przygód',
             'story' => 'Wyzwania!',
-            'desc' => 'Za każdym razem, gdy wylosujesz kartę Przygody, która jest Wrogiem, możesz wylosować dodatkową kartę. Możesz tego dokonać tylko raz na turę.',
+            'desc' => 'Możesz ujawnić kartę Charakteru, po wylosowaniu dowolnej karty przygody która nie jest wrogiem. Odrzuć tę kartę i&#160;wylosuj nową.' . "\n---\n" .'Za każdym razem, gdy wylosujesz kartę Przygody, która jest Wrogiem, możesz wylosować dodatkową kartę. Możesz tego dokonać tylko raz na turę.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [
             'name' => 'Charyzmatyczny',
-            'story' => 'Ludzie Cię podziwiają i uwielbiają. Zupełnie nie wiadomo czemu.',
+            'story' => 'Ludzie Cię podziwiają i&#160;uwielbiają. Zupełnie nie wiadomo czemu.',
             'desc' => 'Gdy pokonasz w jakiejkolwiek walce innego Poszukiwacza, zamiast normalnej nagrody, możesz odebrać mu wybranego Przyjaciela.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
@@ -189,7 +353,7 @@ class Characters
         //        [
         //            'name' => 'Pokutny',
         //            'story' => 'Piętno dawnych przewinień w końcu odmieniło Twe serce.',
-        //            'desc' => 'Gdy będziesz musiał odrzucić tę kartę Charakteru odzyskasz wszystkie punkty Życia i punkty Losu. Niezależnie od polecenia wylosuj kartę Dobrego Charakteru.',
+        //            'desc' => 'Gdy będziesz musiał odrzucić tę kartę Charakteru odzyskasz wszystkie punkty Życia i&#160;punkty Losu. Niezależnie od polecenia wylosuj kartę Dobrego Charakteru.',
         //            'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         //        ],
         [
@@ -207,7 +371,7 @@ class Characters
         [
             'name' => 'Zachłanny',
             'story' => 'Zawsze chcesz posiadać więcej!',
-            'desc' => 'Za każdym razem, gdy badasz obszar zawierający jakieś Przedmioty, te posiadają numer spotkania 1.' . "\n---\n" . 'Możesz nieść o 1 przedmiot więcej.',
+            'desc' => 'Za każdym razem, gdy badasz obszar zawierający jakieś Przedmioty, te posiadają numer spotkania 1.' . "\n---\n" . 'Możesz nieść o 1&#160;przedmiot więcej.',
             'card' => Layer::CARD_ALIGNMENT_NEUTRAL,
         ],
         [
@@ -225,32 +389,38 @@ class Characters
         [
             'name' => 'Zepsuty',
             'story' => 'Każde życie ma wielką moc. A Ty potrafisz wydobyć tę moc.',
-            'desc' => 'Na początku swojej tury, możesz odprawić rytuał. Odrzuć wtedy wybranego Przyjaciela i wylosuj Zaklęcie o ile pozwala ci na to Moc.',
+            'desc' => 'Na początku swojej tury, możesz odprawić rytuał. Odrzuć wtedy wybranego Przyjaciela i&#160;wylosuj Zaklęcie Magii Mroku o ile pozwala ci na to Moc.',
+            'card' => Layer::CARD_ALIGNMENT_EVIL,
+        ],
+        [
+            'name' => 'Zepsuty',
+            'story' => 'Każde życie ma wielką moc. A Ty potrafisz wydobyć tę moc.',
+            'desc' => 'Na początku swojej tury, możesz odprawić rytuał. Odrzuć wtedy wybranego Przyjaciela i&#160;wylosuj Zaklęcie Magii Zniszczenia o ile pozwala ci na to Moc.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
             'name' => 'Haniebny',
             'story' => 'Cel uświęca środki.',
-            'desc' => 'Poświęcając punkt ciemnej strony Losu możesz zmusić innego Poszukiwacza, aby wykonał rzut dwoma kośćmi zamiast jednej i wybrał niższy wynik.',
+            'desc' => 'Poświęcając punkt ciemnej strony Losu możesz zmusić innego Poszukiwacza, aby wykonał rzut dwoma kośćmi zamiast jednej i&#160;wybrał niższy wynik.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
-        [// Ten do poprawy !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-            'name' => 'Nieuczciwy',
-            'story' => 'Szczęście szybko opuszcza twoich wrogów.',
-//            'desc' => 'Ujawniając Charakter, odzyskujesz wszystkie punkty Losu.' . "\n---\n" . 'Gdy wykorzystujesz punkt ciemnej strony Losu, możesz przerzucić dowolną ilość nie swoich kości.',
-            'desc' => 'Ujawniając kartę Charakteru, odzyskujesz wszystkie punkty Losu.' . "\n---\n" . 'Możesz użyć punktu ciemnej strony Losu, aby przerzucić dowolną ilość nie swoich kości w tym rzucie.',
-            'card' => Layer::CARD_ALIGNMENT_EVIL,
-        ],
+//        [// Ten do poprawy !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+//            'name' => 'Nieuczciwy',
+//            'story' => 'Szczęście szybko opuszcza twoich wrogów.',
+////            'desc' => 'Ujawniając Charakter, odzyskujesz wszystkie punkty Losu.' . "\n---\n" . 'Gdy wykorzystujesz punkt ciemnej strony Losu, możesz przerzucić dowolną ilość nie swoich kości.',
+//            'desc' => 'Ujawniając kartę Charakteru, odzyskujesz wszystkie punkty Losu.' . "\n---\n" . 'Możesz użyć punktu ciemnej strony Losu, aby przerzucić dowolną ilość nie swoich kości w tym rzucie.',
+//            'card' => Layer::CARD_ALIGNMENT_EVIL,
+//        ],
         [
             'name' => 'Zdradliwy',
             'story' => 'Zdrada nie jest Ci obca.',
-            'desc' => 'Gdy wykorzystujesz punkt jasnej strony Losu, możesz przerzucić nie swoją kość.' . "\n---\n" . 'Nigdy nie możesz otrzymać bądź odzyskać więcej niż 1 punkt Losu.',
+            'desc' => 'Ujawniając Charakter, odrzuć punkt Losu.' . "\n---\n" .'Gdy wykorzystujesz punkt jasnej strony Losu, możesz przerzucić nie swoją kość.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
             'name' => 'Żądny Mocy',
-            'story' => 'Tylko moc, i nic więcej.',
-            'desc' => 'Ujawniając kartę Charakteru, możesz odrzucić dwa punkty Życia. Otrzymujesz wtedy punkt Mocy.' . "\n---\n" . 'W walce psychicznej dodaj 1 do skuteczności swojego ataku.',
+            'story' => 'Tylko moc, i&#160;nic więcej.',
+            'desc' => 'Ujawniając kartę Charakteru, możesz odrzucić dwa punkty Życia. Otrzymujesz wtedy punkt Mocy.' . "\n---\n" . 'W walce psychicznej dodaj 1&#160;do skuteczności swojego ataku.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
@@ -262,19 +432,19 @@ class Characters
         [
             'name' => 'Szyderczy',
             'story' => 'Słabsi się nie liczą.',
-            'desc' => 'Podczas jakiejkolwiek walki, możesz zdecydować się zakpić z wroga, rzuć wtedy dwoma kośćmi i wybierz mniejszy wynik. To będzie twoja premia do skuteczności ataku. Jeżeli wygrasz walkę odzyskasz punkt ciemnej strony Losu. W takiej walce nie możesz użyć Losu.',
+            'desc' => 'Podczas jakiejkolwiek walki, możesz zdecydować się zakpić z wroga, rzuć wtedy dwoma kośćmi i&#160;wybierz mniejszy wynik. To będzie twoja premia do skuteczności ataku. Jeżeli wygrasz walkę odzyskasz punkt ciemnej strony Losu. W takiej walce nie możesz użyć Losu.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
             'name' => 'Okrutny',
             'story' => 'Wiesz dobrze jak ranić innych.',
-            'desc' => 'Gdy pokonasz Poszukiwacza w jakiejkolwiek walce, możesz odebrać mu 2 punkty Życia zamiast jednego.',
+            'desc' => 'Gdy pokonasz Poszukiwacza w jakiejkolwiek walce, możesz odrzucić punkt ciemnej strony Losu aby odebrać mu 2 punkty Życia zamiast jednego.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
             'name' => 'Chciwy',
             'story' => 'Złoto to zawsze najlepsza nagroda.',
-            'desc' => 'Gdy pokonasz w jakiejkolwiek walce innego Poszukiwacza i zdecydujesz się odebrać mu Przedmiot, możesz też odebrać mu 1 sztukę złota.',
+            'desc' => 'Gdy pokonasz w jakiejkolwiek walce innego Poszukiwacza i&#160;zdecydujesz się odebrać mu Przedmiot, możesz też odebrać mu 1&#160;sztukę złota.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
@@ -286,13 +456,13 @@ class Characters
         [
             'name' => 'Złorzeczący',
             'story' => 'Poświęcisz wiele, aby zobaczyć nieszczęście innych!',
-            'desc' => 'Gdy inny Poszukiwacz będzie chciał odrzucić punkt Losu, aby ponowić rzut kością, możesz odrzucić punkt Mocy i Losu, aby temu zapobiec.',
+            'desc' => 'Gdy inny Poszukiwacz będzie chciał odrzucić punkt Losu, aby ponowić rzut kością, możesz odrzucić punkt Mocy i&#160;Losu, aby temu zapobiec.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
             'name' => 'Wściekły',
             'story' => 'Zabić ich!',
-            'desc' => 'Jeśli po wykonaniu rzutu ataku w czasie walki, odrzucisz 1 punkt Życia możesz dodać 2 punkty do twojej skuteczności ataku.',
+            'desc' => 'Jeśli po wykonaniu rzutu ataku w czasie walki, odrzucisz 1&#160;punkt Życia możesz dodać 2 punkty do twojej skuteczności ataku.',
             'card' => Layer::CARD_ALIGNMENT_EVIL,
         ],
         [
@@ -304,7 +474,7 @@ class Characters
 //        [
 //            'name' => 'Przeszywające Widzenie',
 //            'tag' => 'Zaklęcie',
-//            'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Podglądnij jego Zaklęcia i kartę Charakteru.',
+//            'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Podglądnij jego Zaklęcia i&#160;kartę Charakteru.',
 //            'card' => Layer::CARD_SPELL,
 //            'image' => './charaktery/spell0.png',
 //        ],
@@ -326,7 +496,7 @@ class Characters
 //        [
 //            'name' => 'Zamiana Dusz',
 //            'tag' => 'Zaklęcie',
-//            'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Odbierz mu jego kartę Charakteru i przekaż swoją.',
+//            'desc' => 'Możesz rzucić to Zaklęcie w dowolnym momencie na dowolnego Poszukiwacza. Odbierz mu jego kartę Charakteru i&#160;przekaż swoją.',
 //            'card' => Layer::CARD_SPELL,
 //            'image' => './charaktery/spell5.jpg',
 //        ],
@@ -357,7 +527,7 @@ class Characters
 //        [
 //            'name' => 'Magiczny Archiwista',
 //            'places' => ['Zamek', 'Miasto'],
-//            'desc' => 'Odrzuć dowolne ze swoich Zaklęć, aby otrzymać 1 sztukę złota.',
+//            'desc' => 'Odrzuć dowolne ze swoich Zaklęć, aby otrzymać 1&#160;sztukę złota.',
 //            'card' => Layer::CARD_DENIZEN,
 //        ],
 //        [
@@ -369,19 +539,19 @@ class Characters
 //        [
 //            'name' => 'Handlarz Niewolników',
 //            'places' => ['Miasto', 'Gospoda', 'Wioska'],
-//            'desc' => 'Handlarz Niewolników oferuje ci 1 sztukę złota za każdego Przyjaciela. Jeżeli zdecydujesz się sprzedać któregoś z przyjaciół twój Charakter zmieni się na Zły.',
+//            'desc' => 'Handlarz Niewolników oferuje ci 1&#160;sztukę złota za każdego Przyjaciela. Jeżeli zdecydujesz się sprzedać któregoś z przyjaciół twój Charakter zmieni się na Zły.',
 //            'card' => Layer::CARD_DENIZEN,
 //        ],
 //        [
 //            'name' => 'Ekspert od Demolki',
 //            'places' => ['Miasto', 'Gospoda', 'Wioska'],
-//            'desc' => 'Ekspert od Demolki za 1 sztukę złota oferuje ci usunięcie z mapy wysadzenie dowolnego miejsca w tej krainie. Jeżeli się na to zdecydujesz wybierz odkrytą kartę miejsca i usuń ją z mapy.',
+//            'desc' => 'Ekspert od Demolki za 1&#160;sztukę złota oferuje ci usunięcie z mapy wysadzenie dowolnego miejsca w tej krainie. Jeżeli się na to zdecydujesz wybierz odkrytą kartę miejsca i&#160;usuń ją z mapy.',
 //            'card' => Layer::CARD_DENIZEN,
 //        ],
 //        [
 //            'name' => 'Jasnowidz',
 //            'places' => ['Zamek', 'Miasto', 'Wioska'],
-//            'desc' => 'Jasnowidz za 1 sztukę złota oferuje ci pokazać kim mógłbyś być. Wylosuj po 1 karcie Charakteru każdego typu, jedna z nich, może być twoim nowym Charakterem.',
+//            'desc' => 'Jasnowidz za 1&#160;sztukę złota oferuje ci pokazać kim mógłbyś być. Wylosuj po 1&#160;karcie Charakteru każdego typu, jedna z nich, może być twoim nowym Charakterem.',
 //            'card' => Layer::CARD_DENIZEN,
 //        ],
 //        [
@@ -427,7 +597,7 @@ class Characters
 //        //        [
 //        //            'name' => 'Talizman Nikeczemności',
 //        //            'tag' => 'Magiczny Przedmiot',
-//        //            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Przebywając w Krainie Wewnętrznej, na początku każdej swojej tury, możesz wybrać Poszukiwacza który straci 1 punkt Życia.',
+//        //            'desc' => 'Tylko posiaddając jeden z legendarnych Talizmanów, możesz wkroczyć do Doliny Ognia.' . "\n---\n" . 'Przebywając w Krainie Wewnętrznej, na początku każdej swojej tury, możesz wybrać Poszukiwacza który straci 1&#160;punkt Życia.',
 //        //            'card' => Layer::CARD_TALISMAN,
 //        //            'image' => './charaktery/talisman3.jpg',
 //        //            'level' => 5
@@ -435,7 +605,7 @@ class Characters
 //        [
 //            'name' => 'Dzień Nawrócenia',
 //            'tag' => 'Księżycowe Zdarzenie',
-//            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Dnia.' . "\n---\n" . 'Na początku swojej tury, każdy Zły i Neutralny poszukiwacz może stać się Dobry.' . "\n---\n" . 'Odrzuć tę kartę, kiedy zapada Noc.',
+//            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Dnia.' . "\n---\n" . 'Na początku swojej tury, każdy Zły i&#160;Neutralny poszukiwacz może stać się Dobry.' . "\n---\n" . 'Odrzuć tę kartę, kiedy zapada Noc.',
 //            'card' => Layer::CARD_ADVENTURES,
 //            'image' => './charaktery/grace.png',
 //            'level' => 1
@@ -443,7 +613,7 @@ class Characters
 //        [
 //            'name' => 'Czas Rozłamu',
 //            'tag' => 'Księżycowe Zdarzenie',
-//            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Dnia.' . "\n---\n" . 'Na początku swojej tury, każdy Neutralny poszukiwacz może stać się Dobry lub Zły, jeśli tego nie zrobi musi odrzucić punkt Życia, Losu, przedmiot lub 1 sztukę złota.' . "\n---\n" . 'Odrzuć tę kartę, kiedy zapada Noc.',
+//            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Dnia.' . "\n---\n" . 'Na początku swojej tury, każdy Neutralny poszukiwacz może stać się Dobry lub Zły, jeśli tego nie zrobi musi odrzucić punkt Życia, Losu, przedmiot lub 1&#160;sztukę złota.' . "\n---\n" . 'Odrzuć tę kartę, kiedy zapada Noc.',
 //            'card' => Layer::CARD_ADVENTURES,
 //            'image' => './charaktery/battle2.jpg',
 //            'level' => 1
@@ -459,7 +629,7 @@ class Characters
 //        [
 //            'name' => 'Czas Zwątpienia',
 //            'tag' => 'Księżycowe Zdarzenie',
-//            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Nocy.' . "\n---\n" . 'Na końcu swojej tury, każdy Dobry i Neutralny poszukiwacz może stać się Zły.' . "\n---\n" . 'Odrzuć tę kartę, kiedy wstaje Dzień.',
+//            'desc' => 'Po odkryciu tej karty, odwróć kartę Czasu na stronę Nocy.' . "\n---\n" . 'Na końcu swojej tury, każdy Dobry i&#160;Neutralny poszukiwacz może stać się Zły.' . "\n---\n" . 'Odrzuć tę kartę, kiedy wstaje Dzień.',
 //            'card' => Layer::CARD_ADVENTURES,
 //            'image' => './charaktery/fear.jpg',
 //            'level' => 1
@@ -526,7 +696,7 @@ class Characters
 //            'tag' => 'Wróg - Potwór',
 //            'caption' => 'Siła 4',
 //            'caption_type' => 2,
-//            'desc' => 'Na tym obszarze grasuje Gnieworodny Satyr. Jeżeli z nim przegra, Dobry i Neutralny Poszukiwacz, oprócz utraty 1 punktu Życia będziesz musiał zmienić Charakter na Zły.',
+//            'desc' => 'Na tym obszarze grasuje Gnieworodny Satyr. Jeżeli z nim przegra, Dobry i&#160;Neutralny Poszukiwacz, oprócz utraty 1&#160;punktu Życia będziesz musiał zmienić Charakter na Zły.',
 //            'card' => Layer::CARD_UNHALLOWED2,
 //            'image' => './charaktery/satyr1.jpg',
 //            'level' => 2
@@ -542,7 +712,7 @@ class Characters
 //        [
 //            'name' => 'Lustro Spaczenia',
 //            'tag' => 'Miejsce',
-//            'desc' => 'Na twojej drodze pojawiło się Lustro Spaczenia, jeżeli zdecydujesz się przez nie przejść, będziesz mógł natychmiast wykonać dodatkową turę, będziesz jednak musiał zmienić Charakter na Zły. Kiedy ktoś skorzysta z Lustra Spaczenia to rozpadnie się i trafi na stos kart odrzuconych.',
+//            'desc' => 'Na twojej drodze pojawiło się Lustro Spaczenia, jeżeli zdecydujesz się przez nie przejść, będziesz mógł natychmiast wykonać dodatkową turę, będziesz jednak musiał zmienić Charakter na Zły. Kiedy ktoś skorzysta z Lustra Spaczenia to rozpadnie się i&#160;trafi na stos kart odrzuconych.',
 //            'card' => Layer::CARD_DUNGEON,
 //            'image' => './charaktery/evil_mirror.jpg',
 //            'level' => 6
@@ -558,7 +728,7 @@ class Characters
 //        [
 //            'name' => 'Księga Charakterów',
 //            'tag' => 'Magiczny Przedmiot',
-//            'desc' => 'Po wylosowaniu Księgi Charakterów połóż na niej 3 karty Charakteru, po jednej każdego typu. W dowolnym momencie, możesz odrzucić swoją kartę Charakteru i wziąć jedną kartę z Księgi Charakteru, od tej pory to będzie twój Charakter. Kiedy nie będzie już kart Charakteru na tej karcie, odrzuć ją.',
+//            'desc' => 'Po wylosowaniu Księgi Charakterów połóż na niej 3 karty Charakteru, po jednej każdego typu. W dowolnym momencie, możesz odrzucić swoją kartę Charakteru i&#160;wziąć jedną kartę z Księgi Charakteru, od tej pory to będzie twój Charakter. Kiedy nie będzie już kart Charakteru na tej karcie, odrzuć ją.',
 //            'card' => Layer::CARD_RELICT,
 //            'image' => './charaktery/book2.jpg',
 //            'level' => 5
@@ -567,7 +737,7 @@ class Characters
 //            'name' => 'Złodziej Duszy',
 //            'caption' => 'Broń',
 //            'tag' => 'Magiczny Przedmiot',
-//            'desc' => 'Podczas walki Złodziej Duszy dodaje 2 punkty do twojej Siły. Jeżeli pokonasz Poszukiwacza, możesz mu odebrać kartę Charakteru i zmusić go do wylosowania nowej. Swoją poprzednią kartę Charakteru musisz odrzucić.',
+//            'desc' => 'Podczas walki Złodziej Duszy dodaje 2 punkty do twojej Siły. Jeżeli pokonasz Poszukiwacza, możesz mu odebrać kartę Charakteru i&#160;zmusić go do wylosowania nowej. Swoją poprzednią kartę Charakteru musisz odrzucić.',
 //            'card' => Layer::CARD_TREASURE,
 //            'image' => './charaktery/sword3.jpg',
 //            'level' => 5
@@ -576,7 +746,7 @@ class Characters
 //            'name' => 'Zatruwacz Serc',
 //            'caption' => 'Broń',
 //            'tag' => 'Magiczny Przedmiot',
-//            'desc' => 'Podczas walki Zatruwacz Serc dodaje 1 punkty do twojej Siły. Jeżeli pokonasz Poszukiwacza, możesz go zmusić do odrzucenia karty Charakteru i przekazać swoją kartę Charakteru. Następnie wylosuj kartę dowolnego Charakteru.',
+//            'desc' => 'Podczas walki Zatruwacz Serc dodaje 1&#160;punkty do twojej Siły. Jeżeli pokonasz Poszukiwacza, możesz go zmusić do odrzucenia karty Charakteru i&#160;przekazać swoją kartę Charakteru. Następnie wylosuj kartę dowolnego Charakteru.',
 //            'card' => Layer::CARD_REMNANT,
 //            'image' => './charaktery/sword1.jpg',
 //            'level' => 5
@@ -592,7 +762,7 @@ class Characters
 //        [
 //            'name' => 'Wędrowna Cyganka',
 //            'tag' => 'Nieznajomy',
-//            'desc' => 'Wędrowna Cyganka oferuje ci możliwość poznania Zaklęć i Charakteru wybranego poszukiwacza, jeżeli zapłacisz jej sztukę złota.',
+//            'desc' => 'Wędrowna Cyganka oferuje ci możliwość poznania Zaklęć i&#160;Charakteru wybranego poszukiwacza, jeżeli zapłacisz jej sztukę złota.',
 //            'card' => Layer::CARD_HIGHLAND,
 //            'image' => './charaktery/gypsy3.jpg',
 //            'level' => 4
@@ -610,7 +780,7 @@ class Characters
 //            'tag' => 'Wróg - Duch',
 //            'caption' => 'Moc 1',
 //            'caption_type' => 2,
-//            'desc' => 'Strudzona Zmora nęka żywych w tej okolicy. Jeżeli z nią przegrasz oprócz utraty 1 punktu Życia będziesz musiał ujawnić swoją kartę Charakteru.',
+//            'desc' => 'Strudzona Zmora nęka żywych w tej okolicy. Jeżeli z nią przegrasz oprócz utraty 1&#160;punktu Życia będziesz musiał ujawnić swoją kartę Charakteru.',
 //            'card' => Layer::CARD_TUNEL,
 //            'image' => './charaktery/wraith1.jpg',
 //            'level' => 3
@@ -656,7 +826,7 @@ Rozpoczynasz grę posiadając jedno Zaklęcie.
 //Potrafisz przewidywać przyszłość. Zanim
 //zdecydujesz się wdać w dowolną Walkę, możesz
 //przewidzieć jej wynik, aby to zrobić rzuć kośćmi
-//za siebie i przeciwnika. To będą wasze premie
+//za siebie i&#160;przeciwnika. To będą wasze premie
 //w tej walce. Walka której wynik przewidziałeś
 //nie musi się odbyć, jeżeli się odbędzie, nie będzie
 //można użyć w niej losu. Możesz użyć tej zdolności
@@ -673,7 +843,7 @@ Rozpoczynasz grę posiadając jedno Zaklęcie.
 
 Zanim zdecydujesz się wdać w dowolną Walkę,
 możesz przewidzieć jej wynik, aby to zrobić rzuć
-kośćmi za siebie i przeciwnika. To będą wasze
+kośćmi za siebie i&#160;przeciwnika. To będą wasze
 premie w tej walce. Jeżeli się wymkniesz lub
 zdecydujesz nie atakować przeciwnika, walka
 się nie odbędzie. Jeżeli się odbędzie, nie będzie
@@ -681,17 +851,17 @@ można użyć w niej losu. Możesz użyć tej zdolności
 tylko raz na turę.
 
 Badając obszar możesz wyciągnąć jedną kartę
-więcej, niż przewiduje instrukcja i odrzucić tę,
+więcej, niż przewiduje instrukcja i&#160;odrzucić tę,
 która Ci nie odpowiada.
 
 Napotkanym Poszukiwaczom możesz podglądać
 karty Charakteru.
 
-Na Polach i Równinach możesz wymykać się
-istotom i innym Poszukiwaczom.
+Na Polach i&#160;Równinach możesz wymykać się
+istotom i&#160;innym Poszukiwaczom.
 
 
-##Zawsze kiedy losujesz karty Przygód, możesz odrzucić jedną z kart, której nie chcesz napotkać i wylosować w jej miejsce nową kartę (tę musisz już rozpatrzyć)
+##Zawsze kiedy losujesz karty Przygód, możesz odrzucić jedną z kart, której nie chcesz napotkać i&#160;wylosować w jej miejsce nową kartę (tę musisz już rozpatrzyć)
 
 
 */

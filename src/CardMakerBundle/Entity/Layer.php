@@ -76,6 +76,7 @@ class Layer
     const CARD_REMNANT = 33;
 
     // TODO: ..
+    const CARD_HERO_WHITE = 253;
     const CARD_HERO = 254;
     const CARD_INFO = 255;
 
@@ -116,7 +117,7 @@ class Layer
     ];
 
     const CARDS_BACK = [
-        self::CARD_ADVENTURES => './resources/backs/small/adventure.png',
+        self::CARD_ADVENTURES => './resources/backs/small/adventure_blue2.png',
         self::CARD_DRAGON1 => './resources/backs/small/dragon1.png',
         self::CARD_DRAGON2 => './resources/backs/small/dragon2.png',
         self::CARD_DRAGON3 => './resources/backs/small/dragon3.png',
@@ -150,6 +151,7 @@ class Layer
         self::CARD_POTION => './resources/backs/small/potion.png',
         self::CARD_REMNANT => './resources/backs/small/remnant.png',
         // big cards
+        self::CARD_HERO_WHITE => './resources/backs/big/character2.png',
         self::CARD_HERO => './resources/backs/big/character.png',
         self::CARD_INFO => './resources/backs/big/info.png',
     ];

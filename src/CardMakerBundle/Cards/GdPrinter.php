@@ -23,7 +23,7 @@ class GdPrinter
         'li' => './resources/fonts/caxton_li.ttf',
         'n' => './resources/fonts/caxton_n.ttf',
         'ni' => './resources/fonts/caxton_ni.ttf',
-        'w' => './resources/fonts/windlass.ttf'
+        'w' => './resources/fonts/windlass2.ttf'
     ];
 
     protected $textColor = null;

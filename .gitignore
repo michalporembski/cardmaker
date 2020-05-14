@@ -22,3 +22,9 @@
 !/web/cardlog/.gitkeep
 !/web/generated/.gitkeep
 !/web/uploads/.gitkeep
+.env
+composer.phar
+web/charaktery/
+web/print/
+web/print_hero/
+web/resources/
