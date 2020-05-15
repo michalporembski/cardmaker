@@ -2,6 +2,8 @@
 
 namespace CardMakerBundle\Cards;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 /**
  * Class GdPrinter
  *
@@ -14,16 +16,19 @@ class GdPrinter
 
     protected $layerFile;
 
+    /**
+     * @var null|UploadedFile
+     */
     protected $image;
 
     protected $fonts = [
-        'b' => './resources/fonts/caxton_b.ttf',
-        'bi' => './resources/fonts/caxton_bi.ttf',
-        'l' => './resources/fonts/caxton_l.ttf',
-        'li' => './resources/fonts/caxton_li.ttf',
-        'n' => './resources/fonts/caxton_n.ttf',
-        'ni' => './resources/fonts/caxton_ni.ttf',
-        'w' => './resources/fonts/windlass.ttf'
+        'b' => '../var/cardmaker/resources/fonts/caxton_b.ttf',
+        'bi' => '../var/cardmaker/resources/fonts/caxton_bi.ttf',
+        'l' => '../var/cardmaker/resources/fonts/caxton_l.ttf',
+        'li' => '../var/cardmaker/resources/fonts/caxton_li.ttf',
+        'n' => '../var/cardmaker/resources/fonts/caxton_n.ttf',
+        'ni' => '../var/cardmaker/resources/fonts/caxton_ni.ttf',
+        'w' => '../var/cardmaker/resources/fonts/windlass2.ttf'
     ];
 
     protected $textColor = null;
@@ -36,7 +41,7 @@ class GdPrinter
      * GdPrinter constructor.
      *
      * @param $layerFile
-     * @param $image
+     * @param UploadedFile|null $image
      * @param $imageAreaStartX
      * @param $imageAreaStartY
      * @param $imageAreaWidth
@@ -190,7 +195,7 @@ class GdPrinter
      */
     protected function getLayerFile()
     {
-        return './resources/standard_layers/' . $this->layerFile . '.png';
+        return '../var/cardmaker/resources/standard_layers/' . $this->layerFile . '.png';
     }
 
     /**
@@ -203,9 +208,11 @@ class GdPrinter
      */
     protected function initImageLayer($imageAreaStartX, $imageAreaStartY, $imageAreaWidth, $imageAreaHeight)
     {
+        // TODO: image should be passed as argument
         list($src2w, $src2h, $type, $attr) = getimagesize($this->image);
 
-        $ext = substr($this->image, -3);
+        $ext = strtolower($this->image->getClientOriginalExtension());
+
         if ($ext == 'jpg' || $ext == 'jpeg') {
             $cardImage = imagecreatefromjpeg($this->image);
         } elseif ($ext = 'png') {

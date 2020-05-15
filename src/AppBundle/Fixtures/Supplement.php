@@ -4,9 +4,18 @@ namespace AppBundle\Fixtures;
 
 use CardMakerBundle\Entity\Layer;
 
+/**
+ * Class Supplement
+ *
+ * @package AppBundle\Fixtures
+ */
 class Supplement
 {
-    const CARDS = [
+    const BIG_CARDS = [
+
+    ];
+
+    const SMALL_CARDS = [
         [
             'name' => 'Magiczny Archiwista',
             'places' => ['Zamek', 'Miasto'],
