@@ -2,6 +2,8 @@
 
 namespace CardMakerBundle\Cards;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 /**
  * Class GdPrinter
  *
@@ -14,6 +16,9 @@ class GdPrinter
 
     protected $layerFile;
 
+    /**
+     * @var null|UploadedFile
+     */
     protected $image;
 
     protected $fonts = [
@@ -36,7 +41,7 @@ class GdPrinter
      * GdPrinter constructor.
      *
      * @param $layerFile
-     * @param $image
+     * @param UploadedFile|null $image
      * @param $imageAreaStartX
      * @param $imageAreaStartY
      * @param $imageAreaWidth
@@ -203,9 +208,11 @@ class GdPrinter
      */
     protected function initImageLayer($imageAreaStartX, $imageAreaStartY, $imageAreaWidth, $imageAreaHeight)
     {
+        // TODO: image should be passed as argument
         list($src2w, $src2h, $type, $attr) = getimagesize($this->image);
 
-        $ext = substr($this->image, -3);
+        $ext = strtolower($this->image->getClientOriginalExtension());
+
         if ($ext == 'jpg' || $ext == 'jpeg') {
             $cardImage = imagecreatefromjpeg($this->image);
         } elseif ($ext = 'png') {
