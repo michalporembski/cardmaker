@@ -1,22 +1,8 @@
-cardmaker
-=========
+#Cardmaker
 
 Symfony application for card generation.
 
-installation: 
-`sudo apt install php-gd`
+to set up please check out this repo:
 
-running server: 
-`php bin/console server:start`
+`git@github.com:michalporembski/cardmaker_docker.git`
 
-deploy:
-
-`export SYMFONY_ENV=prod`
-
-`composer install --no-dev --optimize-autoloader`
-
-`php bin/console cache:clear --env=prod --no-debug --no-warmup`
- 
-`php bin/console cache:warmup --env=prod`
-
-`php bin/console assetic:dump --env=prod --no-debug`

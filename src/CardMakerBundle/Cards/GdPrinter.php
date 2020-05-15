@@ -22,13 +22,13 @@ class GdPrinter
     protected $image;
 
     protected $fonts = [
-        'b' => './resources/fonts/caxton_b.ttf',
-        'bi' => './resources/fonts/caxton_bi.ttf',
-        'l' => './resources/fonts/caxton_l.ttf',
-        'li' => './resources/fonts/caxton_li.ttf',
-        'n' => './resources/fonts/caxton_n.ttf',
-        'ni' => './resources/fonts/caxton_ni.ttf',
-        'w' => './resources/fonts/windlass2.ttf'
+        'b' => '../var/cardmaker/resources/fonts/caxton_b.ttf',
+        'bi' => '../var/cardmaker/resources/fonts/caxton_bi.ttf',
+        'l' => '../var/cardmaker/resources/fonts/caxton_l.ttf',
+        'li' => '../var/cardmaker/resources/fonts/caxton_li.ttf',
+        'n' => '../var/cardmaker/resources/fonts/caxton_n.ttf',
+        'ni' => '../var/cardmaker/resources/fonts/caxton_ni.ttf',
+        'w' => '../var/cardmaker/resources/fonts/windlass2.ttf'
     ];
 
     protected $textColor = null;
@@ -195,7 +195,7 @@ class GdPrinter
      */
     protected function getLayerFile()
     {
-        return './resources/standard_layers/' . $this->layerFile . '.png';
+        return '../var/cardmaker/resources/standard_layers/' . $this->layerFile . '.png';
     }
 
     /**
