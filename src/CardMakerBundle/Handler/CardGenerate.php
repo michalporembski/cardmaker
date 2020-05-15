@@ -107,7 +107,7 @@ class CardGenerate
         $card->setStory(explode(PHP_EOL, $generateCardCommand->getStory()));
         if (!$generateCardCommand->getImage()) {
             //TODO: temporary upload; use previously uploaded file
-            $card->setImage('../var/cardmaker/uploads/1.jpg');
+            $card->setImage('../var/cardmaker/placeholder.jpg');
         } else {
             $card->setImage($generateCardCommand->getImage());
         }

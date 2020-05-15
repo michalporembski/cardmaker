@@ -17,39 +17,39 @@ abstract class AbstractCard
 
     const LINE_TEXT = '---';
 
-    protected $cardWidth = 465;
-
-    protected $cardHeight = 730;
-
+    /**
+     * Card Related vars:
+     *
+     * Those data should be extracted to some card DTO
+     */
     protected $textTitle;
 
     protected $textTag;
-
-    protected $image;
 
     protected $textCaption = null;
 
     protected $textDescription = [];
 
+    protected $image;
+
     protected $story = [];
 
     protected $level;
+
+    /**
+     * Template Related Vars
+     *
+     * Those vars should be extracted to AbstractCardTemplate object
+     */
+    protected $cardWidth = 465;
+
+    protected $cardHeight = 730;
 
     protected $layerFile;
 
     protected $displayLevel = true;
 
     protected $displayImage = true;
-
-    protected $textTitleSize = 28;
-
-    protected $textLevelSize = 27;
-
-    protected $textTagSize = 19;
-
-    protected $textCaptionSize = 30;
-
-    protected $textNormalSize = 21;
 
     protected $maxTitleWidth = 380;
 
@@ -72,6 +72,19 @@ abstract class AbstractCard
     protected $imageAreaHeight;
 
     protected $maxWidth = 403;
+
+    /**
+     * printing related data:
+     */
+    protected $textTitleSize = 28;
+
+    protected $textLevelSize = 27;
+
+    protected $textTagSize = 19;
+
+    protected $textCaptionSize = 30;
+
+    protected $textNormalSize = 21;
 
     /**
      * @var GdPrinter
@@ -303,11 +316,7 @@ abstract class AbstractCard
                 $newLines
             );
         }
-//        foreach ($allLines as $l){
-//            echo '<br>'.$l;
-//        }
-//        die;
-//        var_dump($allLines);die;
+
         $this->textDescription = $allLines;
 
         return true;
