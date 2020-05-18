@@ -1,11 +1,11 @@
 <?php
 
-namespace CardMakerBundle\Cards;
+namespace CardMaker\Cards;
 
 /**
  * Class AbstractCard
  *
- * @package CardMakerBundle\Cards
+ * @package CardMaker\Cards
  */
 abstract class AbstractCard
 {
@@ -17,39 +17,39 @@ abstract class AbstractCard
 
     const LINE_TEXT = '---';
 
-    protected $cardWidth = 465;
-
-    protected $cardHeight = 730;
-
+    /**
+     * Card Related vars:
+     *
+     * Those data should be extracted to some card DTO
+     */
     protected $textTitle;
 
     protected $textTag;
-
-    protected $image;
 
     protected $textCaption = null;
 
     protected $textDescription = [];
 
+    protected $image;
+
     protected $story = [];
 
     protected $level;
+
+    /**
+     * Template Related Vars
+     *
+     * Those vars should be extracted to AbstractCardTemplate object
+     */
+    protected $cardWidth = 465;
+
+    protected $cardHeight = 730;
 
     protected $layerFile;
 
     protected $displayLevel = true;
 
     protected $displayImage = true;
-
-    protected $textTitleSize = 28;
-
-    protected $textLevelSize = 27;
-
-    protected $textTagSize = 19;
-
-    protected $textCaptionSize = 30;
-
-    protected $textNormalSize = 21;
 
     protected $maxTitleWidth = 380;
 
@@ -74,6 +74,19 @@ abstract class AbstractCard
     protected $maxWidth = 403;
 
     /**
+     * printing related data:
+     */
+    protected $textTitleSize = 28;
+
+    protected $textLevelSize = 27;
+
+    protected $textTagSize = 19;
+
+    protected $textCaptionSize = 30;
+
+    protected $textNormalSize = 21;
+
+    /**
      * @var GdPrinter
      */
     protected $gdPrinter;
@@ -82,11 +95,13 @@ abstract class AbstractCard
      * @param null $path
      *
      * @return null|string
+     * @throws \Exception
      */
     public function render($path = null)
     {
+        $this->gdPrinter = new GdPrinter();
         if ($this->displayImage) {
-            $this->gdPrinter = new GdPrinter(
+            $this->gdPrinter->init(
                 $this->layerFile,
                 $this->image,
                 $this->imageAreaStartX,
@@ -97,7 +112,7 @@ abstract class AbstractCard
                 $this->cardHeight
             );
         } else {
-            $this->gdPrinter = new GdPrinter(
+            $this->gdPrinter->init(
                 $this->layerFile,
                 null,
                 null,
@@ -303,11 +318,7 @@ abstract class AbstractCard
                 $newLines
             );
         }
-//        foreach ($allLines as $l){
-//            echo '<br>'.$l;
-//        }
-//        die;
-//        var_dump($allLines);die;
+
         $this->textDescription = $allLines;
 
         return true;

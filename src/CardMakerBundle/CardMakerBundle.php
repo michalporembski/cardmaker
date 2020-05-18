@@ -1,13 +1,13 @@
 <?php
 
-namespace CardMakerBundle;
+namespace CardMaker;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * Class CardMakerBundle
  *
- * @package CardMakerBundle
+ * @package CardMaker
  */
 class CardMakerBundle extends Bundle
 {

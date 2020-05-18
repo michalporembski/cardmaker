@@ -1,23 +1,37 @@
 <?php
 
-namespace CardMakerBundle\Cards;
+namespace CardMaker\Cards;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Class GdPrinter
  *
- * @package CardMakerBundle\Cards
+ * @package CardMaker\Cards
  */
 class GdPrinter
 {
+    /**
+     * @var int|float|null
+     */
     protected $cardWidth;
+
+    /**
+     * @var int|float|null
+     */
     protected $cardHeight;
 
+    /**
+     * @var string|null
+     */
     protected $layerFile;
 
     /**
-     * @var null|UploadedFile
+     * TODO: this should not be UploadedFile/strng, because:
+     *  - this should be not symfony dependent
+     *  - we should get here only object
+     *
+     * @var null|UploadedFile|string
      */
     protected $image;
 
@@ -38,7 +52,7 @@ class GdPrinter
     protected $gdResource = null;
 
     /**
-     * GdPrinter constructor.
+     * init
      *
      * @param $layerFile
      * @param UploadedFile|null $image
@@ -49,7 +63,7 @@ class GdPrinter
      *
      * @throws \Exception
      */
-    public function __construct(
+    public function init(
         $layerFile,
         $image = null,
         $imageAreaStartX = null,
@@ -195,6 +209,9 @@ class GdPrinter
      */
     protected function getLayerFile()
     {
+        /**
+         * @TODO: this should be injected
+         */
         return '../var/cardmaker/resources/standard_layers/' . $this->layerFile . '.png';
     }
 
@@ -211,7 +228,12 @@ class GdPrinter
         // TODO: image should be passed as argument
         list($src2w, $src2h, $type, $attr) = getimagesize($this->image);
 
-        $ext = strtolower($this->image->getClientOriginalExtension());
+        if (is_object($this->image)) {
+            $ext = strtolower($this->image->getClientOriginalExtension());
+        } else {
+            $parts = explode('.', $this->image);
+            $ext = strtolower(end($parts));
+        }
 
         if ($ext == 'jpg' || $ext == 'jpeg') {
             $cardImage = imagecreatefromjpeg($this->image);
@@ -221,15 +243,14 @@ class GdPrinter
             throw new \Exception('unknown format');
         }
 
-        if($imageAreaWidth/$imageAreaHeight > $src2w/$src2h){
-            $src2hNew = $src2w * $imageAreaHeight/$imageAreaWidth;
+        if ($imageAreaWidth / $imageAreaHeight > $src2w / $src2h) {
+            $src2hNew = $src2w * $imageAreaHeight / $imageAreaWidth;
             $srcX = 0;
-            $srcY = ($src2h-$src2hNew)/2;
+            $srcY = ($src2h - $src2hNew) / 2;
             $src2h = $src2hNew;
-
-        }else{
-            $src2wNew = $src2h * $imageAreaWidth/$imageAreaHeight;
-            $srcX = ($src2w-$src2wNew)/2;
+        } else {
+            $src2wNew = $src2h * $imageAreaWidth / $imageAreaHeight;
+            $srcX = ($src2w - $src2wNew) / 2;
             $srcY = 0;
             $src2w = $src2wNew;
         }

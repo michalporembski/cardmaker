@@ -1,11 +1,11 @@
 <?php
 
-namespace CardMakerBundle\Entity\Dto;
+namespace CardMaker\Entity\Dto;
 
-use CardMakerBundle\Handler\CardGenerate;
+use CardMaker\Handler\CardGenerate;
 
 /**
- * Class CardMakerBundle
+ * Class CardMaker
  *
  * @package Cardmaker\Entity\Dto
  */

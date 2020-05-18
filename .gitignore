@@ -1,26 +1,41 @@
-/.web-server-pid
-/app/config/parameters.yml
-/build/
-/.idea/
-/phpunit.xml
-/var/*
-!/var/cache
-/var/cache/*
-!var/cache/.gitkeep
-!/var/logs
-/var/logs/*
-!var/logs/.gitkeep
-!/var/sessions
-/var/sessions/*
-!var/sessions/.gitkeep
-!var/SymfonyRequirements.php
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/.env
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
 /vendor/
-/web/bundles/
-/web/generated/*
-!/web/generated/.gitkeep
-.env
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+/.idea/
 composer.phar
-var/cardmaker/resources/
-var/cardmaker/resources/.gitkeep
-!var/cardmaker/uploads/
+
+###> app specific ###
+public/generated/*
+!public/generated/.gitkeep
+!var/cardmaker
+!var/cardmaker/.gitkeep
+!var/cardmaker/resources
+var/cardmaker/resources/*
+!var/cardmaker/resources/.gitkeep
+!var/cardmaker/resources/placeholder.jpg
+!var/cardmaker/resources/standard_layers
+var/cardmaker/resources/standard_layers/*
+!var/cardmaker/resources/standard_layers/vampire_a.png
+!var/cardmaker/resources/standard_layers/vampire_b.png
+var/cardmaker/uploads/*
 !var/cardmaker/uploads/.gitkeep
+###< app specific ###

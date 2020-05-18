@@ -1,13 +1,13 @@
 <?php
 
-namespace CardMakerBundle\Services;
+namespace CardMaker\Services;
 
 use TCPDF;
 
 /**
  * Class SheetPrinter
  *
- * @package CardMakerBundle\Services
+ * @package CardMaker\Services
  */
 class SheetPrinter
 {

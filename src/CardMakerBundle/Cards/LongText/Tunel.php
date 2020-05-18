@@ -1,13 +1,13 @@
 <?php
 
-namespace CardMakerBundle\Cards\LongText;
+namespace CardMaker\Cards\LongText;
 
-use CardMakerBundle\Cards\AbstractCard;
+use CardMaker\Cards\AbstractCard;
 
 /**
  * Class Tunel
  *
- * @package CardMakerBundle\Cards\LongText
+ * @package CardMaker\Cards\LongText
  */
 class Tunel extends AbstractCard
 {

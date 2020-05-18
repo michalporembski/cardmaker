@@ -1,13 +1,13 @@
 <?php
 
-namespace CardMakerBundle\Cards\NoImage;
+namespace CardMaker\Cards\NoImage;
 
-use CardMakerBundle\Cards\AbstractCard;
+use CardMaker\Cards\AbstractCard;
 
 /**
  * Class Neutral
  *
- * @package CardMakerBundle\Cards\NoImage
+ * @package CardMaker\Cards\NoImage
  */
 class Neutral extends Evil
 {
