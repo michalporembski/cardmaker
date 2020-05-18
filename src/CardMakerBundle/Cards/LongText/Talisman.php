@@ -1,11 +1,11 @@
 <?php
 
-namespace CardMakerBundle\Cards\LongText;
+namespace CardMaker\Cards\LongText;
 
 /**
  * Class Talisman
  *
- * @package CardMakerBundle\Cards\LongText
+ * @package CardMaker\Cards\LongText
  */
 class Talisman extends Adventures
 {

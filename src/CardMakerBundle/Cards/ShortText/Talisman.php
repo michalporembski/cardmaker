@@ -1,6 +1,6 @@
 <?php
 
-namespace CardMakerBundle\Cards\ShortText;
+namespace CardMaker\Cards\ShortText;
 
 class Talisman extends Adventures
 {

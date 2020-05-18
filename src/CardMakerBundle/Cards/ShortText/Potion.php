@@ -1,11 +1,11 @@
 <?php
 
-namespace CardMakerBundle\Cards\ShortText;
+namespace CardMaker\Cards\ShortText;
 
 /**
  * Class Equpiment
  *
- * @package CardMakerBundle\Cards\ShortText
+ * @package CardMaker\Cards\ShortText
  */
 class Potion extends Equpiment
 {

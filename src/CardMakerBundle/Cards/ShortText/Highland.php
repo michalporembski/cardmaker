@@ -1,12 +1,12 @@
 <?php
 
-namespace CardMakerBundle\Cards\ShortText;
+namespace CardMaker\Cards\ShortText;
 
-use CardMakerBundle\Cards\AbstractCard;
+use CardMaker\Cards\AbstractCard;
 
 /**
  * Class Highland
- * @package CardMakerBundle\Cards\ShortText
+ * @package CardMaker\Cards\ShortText
  */
 class Highland extends AbstractCard
 {

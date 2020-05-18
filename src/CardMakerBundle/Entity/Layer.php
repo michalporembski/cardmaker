@@ -1,11 +1,11 @@
 <?php
 
-namespace CardMakerBundle\Entity;
+namespace CardMaker\Entity;
 
 /**
  * Class Layer
  *
- * @package CardMakerBundle\Entity
+ * @package CardMaker\Entity
  */
 class Layer
 {

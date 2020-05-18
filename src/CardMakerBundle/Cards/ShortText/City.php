@@ -1,8 +1,8 @@
 <?php
   
-namespace CardMakerBundle\Cards\ShortText;
+namespace CardMaker\Cards\ShortText;
 
-use CardMakerBundle\Cards\AbstractCard;
+use CardMaker\Cards\AbstractCard;
 
 class City extends AbstractCard{
    

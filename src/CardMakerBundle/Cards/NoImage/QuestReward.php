@@ -1,13 +1,13 @@
 <?php
 
-namespace CardMakerBundle\Cards\NoImage;
+namespace CardMaker\Cards\NoImage;
 
-use CardMakerBundle\Cards\AbstractCard;
+use CardMaker\Cards\AbstractCard;
 
 /**
  * Class QuestReward
  *
- * @package CardMakerBundle\Cards\NoImage
+ * @package CardMaker\Cards\NoImage
  */
 class QuestReward extends AbstractCard
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace CardMakerBundle\Entity;
+namespace CardMaker\Entity;
 
 class CardTagPreset
 {
@@ -15,12 +15,12 @@ class CardTagPreset
     private $layers = [];
 
     /**
-     * CardTagPreset constructor.
+     * init
      *
      * @param string $tag
      * @param array $layers
      */
-    public function __construct($tag, array $layers)
+    public function init($tag, array $layers)
     {
         $this->tag = $tag;
         $this->layers = $layers;

@@ -1,14 +1,14 @@
 <?php
 
-namespace CardMakerBundle\Repository;
+namespace CardMaker\Repository;
 
-use CardMakerBundle\Entity\CardTagPreset;
-use CardMakerBundle\Entity\Layer;
+use CardMaker\Entity\CardTagPreset;
+use CardMaker\Entity\Layer;
 
 /**
  * Class CardTagPresetRepository
  *
- * @package CardMakerBundle\Repository
+ * @package CardMaker\Repository
  */
 class CardTagPresetRepository
 {
@@ -316,7 +316,8 @@ class CardTagPresetRepository
     {
         $result = [];
         foreach (self::CARD_TAG_PRESETS as $tag => $layers) {
-            $cardTagPreset = new CardTagPreset($tag, $layers);
+            $cardTagPreset = new CardTagPreset();
+            $cardTagPreset->init($tag, $layers);
             $result[] = $cardTagPreset;
         }
 

@@ -1,4 +1,4 @@
 services:
     cardmaker.handler.card_generate:
-        class: CardMakerBundle\Handler\CardGenerate
+        class: CardMaker\Handler\CardGenerate
 

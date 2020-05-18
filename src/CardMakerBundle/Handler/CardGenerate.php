@@ -1,57 +1,57 @@
 <?php
 
-namespace CardMakerBundle\Handler;
+namespace CardMaker\Handler;
 
-use CardMakerBundle\Cards\AbstractCard;
-use CardMakerBundle\Cards\Info;
-use CardMakerBundle\Cards\LongText\Adventures as AdventuresLong;
-use CardMakerBundle\Cards\LongText\Bridge as BridgeLong;
-use CardMakerBundle\Cards\LongText\City as CityLong;
-use CardMakerBundle\Cards\LongText\Dragon1 as Dragon1Long;
-use CardMakerBundle\Cards\LongText\Dragon2 as Dragon2Long;
-use CardMakerBundle\Cards\LongText\Dragon3 as Dragon3Long;
-use CardMakerBundle\Cards\LongText\Dungeon as DungeonLong;
-use CardMakerBundle\Cards\LongText\Equpiment as EqupimentLong;
-use CardMakerBundle\Cards\LongText\Harbinger as HarbingerLong;
-use CardMakerBundle\Cards\LongText\Highland as HighlandLong;
-use CardMakerBundle\Cards\LongText\Nether as NetherLong;
-use CardMakerBundle\Cards\LongText\Potion as PotionLong;
-use CardMakerBundle\Cards\LongText\Relict as RelictLong;
-use CardMakerBundle\Cards\LongText\Remnant as RemnantLong;
-use CardMakerBundle\Cards\LongText\Spell as SpellLong;
-use CardMakerBundle\Cards\LongText\Talisman as TalismanLong;
-use CardMakerBundle\Cards\LongText\Treasure as TreasureLong;
-use CardMakerBundle\Cards\LongText\Tunel as TunelLong;
-use CardMakerBundle\Cards\LongText\Vampire as VampireLong;
-use CardMakerBundle\Cards\LongText\Woodland as WoodlandLong;
-use CardMakerBundle\Cards\NoImage\Denizen;
-use CardMakerBundle\Cards\NoImage\Evil;
-use CardMakerBundle\Cards\NoImage\Good;
-use CardMakerBundle\Cards\NoImage\Neutral;
-use CardMakerBundle\Cards\NoImage\QuestReward;
-use CardMakerBundle\Cards\NoImage\Warlock;
-use CardMakerBundle\Cards\ShortText\Adventures as AdventuresShort;
-use CardMakerBundle\Cards\ShortText\Bridge as BridgeShort;
-use CardMakerBundle\Cards\ShortText\City as CityShort;
-use CardMakerBundle\Cards\ShortText\Dragon1 as Dragon1Short;
-use CardMakerBundle\Cards\ShortText\Dragon2 as Dragon2Short;
-use CardMakerBundle\Cards\ShortText\Dragon3 as Dragon3Short;
-use CardMakerBundle\Cards\ShortText\Dungeon as DungeonShort;
-use CardMakerBundle\Cards\ShortText\Equpiment as EqupimentShort;
-use CardMakerBundle\Cards\ShortText\Harbinger as HarbingerShort;
-use CardMakerBundle\Cards\ShortText\Highland as HighlandShort;
-use CardMakerBundle\Cards\ShortText\Nether as NetherShort;
-use CardMakerBundle\Cards\ShortText\Potion as PotionShort;
-use CardMakerBundle\Cards\ShortText\Relict as RelictShort;
-use CardMakerBundle\Cards\ShortText\Remnant as RemnantShort;
-use CardMakerBundle\Cards\ShortText\Spell as SpellShort;
-use CardMakerBundle\Cards\ShortText\Talisman as TalismanShort;
-use CardMakerBundle\Cards\ShortText\Treasure as TreasureShort;
-use CardMakerBundle\Cards\ShortText\Tunel as TunelShort;
-use CardMakerBundle\Cards\ShortText\Vampire as VampireShort;
-use CardMakerBundle\Cards\ShortText\Woodland as WoodlandShort;
-use CardMakerBundle\Entity\Dto\GenerateCard;
-use CardMakerBundle\Entity\Layer;
+use CardMaker\Cards\AbstractCard;
+use CardMaker\Cards\Info;
+use CardMaker\Cards\LongText\Adventures as AdventuresLong;
+use CardMaker\Cards\LongText\Bridge as BridgeLong;
+use CardMaker\Cards\LongText\City as CityLong;
+use CardMaker\Cards\LongText\Dragon1 as Dragon1Long;
+use CardMaker\Cards\LongText\Dragon2 as Dragon2Long;
+use CardMaker\Cards\LongText\Dragon3 as Dragon3Long;
+use CardMaker\Cards\LongText\Dungeon as DungeonLong;
+use CardMaker\Cards\LongText\Equpiment as EqupimentLong;
+use CardMaker\Cards\LongText\Harbinger as HarbingerLong;
+use CardMaker\Cards\LongText\Highland as HighlandLong;
+use CardMaker\Cards\LongText\Nether as NetherLong;
+use CardMaker\Cards\LongText\Potion as PotionLong;
+use CardMaker\Cards\LongText\Relict as RelictLong;
+use CardMaker\Cards\LongText\Remnant as RemnantLong;
+use CardMaker\Cards\LongText\Spell as SpellLong;
+use CardMaker\Cards\LongText\Talisman as TalismanLong;
+use CardMaker\Cards\LongText\Treasure as TreasureLong;
+use CardMaker\Cards\LongText\Tunel as TunelLong;
+use CardMaker\Cards\LongText\Vampire as VampireLong;
+use CardMaker\Cards\LongText\Woodland as WoodlandLong;
+use CardMaker\Cards\NoImage\Denizen;
+use CardMaker\Cards\NoImage\Evil;
+use CardMaker\Cards\NoImage\Good;
+use CardMaker\Cards\NoImage\Neutral;
+use CardMaker\Cards\NoImage\QuestReward;
+use CardMaker\Cards\NoImage\Warlock;
+use CardMaker\Cards\ShortText\Adventures as AdventuresShort;
+use CardMaker\Cards\ShortText\Bridge as BridgeShort;
+use CardMaker\Cards\ShortText\City as CityShort;
+use CardMaker\Cards\ShortText\Dragon1 as Dragon1Short;
+use CardMaker\Cards\ShortText\Dragon2 as Dragon2Short;
+use CardMaker\Cards\ShortText\Dragon3 as Dragon3Short;
+use CardMaker\Cards\ShortText\Dungeon as DungeonShort;
+use CardMaker\Cards\ShortText\Equpiment as EqupimentShort;
+use CardMaker\Cards\ShortText\Harbinger as HarbingerShort;
+use CardMaker\Cards\ShortText\Highland as HighlandShort;
+use CardMaker\Cards\ShortText\Nether as NetherShort;
+use CardMaker\Cards\ShortText\Potion as PotionShort;
+use CardMaker\Cards\ShortText\Relict as RelictShort;
+use CardMaker\Cards\ShortText\Remnant as RemnantShort;
+use CardMaker\Cards\ShortText\Spell as SpellShort;
+use CardMaker\Cards\ShortText\Talisman as TalismanShort;
+use CardMaker\Cards\ShortText\Treasure as TreasureShort;
+use CardMaker\Cards\ShortText\Tunel as TunelShort;
+use CardMaker\Cards\ShortText\Vampire as VampireShort;
+use CardMaker\Cards\ShortText\Woodland as WoodlandShort;
+use CardMaker\Entity\Dto\GenerateCard;
+use CardMaker\Entity\Layer;
 
 /**
  * Class CardGenerate
@@ -82,6 +82,7 @@ class CardGenerate
      * @param GenerateCard $generateCardCommand
      *
      * @return null|string
+     * @throws \Exception
      */
     public function handle(GenerateCard $generateCardCommand)
     {

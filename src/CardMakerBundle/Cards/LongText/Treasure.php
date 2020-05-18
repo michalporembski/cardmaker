@@ -1,12 +1,12 @@
 <?php
 
-namespace CardMakerBundle\Cards\LongText;
+namespace CardMaker\Cards\LongText;
 
-use CardMakerBundle\Cards\AbstractCard;
+use CardMaker\Cards\AbstractCard;
 
 /**
  * Class Treasure
- * @package CardMakerBundle\Cards\LongText
+ * @package CardMaker\Cards\LongText
  */
 class Treasure extends AbstractCard
 {

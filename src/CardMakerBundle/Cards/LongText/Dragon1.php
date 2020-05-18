@@ -1,8 +1,8 @@
 <?php
 
-namespace CardMakerBundle\Cards\LongText;
+namespace CardMaker\Cards\LongText;
 
-use CardMakerBundle\Cards\AbstractCard;
+use CardMaker\Cards\AbstractCard;
 
 class Dragon1 extends AbstractCard{
   

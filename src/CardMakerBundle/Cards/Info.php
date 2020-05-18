@@ -1,6 +1,6 @@
 <?php
 
-namespace CardMakerBundle\Cards;
+namespace CardMaker\Cards;
 
 class Info extends AbstractCard
 {

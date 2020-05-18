@@ -1,11 +1,11 @@
 <?php
 
-namespace CardMakerBundle\Cards;
+namespace CardMaker\Cards;
 
 /**
  * Class AbstractCard
  *
- * @package CardMakerBundle\Cards
+ * @package CardMaker\Cards
  */
 abstract class AbstractCard
 {
@@ -95,11 +95,13 @@ abstract class AbstractCard
      * @param null $path
      *
      * @return null|string
+     * @throws \Exception
      */
     public function render($path = null)
     {
+        $this->gdPrinter = new GdPrinter();
         if ($this->displayImage) {
-            $this->gdPrinter = new GdPrinter(
+            $this->gdPrinter->init(
                 $this->layerFile,
                 $this->image,
                 $this->imageAreaStartX,
@@ -110,7 +112,7 @@ abstract class AbstractCard
                 $this->cardHeight
             );
         } else {
-            $this->gdPrinter = new GdPrinter(
+            $this->gdPrinter->init(
                 $this->layerFile,
                 null,
                 null,

@@ -1,6 +1,6 @@
 <?php
 
-namespace CardMakerBundle\Exceptions;
+namespace CardMaker\Exceptions;
 
 class GeneratorException extends \Exception
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace CardMakerBundle\Cards;
+namespace CardMaker\Cards;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Class GdPrinter
  *
- * @package CardMakerBundle\Cards
+ * @package CardMaker\Cards
  */
 class GdPrinter
 {
@@ -52,7 +52,7 @@ class GdPrinter
     protected $gdResource = null;
 
     /**
-     * GdPrinter constructor.
+     * init
      *
      * @param $layerFile
      * @param UploadedFile|null $image
@@ -63,7 +63,7 @@ class GdPrinter
      *
      * @throws \Exception
      */
-    public function __construct(
+    public function init(
         $layerFile,
         $image = null,
         $imageAreaStartX = null,
